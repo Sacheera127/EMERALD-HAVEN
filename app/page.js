@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 import SectionHeader from './components/SectionHeader';
 import {
   Star, Wifi, Car, UtensilsCrossed, Waves, TreePine, Shield, Coffee,
-  ArrowRight, MapPin, Quote, ChevronLeft, ChevronRight, Play
+  ArrowRight, MapPin, Quote, ChevronLeft, ChevronRight, Play, Wind, Flame, Compass
 } from 'lucide-react';
 
 const facilities = [
@@ -22,6 +22,10 @@ const facilities = [
   { icon: Car, name: 'Free Parking', desc: 'Private on-site parking' },
   { icon: Shield, name: '24/7 Security', desc: 'CCTV & key access' },
   { icon: Coffee, name: 'Room Service', desc: 'In-room tea/coffee maker' },
+  { icon: Wind, name: 'Air Conditioning', desc: 'Individual climate control' },
+  { icon: TreePine, name: 'Lush Garden', desc: 'Relaxing natural surroundings' },
+  { icon: Flame, name: 'BBQ Facilities', desc: 'Evening grill and dining' },
+  { icon: Compass, name: 'Safari Tours', desc: 'Guided national park tours' },
 ];
 
 const rooms = [
@@ -93,18 +97,22 @@ function HeroSection() {
 }
 
 function FacilitiesBar() {
+  const marqueeFacilities = [...facilities, ...facilities];
+
   return (
-    <section className="relative z-20 py-24" style={{ background: 'var(--dark-800)' }}>
-      <div className="container-premium">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-12">
-          {facilities.map(({ icon: Icon, name, desc }) => (
-            <div key={name} className="flex flex-col items-center text-center px-4 group cursor-default">
-              <Icon size={28} strokeWidth={1.5} className="mb-4 transition-colors duration-500 group-hover:text-gold-500" style={{ color: 'rgba(16,185,129,0.5)' }} />
-              <p className="text-sm font-normal text-white mb-2 tracking-wide">{name}</p>
-              <p className="text-[11px] font-light leading-relaxed" style={{ color: 'rgba(224,231,228,0.4)' }}>{desc}</p>
-            </div>
-          ))}
-        </motion.div>
+    <section className="relative z-20 overflow-hidden" style={{ background: 'var(--dark-800)', marginTop: '100px', marginBottom: '120px', padding: '40px 0' }}>
+      <div className="flex w-full overflow-hidden">
+        {[0, 1].map((idx) => (
+          <div key={idx} className="animate-marquee flex-shrink-0 flex items-center justify-around min-w-full">
+            {marqueeFacilities.map(({ icon: Icon, name, desc }, index) => (
+              <div key={`${name}-${index}`} className="flex flex-col items-center text-center px-12 md:px-24 group cursor-default">
+                <Icon size={40} strokeWidth={1.5} className="mb-6 transition-colors duration-500 group-hover:text-gold-500" style={{ color: 'rgba(16,185,129,0.5)' }} />
+                <p className="text-lg font-medium text-white mb-3 tracking-wide">{name}</p>
+                <p className="text-sm font-light leading-relaxed max-w-[200px]" style={{ color: 'rgba(224,231,228,0.4)' }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -122,10 +130,10 @@ function VideoSection() {
   }, [isInView]);
 
   return (
-    <section ref={ref} className="section-padding">
+    <section ref={ref} className="pt-[80px] mt-[50px]">
       <div className="container-premium">
         <SectionHeader subtitle="Experience the Magic" title="Your Safari Adventure Awaits" description="Immerse yourself in the sights and sounds of Udawalawa — where every moment becomes a lasting memory." />
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(16,185,129,0.15)' }}>
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden mt-20" style={{ border: '1px solid rgba(16,185,129,0.15)' }}>
           <video ref={videoRef} className="w-full aspect-video object-cover" muted loop playsInline preload="metadata" poster="/images/hero/hero-1.jpg">
             <source src="/video/promo.mp4" type="video/mp4" />
           </video>

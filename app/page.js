@@ -29,9 +29,9 @@ const facilities = [
 ];
 
 const rooms = [
-  { name: 'Safari Family Cottage', img: '/images/support/IMG_6225.JPG', desc: 'Spacious cottage with private bathroom, garden view, balcony & terrace.', guests: '4 Guests', size: '45 m²' },
-  { name: 'Deluxe Garden Room', img: '/images/support/IMG_6237.JPG', desc: 'Air-conditioned room with lush garden views and modern amenities.', guests: '2 Guests', size: '35 m²' },
-  { name: 'Premium Pool Suite', img: '/images/support/IMG_6239.JPG', desc: 'Premium suite with direct pool access, sun terrace & luxury furnishings.', guests: '3 Guests', size: '50 m²' },
+  { name: 'Safari Family Cottage', img: '/images/support/IMG_6227.JPG', desc: 'Spacious cottage with private bathroom, garden view, balcony & terrace.', guests: '4 Guests', size: '45 m²' },
+  { name: 'Deluxe Garden Room', img: '/images/support/IMG_6241.JPG', desc: 'Air-conditioned room with lush garden views and modern amenities.', guests: '2 Guests', size: '35 m²' },
+  { name: 'Premium Pool Suite', img: '/images/support/IMG_6226.JPG', desc: 'Premium suite with direct pool access, sun terrace & luxury furnishings.', guests: '3 Guests', size: '50 m²' },
 ];
 
 const reviews = [
@@ -133,7 +133,7 @@ function VideoSection() {
     <section ref={ref} className="pt-[80px] mt-[50px]">
       <div className="container-premium">
         <SectionHeader subtitle="Experience the Magic" title="Your Safari Adventure Awaits" description="Immerse yourself in the sights and sounds of Udawalawa — where every moment becomes a lasting memory." />
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden mt-20" style={{ border: '1px solid rgba(16,185,129,0.15)' }}>
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden mt-[80px]" style={{ border: '1px solid rgba(16,185,129,0.15)' }}>
           <video ref={videoRef} className="w-full aspect-video object-cover" muted loop playsInline preload="metadata" poster="/images/hero/hero-1.jpg">
             <source src="/video/promo.mp4" type="video/mp4" />
           </video>
@@ -150,16 +150,16 @@ function VideoSection() {
 
 function SafariServicesSection() {
   const safariCards = [
-    { title: 'Morning Safari', desc: 'Witness the jungle come alive at sunrise', img: '/images/collection/1e53ee0a-c57f-43f9-98f4-5172043bbb8e.JPG' },
-    { title: 'Evening Safari', desc: 'Golden hour drives for perfect wildlife photography', img: '/images/collection/f9c89139-3837-4d9d-9c32-b7d6056f4d1e.JPG' },
-    { title: 'Full Day Safari', desc: 'Immersive all-day experience deep in the park', img: '/images/collection/5a76cede-17df-4ba3-8c81-23b6b1d68f4a.JPG' },
+    { title: 'Morning Safari', desc: 'Witness the jungle come alive at sunrise', img: '/images/collection/img_60.JPG' },
+    { title: 'Afternoon Safari', desc: 'Golden hour drives for perfect wildlife photography', img: '/images/collection/IMG_6264.JPG' },
+    { title: 'Full Day Safari', desc: 'Immersive all-day experience deep in the park', img: '/images/collection/a9b7d1c6-97e2-4bc1-a7fc-f9dc165bd4ef.JPG' },
   ];
 
   return (
     <section className="section-padding" style={{ background: 'var(--dark-900)' }}>
       <div className="container-premium">
         <SectionHeader subtitle="Wildlife Encounters" title="Udawalawa Safaris" description="We arrange expert-guided 4x4 jeep safaris directly from the property, ensuring an uninterrupted journey into the wild." />
-        <div className="grid md:grid-cols-3 gap-10 mt-16">
+        <div className="grid md:grid-cols-3 gap-10" style={{ marginTop: '90px' }}>
           {safariCards.map((card, i) => (
             <motion.div key={card.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="group relative rounded-md overflow-hidden aspect-[3/4] cursor-pointer">
               <Image src={card.img} alt={card.title} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
@@ -183,12 +183,13 @@ function RoomsSection() {
     <section className="section-padding" style={{ background: 'var(--dark-800)' }}>
       <div className="container-premium">
         <SectionHeader subtitle="Luxury Stays" title="Rooms & Cottages" description="Each sanctuary features private bathrooms, air-conditioning, garden views, and a dedicated terrace." />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mt-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12" style={{ marginTop: '90px' }}>
           {rooms.map((room, i) => (
             <motion.div key={room.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col group">
-              <div className="relative h-[400px] w-full overflow-hidden rounded-md mb-8">
+              <div className="relative w-full overflow-hidden rounded-2xl mb-8 aspect-[3/4]">
                 <Image src={room.img} alt={room.name} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                <div className="absolute top-6 right-6 px-4 py-2 glass-light rounded-sm text-[10px] uppercase tracking-widest text-white">
+                <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(10,15,13,0.7) 100%)' }} />
+                <div className="absolute top-6 right-6 px-5 py-2 glass-light rounded-full text-[10px] uppercase tracking-widest text-white">
                   {room.size}
                 </div>
               </div>

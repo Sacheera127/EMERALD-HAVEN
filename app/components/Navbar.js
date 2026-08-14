@@ -29,48 +29,60 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="sticky top-0 z-50 transition-all duration-300"
-        style={{
-          background: '#0a0f0d', // Solid background as a separate section
-          borderBottom: '1px solid rgba(16, 185, 129, 0.1)',
-          boxShadow: isScrolled ? '0 4px 30px rgba(0, 0, 0, 0.5)' : 'none',
-        }}
-      >
-        <div className="w-full mx-auto px-6 md:px-12 py-10 flex items-center justify-between md:justify-center md:gap-16 lg:gap-24">
-          <Link href="/" className="flex items-center gap-4">
-            <div className="relative w-12 h-12 overflow-hidden rounded-md border border-emerald-500/10 opacity-90 hover:opacity-100 transition-opacity">
-              <Image src="/images/logo/logo.png" alt="Emerald Haven" fill className="object-cover" sizes="48px" />
-            </div>
-            <div>
+      {/* Floating Pill Navbar */}
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center" style={{ paddingTop: '16px' }}>
+        <motion.header
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="w-[95%] max-w-7xl rounded-full transition-all duration-300"
+          style={{
+            background: 'rgba(10, 15, 13, 0.85)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            boxShadow: isScrolled
+              ? '0 8px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(16, 185, 129, 0.1)'
+              : '0 4px 24px rgba(0, 0, 0, 0.4)',
+          }}
+        >
+          <div className="flex items-center justify-between md:justify-center md:gap-12 lg:gap-20" style={{ padding: '16px 32px' }}>
+            <Link href="/" className="flex items-center gap-3">
+              <div className="relative w-10 h-10 overflow-hidden rounded-lg border border-emerald-500/10 opacity-90 hover:opacity-100 transition-opacity">
+                <Image src="/images/logo/logo.png" alt="Emerald Haven" fill className="object-cover" sizes="40px" />
+              </div>
               <h1 className="font-serif text-xl font-normal text-gold-gradient tracking-wide">Emerald Haven</h1>
-              <p className="text-[9px] tracking-[0.3em] uppercase mt-0.5" style={{ color: 'rgba(16, 185, 129, 0.5)' }}>Safari Cottages</p>
+            </Link>
+
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex items-center gap-10">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm font-light tracking-wide inline-block transition-all duration-300 ease-in-out hover:-translate-y-[2px]"
+                  style={{ color: 'rgba(224, 231, 228, 0.6)' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = '#D4AF37'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(224, 231, 228, 0.6)'; }}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-6">
+              <a href="https://www.booking.com/hotel/lk/jungle-safari-cottage-udawalawa.en-gb.html" target="_blank" rel="noopener noreferrer" className="btn-book hidden md:block">
+                Book Now
+              </a>
+              
+              {/* Mobile Menu Toggle */}
+              <button className="md:hidden text-white/70 hover:text-white transition-colors" onClick={() => setIsMobileOpen(true)}>
+                <Menu size={24} strokeWidth={1.5} />
+              </button>
             </div>
-          </Link>
-
-          {/* Desktop Nav - Increased gap and refined typography */}
-          <nav className="hidden md:flex items-center gap-14">
-            {navLinks.map((link) => (
-              <Link key={link.name} href={link.href} className="text-sm font-light tracking-wide hover:text-emerald-400 transition-colors" style={{ color: 'rgba(224, 231, 228, 0.6)' }}>
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-6">
-            <a href="https://www.booking.com/hotel/lk/jungle-safari-cottage-udawalawa.en-gb.html" target="_blank" rel="noopener noreferrer" className="btn-book hidden md:block">
-              Book Now
-            </a>
-            
-            {/* Mobile Menu Toggle */}
-            <button className="md:hidden text-white/70 hover:text-white transition-colors" onClick={() => setIsMobileOpen(true)}>
-              <Menu size={24} strokeWidth={1.5} />
-            </button>
           </div>
-        </div>
-      </motion.header>
+        </motion.header>
+      </div>
 
       {/* Mobile Drawer */}
       <AnimatePresence>

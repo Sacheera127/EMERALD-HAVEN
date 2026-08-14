@@ -103,15 +103,7 @@ export default function Loader() {
               Emerald Haven
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="mt-2 text-sm tracking-[0.5em] uppercase"
-              style={{ color: 'rgba(16, 185, 129, 0.7)' }}
-            >
-              Safari Cottages
-            </motion.p>
+
 
             {/* Progress bar */}
             <div className="mt-10 w-48 mx-auto">

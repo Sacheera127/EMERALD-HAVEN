@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 import SectionHeader from './components/SectionHeader';
 import {
   Star, Wifi, Car, UtensilsCrossed, Waves, TreePine, Shield, Coffee,
-  ArrowRight, MapPin, Quote, ChevronLeft, ChevronRight, Play, Wind, Flame, Compass
+  ArrowRight, MapPin, Quote, ChevronLeft, ChevronRight, Play, Wind, Flame, Compass, Users
 } from 'lucide-react';
 
 const facilities = [
@@ -67,18 +67,15 @@ function HeroSection() {
       </Swiper>
 
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <div className="text-center px-6 pointer-events-auto">
+        <div className="flex flex-col items-center justify-center w-full text-center px-6 pointer-events-auto">
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }} className="text-xs tracking-[0.6em] uppercase mb-8" style={{ color: 'rgba(16,185,129,0.9)' }}>
             Udawalawa, Sri Lanka
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 1 }} className="font-serif text-5xl md:text-7xl lg:text-[80px] font-normal mb-8 text-white leading-[1.1] tracking-wide">
             Emerald Haven<br />
-            <span style={{ background: 'linear-gradient(135deg, #dfc067, #ebd17a, #dfc067)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Safari Cottages</span>
+            <span style={{ background: 'linear-gradient(135deg, #dfc067, #ebd17a, #dfc067)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Safari Cottages & Glampings</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 1 }} className="text-sm md:text-lg max-w-2xl mx-auto mb-12 font-light tracking-wide" style={{ color: 'rgba(224,231,228,0.7)' }}>
-            Where untamed wilderness meets refined luxury — 16 km from Udawalawa National Park
-          </motion.p>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4, duration: 0.8 }} className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4, duration: 0.8 }} className="flex flex-col sm:flex-row items-center justify-center gap-6" style={{ marginTop: '40px' }}>
             <a href="https://www.booking.com/hotel/lk/jungle-safari-cottage-udawalawa.en-gb.html" target="_blank" rel="noopener noreferrer" className="btn-book" id="hero-book-now">Reserve Your Stay</a>
             <Link href="/rooms" className="text-sm font-light tracking-widest uppercase transition-all duration-300 hover:text-emerald-400" style={{ color: 'rgba(255,255,255,0.7)' }}>
               Explore Rooms
@@ -133,16 +130,18 @@ function VideoSection() {
     <section ref={ref} className="pt-[80px] mt-[50px]">
       <div className="container-premium">
         <SectionHeader subtitle="Experience the Magic" title="Your Safari Adventure Awaits" description="Immerse yourself in the sights and sounds of Udawalawa — where every moment becomes a lasting memory." />
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden mt-[80px]" style={{ border: '1px solid rgba(16,185,129,0.15)' }}>
-          <video ref={videoRef} className="w-full aspect-video object-cover" muted loop playsInline preload="metadata" poster="/images/hero/hero-1.jpg">
-            <source src="/video/promo.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(10,15,13,0.6) 100%)' }} />
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 glass-light rounded-b-2xl">
-            <p className="font-serif text-xl md:text-2xl text-white mb-2">Discover the Wilderness</p>
-            <p className="text-sm" style={{ color: 'rgba(224,231,228,0.7)' }}>Safari drives · Elephant encounters · Sunset views · Nature walks</p>
-          </div>
-        </motion.div>
+        <div className="w-full flex justify-center">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative overflow-hidden w-full max-w-5xl rounded-3xl shadow-2xl" style={{ marginTop: '80px', borderRadius: '32px', border: '1px solid rgba(16,185,129,0.15)', boxShadow: '0 25px 60px rgba(0,0,0,0.5)' }}>
+            <video ref={videoRef} className="w-full aspect-video object-cover" muted loop playsInline preload="metadata" poster="/images/hero/hero-1.jpg">
+              <source src="/video/promo.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(10,15,13,0.6) 100%)' }} />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 glass-light rounded-b-[32px]">
+              <p className="font-serif text-xl md:text-2xl text-white mb-2">Discover the Wilderness</p>
+              <p className="text-sm" style={{ color: 'rgba(224,231,228,0.7)' }}>Safari drives · Elephant encounters · Sunset views · Nature walks</p>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -198,10 +197,19 @@ function RoomsSection() {
                   <h3 className="font-serif text-2xl font-normal text-white tracking-wide">{room.name}</h3>
                 </div>
                 <p className="text-sm font-light leading-relaxed mb-8 flex-1" style={{ color: 'rgba(224,231,228,0.5)' }}>{room.desc}</p>
-                <div className="flex items-center justify-between mt-auto pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                  <span className="text-xs uppercase tracking-widest font-light" style={{ color: 'rgba(224,231,228,0.7)' }}>{room.guests}</span>
-                  <Link href={`/rooms`} className="text-xs uppercase tracking-widest font-medium text-white flex items-center gap-3 group-hover:text-gold-400 transition-colors duration-500">
-                    Discover <ArrowRight size={14} />
+                <div className="flex items-center justify-between" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '24px', marginTop: '32px' }}>
+                  {/* Glass Guest Pill */}
+                  <div className="flex items-center gap-3 rounded-full" style={{ padding: '8px 18px', background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <Users size={16} style={{ color: '#10B981' }} />
+                    <span className="text-sm uppercase tracking-widest font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                      {room.guests}
+                    </span>
+                  </div>
+
+                  {/* Luxury Emerald Glass Button */}
+                  <Link href="/rooms" className="group flex items-center gap-3 rounded-full transition-all duration-500 hover:scale-105" style={{ padding: '12px 28px', background: 'linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(6,78,59,0.5) 100%)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(16,185,129,0.4)', boxShadow: '0 8px 32px rgba(16,185,129,0.2)' }}>
+                    <span className="text-sm uppercase tracking-widest font-bold text-white">Discover</span>
+                    <ArrowRight size={16} className="text-white transition-transform duration-500 group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>

@@ -26,21 +26,14 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-[#040806] pt-10 pb-6">
-      {/* Floating Curved Container */}
-      <div className="max-w-[96%] lg:max-w-7xl mx-auto bg-[#0a0d0b] rounded-[40px] p-10 md:p-16 mb-10 mt-20 border border-white/5 shadow-2xl relative overflow-hidden">
-        {/* Faint gold texture */}
-        <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(212,175,55,1) 0%, transparent 60%)',
-          }}
-        />
-
+    <footer className="w-full bg-[#050505] px-4 sm:px-8 pb-12 pt-24">
+      {/* Floating Curved Box */}
+      <div className="w-full max-w-7xl mx-auto bg-[#0a0d0b] rounded-[40px] p-8 md:p-16 border border-[#D4AF37]/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col">
+        
         {/* 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 w-full relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 w-full">
 
-          {/* Column 1: Branding */}
+          {/* Column 1: Branding & Description */}
           <div className="flex flex-col items-start text-left">
             <Link href="/" className="flex items-center gap-3.5 mb-5 group">
               <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]/40 flex-shrink-0">
@@ -94,7 +87,7 @@ export default function Footer() {
 
           {/* Column 2: EXPLORE */}
           <div>
-            <h4 className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
+            <h4 className="text-[#D4AF37] tracking-widest text-sm font-semibold uppercase mb-6">
               EXPLORE
             </h4>
             <ul className="space-y-4 text-gray-300 font-light">
@@ -110,7 +103,7 @@ export default function Footer() {
 
           {/* Column 3: SERVICES */}
           <div>
-            <h4 className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
+            <h4 className="text-[#D4AF37] tracking-widest text-sm font-semibold uppercase mb-6">
               SERVICES
             </h4>
             <ul className="space-y-4 text-gray-300 font-light">
@@ -124,7 +117,7 @@ export default function Footer() {
 
           {/* Column 4: CONTACT */}
           <div>
-            <h4 className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
+            <h4 className="text-[#D4AF37] tracking-widest text-sm font-semibold uppercase mb-6">
               CONTACT
             </h4>
             <ul className="space-y-4 text-gray-300 font-light">
@@ -155,14 +148,10 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Copyright Bar & Divider */}
-        <div className="border-t border-[#D4AF37]/20 w-full mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs relative z-10">
-          <p className="text-gray-500">
-            © 2026 Emerald Haven Safari Cottages. All rights reserved.
-          </p>
-          <p className="text-[#D4AF37] font-semibold tracking-widest uppercase">
-            MADE WITH LOVE IN UDAWALAWA
-          </p>
+        {/* Bottom Copyright Bar */}
+        <div className="w-full border-t border-[#D4AF37]/20 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+          <span className="text-gray-500">© 2026 Emerald Haven Safari Cottages. All rights reserved.</span>
+          <span className="text-[#D4AF37] font-bold tracking-[0.2em] uppercase">MADE WITH LOVE IN UDAWALAWA</span>
         </div>
 
       </div>

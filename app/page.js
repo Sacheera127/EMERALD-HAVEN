@@ -225,16 +225,16 @@ function ReviewsSection() {
   return (
     <section className="section-padding relative overflow-hidden" style={{ background: 'var(--dark-900)' }}>
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(201,162,39,1) 0%, transparent 60%)' }} />
-      <div className="container-premium relative z-10">
+      <div className="container-premium relative z-10 flex flex-col items-center">
         <SectionHeader subtitle="Guest Stories" title="What Our Guests Say" description="Rated 9.7/10 Exceptional on Booking.com — hear from travelers who made Emerald Haven their home." />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px] max-w-6xl mx-auto w-full" style={{ marginTop: '60px' }}>
           {reviews.map((review, i) => (
-            <motion.div key={review.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="glass p-10 flex flex-col rounded-md">
-              <Quote size={28} strokeWidth={1} style={{ color: 'rgba(201,162,39,0.3)' }} className="mb-6" />
-              <p className="text-sm font-light italic leading-loose flex-1 mb-8" style={{ color: 'rgba(224,231,228,0.6)' }}>"{review.text}"</p>
+            <motion.div key={review.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col rounded-3xl cursor-pointer hover:-translate-y-[8px] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', backdropFilter: 'blur(4px)', padding: '40px', transition: 'all 0.4s cubic-bezier(0.25,1,0.5,1)' }}>
+              <Quote size={24} strokeWidth={1.5} style={{ color: 'rgba(212,175,55,0.6)' }} className="mb-6" />
+              <p className="text-lg font-light leading-relaxed flex-1 mb-8" style={{ color: 'rgba(224,231,228,0.7)' }}>"{review.text}"</p>
               
               <div className="mt-auto flex items-center gap-4">
-                <div className="w-12 h-12 flex items-center justify-center text-white font-serif text-lg rounded-sm" style={{ background: 'linear-gradient(135deg, var(--emerald-800), var(--emerald-900))' }}>
+                <div className="w-[48px] h-[48px] rounded-full flex items-center justify-center text-white font-serif text-lg" style={{ background: 'linear-gradient(135deg, rgba(6,78,59,0.9), rgba(4,47,36,0.95))' }}>
                   {review.name.charAt(0)}
                 </div>
                 <div>

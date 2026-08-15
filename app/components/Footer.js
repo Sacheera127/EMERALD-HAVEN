@@ -26,74 +26,45 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#050505] px-4 sm:px-8 pb-12 pt-24">
-      {/* Floating Curved Box */}
-      <div className="w-full max-w-7xl mx-auto bg-[#0a0d0b] rounded-[40px] p-8 md:p-16 border border-[#D4AF37]/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col">
-        
-        {/* 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 w-full">
+    <footer className="relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #05100c, #020705)' }}>
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
+        backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(201,162,39,1) 0%, transparent 55%)',
+      }} />
 
-          {/* Column 1: Branding & Description */}
-          <div className="flex flex-col items-start text-left">
-            <Link href="/" className="flex items-center gap-3.5 mb-5 group">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]/40 flex-shrink-0">
-                <Image src="/images/logo/logo.png" alt="Emerald Haven" fill className="object-cover" sizes="48px" />
-              </div>
-              <div>
-                <h3 className="font-serif text-lg font-normal text-white tracking-wide leading-tight">
-                  Emerald Haven
-                </h3>
-                <p className="text-[#D4AF37] text-[10px] font-semibold tracking-[0.25em] uppercase mt-0.5">
-                  SAFARI COTTAGES
-                </p>
-              </div>
-            </Link>
-
-            <p className="text-sm text-gray-400 leading-relaxed mb-6">
-              Experience the untamed beauty of Udawalawa with bespoke safari cottages nestled in nature. Rated 9.7/10 — Exceptional by our guests.
-            </p>
-
-            {/* Social Icons */}
-            <div className="flex items-center gap-3">
-              <a
-                href="https://www.facebook.com/share/1CvMGQYNoh/?mibextid=wwXIfr"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="w-9 h-9 rounded-full flex items-center justify-center border border-[#D4AF37]/30 text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
-              >
-                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 320 512" height="14" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
-              </a>
-              <a
-                href="https://www.instagram.com/emeraldhavenudawalawa?igsh=Mzdxd2t2am01MDhi"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-9 h-9 rounded-full flex items-center justify-center border border-[#D4AF37]/30 text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
-              >
-                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="14" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12.2 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
-              </a>
-              <a
-                href="https://www.tiktok.com/@emerald.haven.saf?_r=1&_t=ZS-98su2Apic9o"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok"
-                className="w-9 h-9 rounded-full flex items-center justify-center border border-[#D4AF37]/30 text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
-              >
-                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="14" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path></svg>
-              </a>
+      <div className="container-premium relative z-10" style={{ paddingTop: '72px', paddingBottom: '48px' }}>
+        {/* Top Logo & Intro Section */}
+        <div className="flex flex-col items-center text-center" style={{ marginBottom: '48px' }}>
+          <Link href="/" className="flex flex-col items-center gap-4 group mb-5">
+            <div className="relative w-16 h-16 overflow-hidden rounded-full" style={{ border: '1px solid rgba(201,162,39,0.35)' }}>
+              <Image src="/images/logo/logo.png" alt="Emerald Haven" fill className="object-cover" sizes="64px" />
             </div>
-          </div>
+            <div>
+              <h3 className="font-serif text-2xl font-normal tracking-wide text-white">Emerald Haven</h3>
+              <p className="text-[10px] tracking-[0.5em] uppercase mt-1" style={{ color: 'rgba(201,162,39,0.85)' }}>
+                Safari Cottages
+              </p>
+            </div>
+          </Link>
+          <p className="max-w-md text-sm font-light leading-relaxed" style={{ color: 'rgba(224,231,228,0.55)' }}>
+            Experience the untamed beauty of Udawalawa with bespoke safari cottages nestled in nature.
+            Rated 9.7/10 — Exceptional by our guests.
+          </p>
+        </div>
 
-          {/* Column 2: EXPLORE */}
-          <div>
-            <h4 className="text-[#D4AF37] tracking-widest text-sm font-semibold uppercase mb-6">
-              EXPLORE
+        {/* Gold Divider Line */}
+        <div className="w-full h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,39,0.35), transparent)', marginBottom: '48px' }} />
+
+        {/* 3-Column Links Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto" style={{ marginBottom: '48px' }}>
+          {/* Column 1: Left Aligned */}
+          <div className="flex flex-col items-start text-left">
+            <h4 className="font-serif text-sm tracking-[0.25em] uppercase mb-6" style={{ color: '#D4AF37' }}>
+              Explore
             </h4>
-            <ul className="space-y-4 text-gray-300 font-light">
+            <ul className="space-y-4 text-left">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="hover:text-white transition-colors block text-sm">
+                  <Link href={link.href} className="text-sm font-light text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
                     {link.name}
                   </Link>
                 </li>
@@ -101,59 +72,93 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: SERVICES */}
-          <div>
-            <h4 className="text-[#D4AF37] tracking-widest text-sm font-semibold uppercase mb-6">
-              SERVICES
+          {/* Column 2: Center / Middle Aligned */}
+          <div className="flex flex-col items-center text-center">
+            <h4 className="font-serif text-sm tracking-[0.25em] uppercase mb-6" style={{ color: '#D4AF37' }}>
+              Services
             </h4>
-            <ul className="space-y-4 text-gray-300 font-light">
+            <ul className="space-y-4 text-center">
               {services.map((service) => (
-                <li key={service} className="hover:text-white transition-colors text-sm">
-                  {service}
+                <li key={service}>
+                  <span className="text-sm font-light text-gray-300">{service}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 4: CONTACT */}
-          <div>
-            <h4 className="text-[#D4AF37] tracking-widest text-sm font-semibold uppercase mb-6">
-              CONTACT
+          {/* Column 3: Right Aligned */}
+          <div className="flex flex-col items-end text-right">
+            <h4 className="font-serif text-sm tracking-[0.25em] uppercase mb-6" style={{ color: '#D4AF37' }}>
+              Contact
             </h4>
-            <ul className="space-y-4 text-gray-300 font-light">
-              <li className="flex items-start gap-3 text-sm">
-                <MapPin size={16} className="mt-1 flex-shrink-0 text-[#D4AF37]" />
-                <span className="leading-relaxed">
+            <ul className="space-y-4 text-right">
+              <li className="flex items-start justify-end gap-3">
+                <span className="text-sm font-light leading-relaxed text-gray-300 text-right">
                   No 49/1, Thanamalwila Road,<br />Udawalawa, Sri Lanka
                 </span>
+                <MapPin size={16} strokeWidth={1.5} className="mt-1 flex-shrink-0 text-[#D4AF37]" />
               </li>
               <li>
-                <a href="tel:+94774621521" className="flex items-center gap-3 text-sm hover:text-white transition-colors">
-                  <Phone size={16} className="flex-shrink-0 text-[#D4AF37]" />
+                <a href="tel:+94774621521" className="flex items-center justify-end gap-3 text-sm font-light text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
                   +94 77 462 1521
+                  <Phone size={16} strokeWidth={1.5} className="text-[#D4AF37]" />
                 </a>
               </li>
               <li>
-                <a href="mailto:emeralhaven.udawalaw@gmail.com" className="flex items-center gap-3 text-sm hover:text-white transition-colors break-all">
-                  <Mail size={16} className="flex-shrink-0 text-[#D4AF37]" />
+                <a href="mailto:emeralhaven.udawalaw@gmail.com" className="flex items-center justify-end gap-3 text-sm font-light text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
                   emeralhaven.udawalaw@gmail.com
+                  <Mail size={16} strokeWidth={1.5} className="text-[#D4AF37]" />
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-sm">
-                <Clock size={16} className="flex-shrink-0 text-[#D4AF37]" />
+              <li className="flex items-center justify-end gap-3 text-sm font-light text-gray-300">
                 24/7 Reception
+                <Clock size={16} strokeWidth={1.5} className="text-[#D4AF37]" />
               </li>
             </ul>
           </div>
-
         </div>
 
-        {/* Bottom Copyright Bar */}
-        <div className="w-full border-t border-[#D4AF37]/20 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-          <span className="text-gray-500">© 2026 Emerald Haven Safari Cottages. All rights reserved.</span>
-          <span className="text-[#D4AF37] font-bold tracking-[0.2em] uppercase">MADE WITH LOVE IN UDAWALAWA</span>
+        {/* Social Icons Container - REDUCED BY HALF TO 80PX */}
+        <div className="flex justify-center gap-5" style={{ marginTop: '80px', marginBottom: '40px' }}>
+          <a
+            href="https://www.facebook.com/share/1CvMGQYNoh/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5"
+            style={{ border: '1px solid rgba(201,162,39,0.3)', color: 'rgba(201,162,39,0.8)' }}
+          >
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 320 512" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+          </a>
+          <a
+            href="https://www.instagram.com/emeraldhavenudawalawa?igsh=Mzdxd2t2am01MDhi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5"
+            style={{ border: '1px solid rgba(201,162,39,0.3)', color: 'rgba(201,162,39,0.8)' }}
+          >
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12.2 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+          </a>
+          <a
+            href="https://www.tiktok.com/@emerald.haven.saf?_r=1&_t=ZS-98su2Apic9o"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5"
+            style={{ border: '1px solid rgba(201,162,39,0.3)', color: 'rgba(201,162,39,0.8)' }}
+          >
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path></svg>
+          </a>
         </div>
 
+        {/* Bottom Line Divider & Copyright */}
+        <div className="w-full h-px" style={{ background: 'rgba(255,255,255,0.05)', marginTop: '36px', marginBottom: '24px' }} />
+        <div className="flex flex-col items-center gap-2 text-center">
+          <p className="text-xs text-gray-500 font-light tracking-wide">
+            © {new Date().getFullYear()} Emerald Haven Safari Cottages. All rights reserved.
+          </p>
+          <p className="text-xs text-gray-600 font-light tracking-widest uppercase">
+            Udawalawa, Sri Lanka
+          </p>
+        </div>
       </div>
     </footer>
   );

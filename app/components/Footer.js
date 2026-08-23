@@ -27,15 +27,14 @@ const services = [
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #05100c, #020705)' }}>
-      {/* faint gold radial texture */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
         backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(201,162,39,1) 0%, transparent 55%)',
       }} />
 
-      <div className="container-premium relative z-10 pt-36 pb-24">
-        {/* Centered brand mark */}
-        <div className="flex flex-col items-center text-center mb-[72px]">
-          <Link href="/" className="flex flex-col items-center gap-4 group mb-6">
+      <div className="container-premium relative z-10" style={{ paddingTop: '72px', paddingBottom: '48px' }}>
+        {/* Top Logo & Intro Section */}
+        <div className="flex flex-col items-center text-center" style={{ marginBottom: '48px' }}>
+          <Link href="/" className="flex flex-col items-center gap-4 group mb-5">
             <div className="relative w-16 h-16 overflow-hidden rounded-full" style={{ border: '1px solid rgba(201,162,39,0.35)' }}>
               <Image src="/images/logo/logo.png" alt="Emerald Haven" fill className="object-cover" sizes="64px" />
             </div>
@@ -46,25 +45,26 @@ export default function Footer() {
               </p>
             </div>
           </Link>
-          <p className="max-w-md text-sm font-light leading-relaxed mb-[64px]" style={{ color: 'rgba(224,231,228,0.55)' }}>
+          <p className="max-w-md text-sm font-light leading-relaxed" style={{ color: 'rgba(224,231,228,0.55)' }}>
             Experience the untamed beauty of Udawalawa with bespoke safari cottages nestled in nature.
             Rated 9.7/10 — Exceptional by our guests.
           </p>
         </div>
 
-        {/* Thin gold divider */}
-        <div className="w-full h-px mb-16" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,39,0.35), transparent)' }} />
+        {/* Gold Divider Line */}
+        <div className="w-full h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,39,0.35), transparent)', marginBottom: '48px' }} />
 
-        {/* Centered link columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 max-w-5xl mx-auto text-center mb-16">
-          <div>
-            <h4 className="font-serif text-sm tracking-[0.25em] uppercase mb-6" style={{ color: '#D4AF37' }}>
+        {/* 3-Column Links Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 w-full max-w-5xl mx-auto justify-items-center" style={{ marginBottom: '48px' }}>
+          {/* Column 1: Explore */}
+          <div className="flex flex-col items-start text-left">
+            <h4 className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
               Explore
             </h4>
-            <ul className="space-y-5">
+            <ul className="space-y-4 w-full">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm font-light text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
+                  <Link href={link.href} className="text-gray-300 font-light hover:text-white transition-colors cursor-pointer">
                     {link.name}
                   </Link>
                 </li>
@@ -72,52 +72,50 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-serif text-sm tracking-[0.25em] uppercase mb-6" style={{ color: '#D4AF37' }}>
+          {/* Column 2: Services */}
+          <div className="flex flex-col items-start text-left">
+            <h4 className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
               Services
             </h4>
-            <ul className="space-y-5">
+            <ul className="space-y-4 w-full">
               {services.map((service) => (
                 <li key={service}>
-                  <span className="text-sm font-light text-gray-300">{service}</span>
+                  <span className="text-gray-300 font-light hover:text-white transition-colors cursor-pointer">{service}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-serif text-sm tracking-[0.25em] uppercase mb-6" style={{ color: '#D4AF37' }}>
+          {/* Column 3: Contact */}
+          <div className="flex flex-col items-start text-left">
+            <h4 className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
               Contact
             </h4>
-            <ul className="space-y-5">
-              <li className="flex items-start justify-center gap-3">
-                <MapPin size={16} strokeWidth={1.5} className="mt-1 flex-shrink-0 text-[#D4AF37]" />
-                <span className="text-sm font-light leading-relaxed text-gray-300 text-left">
+            <ul className="space-y-5 w-full">
+              <li className="flex items-start gap-4 text-gray-300 font-light">
+                <span className="text-[#D4AF37] mt-1"><MapPin size={16} strokeWidth={1.5} /></span>
+                <span>
                   No 49/1, Thanamalwila Road,<br />Udawalawa, Sri Lanka
                 </span>
               </li>
-              <li>
-                <a href="tel:+94774621521" className="flex items-center justify-center gap-3 text-sm font-light text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
-                  <Phone size={16} strokeWidth={1.5} className="text-[#D4AF37]" />
-                  +94 77 462 1521
-                </a>
+              <li className="flex items-start gap-4 text-gray-300 font-light hover:text-white transition-colors cursor-pointer">
+                <span className="text-[#D4AF37] mt-1"><Phone size={16} strokeWidth={1.5} /></span>
+                <a href="tel:+94774621521">+94 77 462 1521</a>
               </li>
-              <li>
-                <a href="mailto:emeralhaven.udawalaw@gmail.com" className="flex items-center justify-center gap-3 text-sm font-light text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
-                  <Mail size={16} strokeWidth={1.5} className="text-[#D4AF37]" />
-                  emeralhaven.udawalaw@gmail.com
-                </a>
+              <li className="flex items-start gap-4 text-gray-300 font-light hover:text-white transition-colors cursor-pointer">
+                <span className="text-[#D4AF37] mt-1"><Mail size={16} strokeWidth={1.5} /></span>
+                <a href="mailto:emeralhaven.udawalaw@gmail.com">emeralhaven.udawalaw@gmail.com</a>
               </li>
-              <li className="flex items-center justify-center gap-3 text-sm font-light text-gray-300">
-                <Clock size={16} strokeWidth={1.5} className="text-[#D4AF37]" />
-                24/7 Reception
+              <li className="flex items-start gap-4 text-gray-300 font-light">
+                <span className="text-[#D4AF37] mt-1"><Clock size={16} strokeWidth={1.5} /></span>
+                <span>24/7 Reception</span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Social icons row */}
-        <div className="flex justify-center gap-5 mb-14 mt-[200px]">
+        {/* Social Icons Container - REDUCED BY HALF TO 80PX */}
+        <div className="flex justify-center gap-5" style={{ marginTop: '80px', marginBottom: '40px' }}>
           <a
             href="https://www.facebook.com/share/1CvMGQYNoh/?mibextid=wwXIfr"
             target="_blank"
@@ -147,8 +145,8 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Bottom divider + copyright */}
-        <div className="w-full h-px mb-8 mt-[50px]" style={{ background: 'rgba(255,255,255,0.05)' }} />
+        {/* Bottom Line Divider & Copyright */}
+        <div className="w-full h-px" style={{ background: 'rgba(255,255,255,0.05)', marginTop: '36px', marginBottom: '24px' }} />
         <div className="flex flex-col items-center gap-2 text-center">
           <p className="text-xs text-gray-500 font-light tracking-wide">
             © {new Date().getFullYear()} Emerald Haven Safari Cottages. All rights reserved.

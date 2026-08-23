@@ -55,16 +55,16 @@ export default function Footer() {
         <div className="w-full h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,39,0.35), transparent)', marginBottom: '48px' }} />
 
         {/* 3-Column Links Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto" style={{ marginBottom: '48px' }}>
-          {/* Column 1: Left Aligned */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 w-full max-w-5xl mx-auto justify-items-center" style={{ marginBottom: '48px' }}>
+          {/* Column 1: Explore */}
           <div className="flex flex-col items-start text-left">
-            <h4 className="font-serif text-sm tracking-[0.25em] uppercase mb-6" style={{ color: '#D4AF37' }}>
+            <h4 className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
               Explore
             </h4>
-            <ul className="space-y-4 text-left">
+            <ul className="space-y-4 w-full">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm font-light text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
+                  <Link href={link.href} className="text-gray-300 font-light hover:text-white transition-colors cursor-pointer">
                     {link.name}
                   </Link>
                 </li>
@@ -72,47 +72,43 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: Center / Middle Aligned */}
-          <div className="flex flex-col items-center text-center">
-            <h4 className="font-serif text-sm tracking-[0.25em] uppercase mb-6" style={{ color: '#D4AF37' }}>
+          {/* Column 2: Services */}
+          <div className="flex flex-col items-start text-left">
+            <h4 className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
               Services
             </h4>
-            <ul className="space-y-4 text-center">
+            <ul className="space-y-4 w-full">
               {services.map((service) => (
                 <li key={service}>
-                  <span className="text-sm font-light text-gray-300">{service}</span>
+                  <span className="text-gray-300 font-light hover:text-white transition-colors cursor-pointer">{service}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Right Aligned */}
-          <div className="flex flex-col items-end text-right">
-            <h4 className="font-serif text-sm tracking-[0.25em] uppercase mb-6" style={{ color: '#D4AF37' }}>
+          {/* Column 3: Contact */}
+          <div className="flex flex-col items-start text-left">
+            <h4 className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
               Contact
             </h4>
-            <ul className="space-y-4 text-right">
-              <li className="flex items-start justify-end gap-3">
-                <span className="text-sm font-light leading-relaxed text-gray-300 text-right">
+            <ul className="space-y-5 w-full">
+              <li className="flex items-start gap-4 text-gray-300 font-light">
+                <span className="text-[#D4AF37] mt-1"><MapPin size={16} strokeWidth={1.5} /></span>
+                <span>
                   No 49/1, Thanamalwila Road,<br />Udawalawa, Sri Lanka
                 </span>
-                <MapPin size={16} strokeWidth={1.5} className="mt-1 flex-shrink-0 text-[#D4AF37]" />
               </li>
-              <li>
-                <a href="tel:+94774621521" className="flex items-center justify-end gap-3 text-sm font-light text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
-                  +94 77 462 1521
-                  <Phone size={16} strokeWidth={1.5} className="text-[#D4AF37]" />
-                </a>
+              <li className="flex items-start gap-4 text-gray-300 font-light hover:text-white transition-colors cursor-pointer">
+                <span className="text-[#D4AF37] mt-1"><Phone size={16} strokeWidth={1.5} /></span>
+                <a href="tel:+94774621521">+94 77 462 1521</a>
               </li>
-              <li>
-                <a href="mailto:emeralhaven.udawalaw@gmail.com" className="flex items-center justify-end gap-3 text-sm font-light text-gray-300 hover:text-[#D4AF37] transition-colors duration-300">
-                  emeralhaven.udawalaw@gmail.com
-                  <Mail size={16} strokeWidth={1.5} className="text-[#D4AF37]" />
-                </a>
+              <li className="flex items-start gap-4 text-gray-300 font-light hover:text-white transition-colors cursor-pointer">
+                <span className="text-[#D4AF37] mt-1"><Mail size={16} strokeWidth={1.5} /></span>
+                <a href="mailto:emeralhaven.udawalaw@gmail.com">emeralhaven.udawalaw@gmail.com</a>
               </li>
-              <li className="flex items-center justify-end gap-3 text-sm font-light text-gray-300">
-                24/7 Reception
-                <Clock size={16} strokeWidth={1.5} className="text-[#D4AF37]" />
+              <li className="flex items-start gap-4 text-gray-300 font-light">
+                <span className="text-[#D4AF37] mt-1"><Clock size={16} strokeWidth={1.5} /></span>
+                <span>24/7 Reception</span>
               </li>
             </ul>
           </div>

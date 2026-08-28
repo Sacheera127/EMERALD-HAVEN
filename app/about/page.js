@@ -45,39 +45,82 @@ export default function AboutPage() {
         <div className="container-premium">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
-              <p className="text-xs tracking-[0.5em] uppercase mb-6 font-medium" style={{ color: 'rgba(16,185,129,0.7)' }}>The Property</p>
-              <h2 className="font-serif text-4xl md:text-5xl font-normal text-white mb-10 tracking-wide leading-tight">Comfortable Accommodations in the Heart of Nature</h2>
-              <div className="space-y-6 text-sm md:text-base leading-loose font-light" style={{ color: 'rgba(224,231,228,0.6)' }}>
-                <p><strong className="text-white font-medium">Bespoke Comfort:</strong> Emerald Haven Safari Cottages in Udawalawa offers family rooms with private bathrooms, air-conditioning, and garden views. Each room includes a private balcony or terrace, ensuring a pleasant and immersive stay.</p>
-                <p><strong className="text-white font-medium">Exceptional Facilities:</strong> Guests enjoy a sun terrace, lush garden, and a year-round outdoor swimming pool. High-speed WiFi is available throughout the property, enhancing connectivity without compromising tranquility.</p>
-                <p><strong className="text-white font-medium">Dining Experience:</strong> The on-site restaurant serves Chinese, Indian, local, Asian, international, and barbecue grill cuisines. Breakfast options include full English, vegetarian, vegan, and gluten-free.</p>
-                <p><strong className="text-white font-medium">Convenient Location:</strong> Located merely 16 km from Udawalawa National Park and 50 km from Mattala Rajapaksa International Airport, the lodge provides seamless access to prime attractions.</p>
+
+              {/* Section Label - Emerald Green */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-8 h-[1px]" style={{ background: 'rgba(16,185,129,0.6)' }} />
+                <p className="text-xs tracking-[0.5em] uppercase font-medium" style={{ color: 'rgba(16,185,129,0.85)' }}>The Property</p>
               </div>
-              <div className="flex flex-wrap items-center gap-4 mt-12">
-                <div className="flex items-center gap-4 px-6 py-4 rounded-sm" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div className="px-3 py-1.5 rounded-sm text-sm font-medium text-white tracking-widest" style={{ background: 'rgba(201,162,39,0.2)', border: '1px solid rgba(201,162,39,0.4)' }}>9.7</div>
-                  <div>
-                    <p className="text-sm font-medium text-white tracking-widest uppercase">Exceptional</p>
-                    <p className="text-xs font-light" style={{ color: 'rgba(224,231,228,0.5)' }}>139 reviews</p>
+
+              <h2 className="font-serif text-4xl md:text-5xl font-normal text-white mb-10 tracking-wide leading-tight">
+                Comfortable Accommodations in the Heart of Nature
+              </h2>&nbsp;&nbsp;&nbsp;
+
+              <div className="space-y-6 text-sm md:text-base leading-loose font-light" style={{ color: 'rgba(224,231,228,0.62)' }}>
+                <p>
+                  <strong className="text-white font-medium">Bespoke Comfort:</strong> Emerald Haven Safari Cottages in Udawalawa offers family rooms with private bathrooms, air-conditioning, and garden views. Each room includes a private balcony or terrace, ensuring a pleasant and immersive stay.
+                </p>
+                <p>
+                  <strong className="text-white font-medium">Exceptional Facilities:</strong> Guests enjoy a sun terrace, lush garden, and a year-round outdoor swimming pool. High-speed WiFi is available throughout the property, enhancing connectivity without compromising tranquility.
+                </p>
+                <p>
+                  <strong className="text-white font-medium">Dining Experience:</strong> The on-site restaurant serves Chinese, Indian, local, Asian, international, and barbecue grill cuisines. Breakfast options include full English, vegetarian, vegan, and gluten-free.
+                </p>
+                <p>
+                  <strong className="text-white font-medium">Convenient Location:</strong> Located merely 16 km from Udawalawa National Park and 50 km from Mattala Rajapaksa International Airport, the lodge provides seamless access to prime attractions.
+                </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+
+              {/* Glassmorphism Rating Badges */}
+              <div className="flex flex-wrap items-center gap-6 mt-24">&nbsp;&nbsp;&nbsp;
+                <div className="group flex items-center gap-5 rounded-[24px] cursor-pointer transition-all duration-500 hover:scale-105" style={{ padding: '16px 32px 16px 20px', background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}>
+                  <div className="flex items-center justify-center w-[52px] h-[52px] rounded-full shrink-0 transition-transform duration-500 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(212,175,55,0.05) 100%)', border: '1px solid rgba(212,175,55,0.4)', boxShadow: '0 4px 20px rgba(212,175,55,0.15)' }}>
+                    <span className="text-lg font-bold text-[#D4AF37] tracking-wide">9.7</span>
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-sm font-semibold text-white tracking-[0.2em] uppercase leading-tight">Exceptional</p>
+                    <p className="text-xs font-light mt-1.5" style={{ color: 'rgba(224,231,228,0.6)' }}>139 reviews</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 px-6 py-4 rounded-sm" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <MapPin size={20} strokeWidth={1} style={{ color: 'rgba(16,185,129,0.8)' }} />
-                  <div>
-                    <p className="text-sm font-medium text-white tracking-widest uppercase">9.7 Location</p>
-                    <p className="text-xs font-light" style={{ color: 'rgba(224,231,228,0.5)' }}>Highly rated</p>
+
+                <div className="group flex items-center gap-5 rounded-[24px] cursor-pointer transition-all duration-500 hover:scale-105" style={{ padding: '16px 32px 16px 20px', background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}>
+                  <div className="flex items-center justify-center w-[52px] h-[52px] rounded-full shrink-0 transition-transform duration-500 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(212,175,55,0.05) 100%)', border: '1px solid rgba(212,175,55,0.4)', boxShadow: '0 4px 20px rgba(212,175,55,0.15)' }}>
+                    <MapPin size={22} strokeWidth={1.5} style={{ color: '#D4AF37' }} />
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-sm font-semibold text-white tracking-[0.2em] uppercase leading-tight">9.7 Location</p>
+                    <p className="text-xs font-light mt-1.5" style={{ color: 'rgba(224,231,228,0.6)' }}>Highly rated</p>
                   </div>
                 </div>
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="relative h-64 md:h-72 rounded-md overflow-hidden group"><Image src="/images/support/IMG_6225.JPG" alt="Cottage exterior" fill className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out" sizes="300px" /></div>
-                <div className="relative h-72 md:h-96 rounded-md overflow-hidden group"><Image src="/images/support/IMG_6237.JPG" alt="Room interior" fill className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out" sizes="300px" /></div>
-              </div>
-              <div className="space-y-4 pt-12">
-                <div className="relative h-72 md:h-96 rounded-md overflow-hidden group"><Image src="/images/support/IMG_6226.JPG" alt="Pool area" fill className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out" sizes="300px" /></div>
-                <div className="relative h-64 md:h-72 rounded-md overflow-hidden group"><Image src="/images/support/IMG_6239.JPG" alt="Garden view" fill className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out" sizes="300px" /></div>
+
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} className="relative">
+              {/* Ambient gold glow behind the gallery for depth */}
+              <div className="absolute -inset-6 rounded-[48px] blur-3xl opacity-20 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.25), transparent 70%)' }} />
+
+              <div className="relative grid grid-cols-2 gap-6">
+                <div className="flex flex-col gap-6">
+                  <div className="relative h-64 md:h-72 rounded-[28px] overflow-hidden group shadow-2xl ring-1 ring-white/[0.06]">
+                    <Image src="/images/support/IMG_6225.JPG" alt="Cottage exterior" fill className="object-cover group-hover:scale-110 transition-transform duration-[1.8s] ease-out" sizes="300px" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  </div>
+                  <div className="relative h-72 md:h-96 rounded-[28px] overflow-hidden group shadow-2xl ring-1 ring-white/[0.06]">
+                    <Image src="/images/support/IMG_6237.JPG" alt="Room interior" fill className="object-cover group-hover:scale-110 transition-transform duration-[1.8s] ease-out" sizes="300px" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-6 pt-16">
+                  <div className="relative h-72 md:h-96 rounded-[28px] overflow-hidden group shadow-2xl ring-1 ring-white/[0.06]">
+                    <Image src="/images/support/IMG_6226.JPG" alt="Pool area" fill className="object-cover group-hover:scale-110 transition-transform duration-[1.8s] ease-out" sizes="300px" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  </div>
+                  <div className="relative h-64 md:h-72 rounded-[28px] overflow-hidden group shadow-2xl ring-1 ring-white/[0.06]">
+                    <Image src="/images/support/IMG_6239.JPG" alt="Garden view" fill className="object-cover group-hover:scale-110 transition-transform duration-[1.8s] ease-out" sizes="300px" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -85,33 +128,165 @@ export default function AboutPage() {
       </section>
 
       {/* Facilities Grid */}
-      <section className="section-padding" style={{ background: 'var(--dark-900)' }}>
-        <div className="container-premium space-y-20">
-          <SectionHeader subtitle="World-Class Amenities" title="Facilities & Services" description="Everything you need for a perfect stay — from poolside relaxation to gourmet dining." />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <section className="relative overflow-hidden w-full" style={{ background: 'var(--dark-900)', paddingTop: '100px', paddingBottom: '100px', isolation: 'isolate' }}>
+        {/* Ambient glow */}
+        <div className="absolute pointer-events-none" style={{ top: '10%', right: '10%', width: '450px', height: '450px', borderRadius: '9999px', filter: 'blur(140px)', opacity: 0.08, background: 'radial-gradient(circle, #D4AF37, transparent 70%)' }} />
+        <div className="container-premium space-y-20 relative">
+          <SectionHeader subtitle="World-Class Amenities" title="Facilities & Services" description="Everything you need for a perfect stay — from poolside relaxation to gourmet dining." />  &nbsp;&nbsp;&nbsp;
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-stretch">
             {highlights.map(({ icon: Icon, title, desc }, i) => (
-              <motion.div key={title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="p-8 rounded-md text-center transition-all duration-500 hover:bg-white/5 group" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.03)' }}>
-                <Icon size={32} strokeWidth={1} className="mx-auto mb-6 transition-colors duration-500 group-hover:text-gold-400" style={{ color: 'rgba(16,185,129,0.6)' }} />
-                <h3 className="text-sm font-medium tracking-widest uppercase text-white mb-3">{title}</h3>
-                <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(224,231,228,0.5)' }}>{desc}</p>
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative flex flex-col items-center text-center h-full"
+                style={{
+                  padding: '40px 24px 32px',
+                  borderRadius: '24px',
+                  background: 'linear-gradient(160deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.005) 100%)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  transition: 'all 0.5s cubic-bezier(0.16,1,0.3,1)',
+                }}
+              >
+                {/* Icon badge with double ring */}
+                <div className="relative flex items-center justify-center mb-7" style={{ width: '72px', height: '72px' }}>
+                  <div
+                    className="absolute inset-0 rounded-full transition-all duration-700 group-hover:scale-110"
+                    style={{ border: '1px solid rgba(212,175,55,0.25)' }}
+                  />
+                  <div
+                    className="absolute rounded-full transition-all duration-700 group-hover:rotate-180"
+                    style={{ inset: '6px', border: '1px dashed rgba(56,148,237,0.35)' }}
+                  />
+                  <div
+                    className="relative flex items-center justify-center rounded-full transition-all duration-500 group-hover:scale-105"
+                    style={{ width: '48px', height: '48px', background: 'rgba(255,255,255,0.03)' }}
+                  >
+                    <Icon size={22} strokeWidth={1.25} className="transition-colors duration-500" style={{ color: 'rgba(96,165,250,0.85)' }} />
+                  </div>
+                </div>
+                <h3 className="text-sm font-medium tracking-[0.15em] uppercase text-white mb-3">{title}</h3>
+                {/* Expanding gold divider */}
+                <span
+                  className="transition-all duration-500 group-hover:w-10"
+                  style={{ width: '20px', height: '1px', background: '#D4AF37', opacity: 0.6, marginBottom: '14px' }}
+                />
+                <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(224,231,228,0.45)' }}>{desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Detailed Amenities */}
-      <section className="section-padding" style={{ background: 'var(--dark-800)' }}>
-        <div className="container-premium space-y-20">
-          <SectionHeader subtitle="Complete List" title="All Amenities & Services" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Detailed Amenities — fully self-contained, no external class dependencies */}
+      <section
+        className="relative overflow-hidden"
+        style={{
+          background: '#0a0d0b',
+          paddingTop: '120px',
+          paddingBottom: '120px',
+          isolation: 'isolate', // creates a new stacking context so nothing from other sections bleeds in
+        }}
+      >
+        {/* Ambient background glow */}
+        <div
+          className="absolute pointer-events-none"
+          style={{ top: '33%', left: '25%', width: '500px', height: '500px', borderRadius: '9999px', filter: 'blur(150px)', opacity: 0.1, background: 'radial-gradient(circle, #D4AF37, transparent 70%)' }}
+        />
+        <div
+          className="absolute pointer-events-none"
+          style={{ bottom: 0, right: '25%', width: '400px', height: '400px', borderRadius: '9999px', filter: 'blur(150px)', opacity: 0.1, background: 'radial-gradient(circle, #10b981, transparent 70%)' }}
+        />
+
+        <div className="container-premium relative">
+          {/* Header */}
+          <div className="text-center" style={{ marginBottom: '80px' }}>
+            <div className="flex items-center justify-center" style={{ gap: '12px', marginBottom: '20px' }}>
+              <span style={{ width: '32px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
+              <p style={{ fontSize: '12px', letterSpacing: '0.5em', textTransform: 'uppercase', fontWeight: 500, color: 'rgba(16,185,129,0.85)', margin: 0, marginRight: '-0.5em' }}>
+                Complete List
+              </p>
+              <span style={{ width: '32px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
+            </div>
+            <h2 className="font-serif" style={{ fontSize: '48px', fontWeight: 400, color: '#ffffff', letterSpacing: '0.01em', margin: 0 }}>
+              All Amenities &amp; Services
+            </h2>
+          </div>
+
+          {/* Grid — items-stretch guarantees equal card heights per row */}
+          <div
+            className="grid items-stretch"
+            style={{
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+              gap: '32px',
+            }}
+          >
             {amenityCategories.map((cat, i) => (
-              <motion.div key={cat.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="p-8 rounded-md" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.03)' }}>
-                <h3 className="font-serif text-2xl font-normal text-white mb-8 tracking-wide">{cat.title}</h3>
-                <ul className="space-y-4">
+              <motion.div
+                key={cat.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative flex flex-col"
+                style={{
+                  height: '100%',
+                  padding: '32px',
+                  borderRadius: '28px',
+                  background: 'linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
+                  transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1)',
+                }}
+              >
+                {/* Gold hover glow ring */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
+                  style={{
+                    borderRadius: '28px',
+                    transition: 'opacity 0.5s',
+                    boxShadow: '0 0 0 1px rgba(212,175,55,0.35), 0 20px 40px rgba(212,175,55,0.08)',
+                  }}
+                />
+
+                {/* Header row: gold line + index number, same baseline, no overlap */}
+                <div className="relative flex items-center justify-between" style={{ marginBottom: '24px' }}>
+                  <div
+                    className="transition-all duration-500 group-hover:w-16"
+                    style={{ width: '48px', height: '1px', background: 'linear-gradient(90deg, #D4AF37, transparent)' }}
+                  />
+                  <span style={{ fontSize: '12px', fontWeight: 300, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.15)' }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                <h3
+                  className="font-serif relative"
+                  style={{ fontSize: '26px', fontWeight: 400, color: '#ffffff', letterSpacing: '0.02em', marginBottom: '32px' }}
+                >
+                  {cat.title}
+                </h3>
+
+                <ul className="relative" style={{ display: 'flex', flexDirection: 'column', gap: '16px', listStyle: 'none', padding: 0, margin: 0 }}>
                   {cat.items.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm font-light" style={{ color: 'rgba(224,231,228,0.6)' }}>
-                      <Check size={16} style={{ color: 'rgba(16,185,129,0.5)' }} /> {item}
+                    <li
+                      key={item}
+                      className="flex items-center transition-colors duration-300 group-hover:text-white/80"
+                      style={{ gap: '12px', fontSize: '14px', fontWeight: 300, color: 'rgba(224,231,228,0.55)' }}
+                    >
+                      <span
+                        className="flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-110"
+                        style={{ width: '20px', height: '20px', borderRadius: '9999px', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)' }}
+                      >
+                        <Check size={11} strokeWidth={2.5} style={{ color: '#D4AF37' }} />
+                      </span>
+                      {item}
                     </li>
                   ))}
                 </ul>
@@ -121,19 +296,116 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding" style={{ background: 'var(--dark-900)' }}>
+
+
+      {/* CTA — $10K Luxury Banner */}
+      <section style={{ background: 'var(--dark-900)', paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="container-premium">
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }} className="relative p-16 md:p-24 rounded-md overflow-hidden text-center group">
-            <Image src="/images/hero/hero-1.jpg" alt="Book Now" fill className="object-cover opacity-20 group-hover:scale-105 transition-transform duration-[3s] ease-out" sizes="100vw" />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(6,78,59,0.8), rgba(10,15,13,0.9))' }} />
-            <div className="relative z-10">
-              <p className="text-xs tracking-[0.5em] uppercase mb-6 font-medium" style={{ color: 'rgba(16,185,129,0.8)' }}>Ready to Experience?</p>
-              <h2 className="font-serif text-4xl md:text-6xl font-normal text-white mb-8 tracking-wide">Book Your Safari Stay</h2>
-              <p className="text-base font-light max-w-xl mx-auto mb-12 leading-loose" style={{ color: 'rgba(224,231,228,0.6)' }}>Couples rated it 9.8 for a two-person trip. Start your bespoke adventure today.</p>
-              <a href="https://www.booking.com/hotel/lk/jungle-safari-cottage-udawalawa.en-gb.html" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3">
-                Reserve Now <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </a>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative overflow-hidden group"
+            style={{
+              borderRadius: '40px',
+              padding: '0',
+              minHeight: '520px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {/* Background Image — high visibility */}
+            <Image
+              src="/images/support/5e7b36fc-cc22-4760-aaf9-bc0652d9042e.JPG"
+              alt="Emerald Haven Safari Lodge"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-[4s] ease-out"
+              sizes="100vw"
+              quality={90}
+            />
+
+            {/* Cinematic gradient overlay */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,15,13,0.3) 0%, rgba(10,15,13,0.55) 40%, rgba(10,15,13,0.85) 100%)' }} />
+
+            {/* Decorative gold corner accents */}
+            <div className="absolute top-8 left-8 w-16 h-16 pointer-events-none" style={{ borderTop: '1px solid rgba(212,175,55,0.4)', borderLeft: '1px solid rgba(212,175,55,0.4)' }} />
+            <div className="absolute top-8 right-8 w-16 h-16 pointer-events-none" style={{ borderTop: '1px solid rgba(212,175,55,0.4)', borderRight: '1px solid rgba(212,175,55,0.4)' }} />
+            <div className="absolute bottom-8 left-8 w-16 h-16 pointer-events-none" style={{ borderBottom: '1px solid rgba(212,175,55,0.4)', borderLeft: '1px solid rgba(212,175,55,0.4)' }} />
+            <div className="absolute bottom-8 right-8 w-16 h-16 pointer-events-none" style={{ borderBottom: '1px solid rgba(212,175,55,0.4)', borderRight: '1px solid rgba(212,175,55,0.4)' }} />
+
+            {/* Ambient gold glow */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none" style={{ borderRadius: '9999px', filter: 'blur(120px)', opacity: 0.12, background: 'radial-gradient(circle, #D4AF37, transparent 70%)' }} />
+
+            {/* Content */}
+            <div className="relative z-10 text-center px-8 py-20 md:py-28 max-w-3xl mx-auto">
+              {/* Star rating row */}
+              <div className="flex items-center justify-center gap-2 mb-8">
+                <div className="flex items-center gap-1.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="#D4AF37" strokeWidth={0} style={{ color: '#D4AF37' }} />
+                  ))}
+                </div>
+                <span className="ml-2 text-xs font-medium tracking-[0.2em] uppercase px-3 py-1.5 rounded-md" style={{ color: '#fff', background: 'rgba(16,185,129,0.15)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid rgba(16,185,129,0.25)' }}>9.7 / 10 Exceptional</span>
+              </div>
+
+              {/* Subtitle */}
+              <p className="text-xs tracking-[0.5em] uppercase mb-6 font-medium" style={{ color: 'rgba(16,185,129,0.85)' }}>Ready to Experience?</p>
+
+              {/* Main heading */}
+              <h2 className="font-serif text-5xl md:text-7xl font-normal text-white mb-6 tracking-wide leading-[1.1]">
+                Book Your Safari Stay
+              </h2>
+
+              {/* Elegant gold divider */}
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <span style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.6))' }} />
+                <span style={{ width: '8px', height: '8px', borderRadius: '9999px', border: '1px solid rgba(212,175,55,0.5)', background: 'rgba(212,175,55,0.15)' }} />
+                <span style={{ width: '60px', height: '1px', background: 'linear-gradient(270deg, transparent, rgba(212,175,55,0.6))' }} />
+              </div>
+
+              {/* Description */}
+              <p className="text-base md:text-lg font-light max-w-xl mx-auto mb-12 leading-relaxed" style={{ color: 'rgba(224,231,228,0.7)' }}>
+                Immerse yourself in the wild beauty of Udawalawa. Your private safari retreat awaits.
+              </p>
+
+              {/* Dual button row */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+                {/* Primary gold CTA */}
+                <a
+                  href="https://www.booking.com/hotel/lk/jungle-safari-cottage-udawalawa.en-gb.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-500 hover:scale-105"
+                  style={{
+                    padding: '18px 44px',
+                    borderRadius: '9999px',
+                    background: 'linear-gradient(135deg, #D4AF37, #c9a227)',
+                    color: '#0a0f0d',
+                    boxShadow: '0 8px 30px rgba(212,175,55,0.3)',
+                  }}
+                >
+                  Reserve Now <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </a>
+
+                {/* Ghost / outline button */}
+                <a
+                  href="/rooms"
+                  className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.15em] font-medium transition-all duration-500 hover:scale-105"
+                  style={{
+                    padding: '18px 44px',
+                    borderRadius: '9999px',
+                    background: 'rgba(255,255,255,0.04)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    color: 'rgba(255,255,255,0.85)',
+                  }}
+                >
+                  Explore Rooms
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

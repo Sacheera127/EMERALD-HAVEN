@@ -31,7 +31,7 @@ const facilities = [
 const rooms = [
   { name: 'Safari Family Cottage', img: '/images/support/IMG_6227.JPG', desc: 'Spacious cottage with private bathroom, garden view, balcony & terrace.', guests: '4 Guests', size: '45 m²' },
   { name: 'Deluxe Garden Room', img: '/images/support/IMG_6241.JPG', desc: 'Air-conditioned room with lush garden views and modern amenities.', guests: '2 Guests', size: '35 m²' },
-  { name: 'Premium Pool Suite', img: '/images/support/IMG_6226.JPG', desc: 'Premium suite with direct pool access, sun terrace & luxury furnishings.', guests: '3 Guests', size: '50 m²' },
+  { name: 'Premium Full Package ', img: '/images/support/IMG_6226.JPG', desc: 'Premium suite with direct pool access, sun terrace & luxury furnishings.', guests: '3 Guests', size: '50 m²' },
 ];
 
 const reviews = [
@@ -153,7 +153,7 @@ function RoomsSection() {
   return (
     <section className="section-padding" style={{ background: 'var(--dark-800)' }}>
       <div className="container-premium">
-        <SectionHeader subtitle="Luxury Stays" title="Rooms & Cottages" description="Each sanctuary features private bathrooms, air-conditioning, garden views, and a dedicated terrace." />
+        <SectionHeader subtitle="Luxury Stays" title="Cottages & Glampings" description="Each sanctuary features private bathrooms, air-conditioning, garden views, and a dedicated terrace." />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12" style={{ marginTop: '90px' }}>
           {rooms.map((room, i) => (
             <motion.div key={room.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col group">
@@ -192,7 +192,6 @@ function RoomsSection() {
     </section>
   );
 }
-
 function SafariServicesSection() {
   const safariCards = [
     { title: 'Morning Safari', desc: 'Witness the jungle come alive at sunrise', img: '/images/collection/img_60.JPG' },
@@ -258,8 +257,8 @@ export default function Home() {
       <HeroSection />
       <FacilitiesBar />
       <VideoSection />
-      <SafariServicesSection />
       <RoomsSection />
+      <SafariServicesSection />
       <ReviewsSection />
     </div>
   );

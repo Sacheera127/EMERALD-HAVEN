@@ -5,16 +5,16 @@ import WhatsAppFAB from './components/WhatsAppFAB';
 import Loader from './components/Loader';
 
 export const metadata = {
-  title: 'Emerald Haven Safari Cottages | Premium Safari Stay in Udawalawa, Sri Lanka',
+  title: 'Emerald Haven',
   description: 'Experience luxury safari cottages in Udawalawa, Sri Lanka. Rated 9.7/10 Exceptional. Family rooms with private bathrooms, outdoor pool, restaurant, and unforgettable safari experiences near Udawalawa National Park.',
   keywords: 'Udawalawa hotel, safari cottages, Sri Lanka accommodation, Udawalawa National Park, luxury cottages, safari lodge, wildlife hotel, Emerald Haven',
-  authors: [{ name: 'Emerald Haven Safari Cottages' }],
+  authors: [{ name: 'Emerald Haven' }],
   openGraph: {
-    title: 'Emerald Haven Safari Cottages | Udawalawa, Sri Lanka',
+    title: 'Emerald Haven',
     description: 'Premium safari cottages rated 9.7/10 Exceptional. Located 16km from Udawalawa National Park with outdoor pool, restaurant, and world-class facilities.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'Emerald Haven Safari Cottages',
+    siteName: 'Emerald Haven',
   },
   twitter: {
     card: 'summary_large_image',

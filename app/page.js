@@ -147,35 +147,7 @@ function VideoSection() {
   );
 }
 
-function SafariServicesSection() {
-  const safariCards = [
-    { title: 'Morning Safari', desc: 'Witness the jungle come alive at sunrise', img: '/images/collection/img_60.JPG' },
-    { title: 'Afternoon Safari', desc: 'Golden hour drives for perfect wildlife photography', img: '/images/collection/IMG_6264.JPG' },
-    { title: 'Full Day Safari', desc: 'Immersive all-day experience deep in the park', img: '/images/collection/a9b7d1c6-97e2-4bc1-a7fc-f9dc165bd4ef.JPG' },
-  ];
 
-  return (
-    <section className="section-padding" style={{ background: 'var(--dark-900)' }}>
-      <div className="container-premium">
-        <SectionHeader subtitle="Wildlife Encounters" title="Udawalawa Safaris" description="We arrange expert-guided 4x4 jeep safaris directly from the property, ensuring an uninterrupted journey into the wild." />
-        <div className="grid md:grid-cols-3 gap-10" style={{ marginTop: '90px' }}>
-          {safariCards.map((card, i) => (
-            <motion.div key={card.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="group relative rounded-md overflow-hidden aspect-[3/4] cursor-pointer">
-              <Image src={card.img} alt={card.title} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
-              <div className="absolute inset-0 transition-opacity duration-700" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(10,15,13,0.95) 100%)' }} />
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-out">
-                  <h3 className="font-serif text-3xl font-normal text-white mb-3 tracking-wide">{card.title}</h3>
-                  <p className="text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100 leading-relaxed" style={{ color: 'rgba(224,231,228,0.6)' }}>{card.desc}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function RoomsSection() {
   return (
@@ -211,6 +183,36 @@ function RoomsSection() {
                     <span className="text-sm uppercase tracking-widest font-bold text-white">Discover</span>
                     <ArrowRight size={16} className="text-white transition-transform duration-500 group-hover:translate-x-1" />
                   </Link>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SafariServicesSection() {
+  const safariCards = [
+    { title: 'Morning Safari', desc: 'Witness the jungle come alive at sunrise', img: '/images/collection/img_60.JPG' },
+    { title: 'Afternoon Safari', desc: 'Golden hour drives for perfect wildlife photography', img: '/images/collection/IMG_6264.JPG' },
+    { title: 'Full Day Safari', desc: 'Immersive all-day experience deep in the park', img: '/images/collection/a9b7d1c6-97e2-4bc1-a7fc-f9dc165bd4ef.JPG' },
+  ];
+
+  return (
+    <section className="section-padding" style={{ background: 'var(--dark-900)' }}>
+      <div className="container-premium">
+        <SectionHeader subtitle="Wildlife Encounters" title="Udawalawa Safaris" description="We arrange expert-guided 4x4 jeep safaris directly from the property, ensuring an uninterrupted journey into the wild." />
+        <div className="grid md:grid-cols-3 gap-10" style={{ marginTop: '90px' }}>
+          {safariCards.map((card, i) => (
+            <motion.div key={card.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="group relative rounded-md overflow-hidden aspect-[3/4] cursor-pointer">
+              <Image src={card.img} alt={card.title} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
+              <div className="absolute inset-0 transition-opacity duration-700" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(10,15,13,0.95) 100%)' }} />
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-out">
+                  <h3 className="font-serif text-3xl font-normal text-white mb-3 tracking-wide">{card.title}</h3>
+                  <p className="text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100 leading-relaxed" style={{ color: 'rgba(224,231,228,0.6)' }}>{card.desc}</p>
                 </div>
               </div>
             </motion.div>

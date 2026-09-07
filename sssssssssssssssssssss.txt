@@ -1,0 +1,30 @@
+Target: The `VideoSection` component (inside `app/page.js` or its respective file).
+
+Action: We need to add a premium Mute/Unmute toggle button to the autoplaying video to bypass browser autoplay policies gracefully. 
+
+Please make these exact logical and structural changes:
+
+1. Ensure Client Component: Ensure `"use client";` is at the very top of the file since we need state.
+2. Imports: Import `useState` and `useRef` from 'react'. Import `Volume2` and `VolumeX` from `lucide-react`.
+3. State & Ref: Inside the `VideoSection` function, add:
+   `const [isMuted, setIsMuted] = useState(true);`
+   `const videoRef = useRef(null);`
+4. Update Video Tag: Attach the ref and bind the muted state to the existing `<video>` element:
+   `<video ref={videoRef} muted={isMuted} autoPlay loop playsInline ... >`
+5. Toggle Function: Create a simple toggle handler:
+   `const toggleSound = () => setIsMuted(!isMuted);`
+6. The Premium UI Button: Add this exact button OVERLAY inside the relative video container (place it at the bottom-right, distinct from the left-side text):
+
+<button
+  onClick={toggleSound}
+  className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-20 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 transition-all duration-500 hover:bg-white/20 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] group"
+  aria-label="Toggle sound"
+>
+  {isMuted ? (
+    <VolumeX size={20} className="text-white/80 group-hover:text-white transition-colors" />
+  ) : (
+    <Volume2 size={20} className="text-white group-hover:text-[#D4AF37] transition-colors" />
+  )}
+</button>
+
+Rule: DIRECTLY edit the file and save. Ensure the button doesn't overlap with existing text in the VideoSection.

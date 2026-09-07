@@ -71,7 +71,7 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-6">
-              <a href="https://www.booking.com/hotel/lk/jungle-safari-cottage-udawalawa.en-gb.html" target="_blank" rel="noopener noreferrer" className="btn-book hidden md:block">
+              <a href="https://www.airbnb.co.uk/rooms/1558405581828587637?guests=1&adults=1&s=67&unique_share_id=e4819430-6264-4d66-a125-5e20a2fe6dab" target="_blank" rel="noopener noreferrer" className="btn-book hidden md:block">
                 Book Now
               </a>
               

@@ -73,15 +73,47 @@ function HeroSection() {
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 1 }} className="font-serif text-5xl md:text-7xl lg:text-[80px] font-normal mb-8 text-white leading-[1.1] tracking-wide">
             Emerald Haven<br />
-            <span style={{ background: 'linear-gradient(135deg, #dfc067, #ebd17a, #dfc067)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Safari Cottages & Glampings</span>
+            <span style={{ background: 'linear-gradient(135deg, #dfc067, #ebd17a, #dfc067)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Safari Cottages & Glampings &nbsp;&nbsp;&nbsp;</span>
           </motion.h1>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4, duration: 0.8 }} className="flex flex-col sm:flex-row items-center justify-center gap-6" style={{ marginTop: '40px' }}>
-            <a href="https://www.booking.com/hotel/lk/jungle-safari-cottage-udawalawa.en-gb.html" target="_blank" rel="noopener noreferrer" className="btn-book" id="hero-book-now">Reserve Your Stay</a>
-            <Link href="/rooms" className="text-sm font-light tracking-widest uppercase transition-all duration-300 hover:text-emerald-400" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          <div>&nbsp;&nbsp;&nbsp;
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 1 }} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
+            {/* Primary gold CTA */}&nbsp;&nbsp;&nbsp;
+            <a
+              href="https://www.airbnb.co.uk/rooms/1558405581828587637?guests=1&adults=1&s=67&unique_share_id=e4819430-6264-4d66-a125-5e20a2fe6dab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-500 hover:scale-105"
+              style={{
+                padding: '18px 44px',
+                borderRadius: '9999px',
+                background: 'linear-gradient(135deg, #D4AF37, #c9a227)',
+                color: '#0a0f0d',
+                boxShadow: '0 8px 30px rgba(212,175,55,0.3)',
+              }}
+            >
+              Reserve Your Stay <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </a>
+
+            {/* Ghost / outline button */}
+            <a
+              href="/rooms"
+              className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.15em] font-medium transition-all duration-500 hover:scale-105"
+              style={{
+                padding: '18px 44px',
+                borderRadius: '9999px',
+                background: 'rgba(255,255,255,0.04)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                color: 'rgba(255,255,255,0.85)',
+              }}
+            >
               Explore Rooms
-            </Link>
+            </a>
           </motion.div>
+          </div>
         </div>
+        
       </motion.div>
 
       <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 opacity-50">
@@ -251,6 +283,8 @@ function ReviewsSection() {
   );
 }
 
+
+
 export default function Home() {
   return (
     <div className="page-transition">
@@ -260,6 +294,7 @@ export default function Home() {
       <RoomsSection />
       <SafariServicesSection />
       <ReviewsSection />
+      
     </div>
   );
 }

@@ -6,15 +6,8 @@ import { MapPin, Mail, Phone, Clock } from 'lucide-react';
 
 /* ═══════════════════════════════════════════════════════════
    EMERALD HAVEN — Premium Safari Lodge Footer
-   
-   Grid structure (desktop):
-   ┌─────────────┬───────┬──────────┬──────────┐
-   │  Brand (4)  │ Ex(2) │ Serv(3)  │ Cont(3)  │
-   │  col 1–4    │ 5–6   │ 7–9      │ 10–12    │
-   └─────────────┴───────┴──────────┴──────────┘
-   
-   To adjust widths later, change the lg:col-span-X values.
-   They must always add up to 12.
+   Grid structure (desktop): Brand(4) | Explore(2) | Services(3) | Contact(3)
+   Alignment/grid untouched — visual polish only.
    ═══════════════════════════════════════════════════════════ */
 
 const quickLinks = [
@@ -60,25 +53,29 @@ const socials = [
 
 function ColumnHeader({ children }) {
   return (
-    <h4
-      className="text-[11px] font-semibold uppercase text-white/60 mb-7"
-      style={{ letterSpacing: '0.25em', color: 'rgba(212,175,55,0.75)' }}
-    >
-      {children}
-    </h4>
+    <div className="flex items-center gap-3 mb-7">
+      <span style={{ width: '14px', height: '1px', background: 'rgba(212,175,55,0.5)' }} />
+      <h4
+        className="text-[11px] font-semibold uppercase"
+        style={{ letterSpacing: '0.25em', color: 'rgba(212,175,55,0.8)' }}
+      >
+        {children}
+      </h4>
+    </div>
   );
 }
 
 function ContactRow({ icon: Icon, children, alignTop = false }) {
   return (
-    <li className={`flex ${alignTop ? 'items-start' : 'items-center'} gap-3.5`}>
+    <li className={`group flex ${alignTop ? 'items-start' : 'items-center'} gap-3.5`}>
       <span
-        className="flex items-center justify-center shrink-0 rounded-full"
+        className="flex items-center justify-center shrink-0 rounded-full transition-all duration-500 group-hover:scale-105"
         style={{
-          width: '30px',
-          height: '30px',
-          background: 'rgba(212,175,55,0.08)',
-          border: '1px solid rgba(212,175,55,0.25)',
+          width: '32px',
+          height: '32px',
+          background: 'radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.02) 100%)',
+          border: '1px solid rgba(212,175,55,0.28)',
+          boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.03)',
         }}
       >
         <Icon size={13} strokeWidth={1.5} style={{ color: '#D4AF37' }} />
@@ -93,94 +90,74 @@ function ContactRow({ icon: Icon, children, alignTop = false }) {
 export default function Footer() {
   return (
     <footer
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden mt-[100px] rounded-t-[40px] lg:rounded-t-[80px] border-t border-x border-[#D4AF37]/15 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
       style={{
-        background: 'linear-gradient(180deg, #05100c, #020705)',
+        background: 'linear-gradient(180deg, #05100c 0%, #030a07 55%, #020705 100%)',
         isolation: 'isolate',
       }}
     >
-      {/* ── Ambient gold glow (asymmetric, top-left corner) ── */}
+      {/* ── Ambient gold glow, top-left ── */}
       <div
         className="absolute pointer-events-none"
         style={{
-          top: '-8%',
-          left: '8%',
-          width: '500px',
-          height: '500px',
-          borderRadius: '9999px',
-          filter: 'blur(160px)',
-          opacity: 0.04,
+          top: '-8%', left: '8%', width: '500px', height: '500px',
+          borderRadius: '9999px', filter: 'blur(160px)', opacity: 0.05,
           background: 'radial-gradient(circle, #D4AF37, transparent 70%)',
         }}
       />
-
-      {/* ── Centering Container ── */}
+      {/* ── Secondary emerald glow, bottom-right — adds depth without symmetry ── */}
       <div
-        className="relative w-full px-8 pt-20 pb-10"
-        style={{ maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto' }}
+        className="absolute pointer-events-none"
+        style={{
+          bottom: '-10%', right: '5%', width: '420px', height: '420px',
+          borderRadius: '9999px', filter: 'blur(150px)', opacity: 0.035,
+          background: 'radial-gradient(circle, #10b981, transparent 70%)',
+        }}
+      />
+      {/* ── Hairline top border with soft gold fade at center ── */}
+      <div
+        className="absolute top-0 left-0 w-full pointer-events-none"
+        style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent)' }}
+      />
+
+      <div
+        className="relative w-full px-8 md:px-[72px] lg:px-[88px]"
+        style={{ maxWidth: '1280px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '130px', paddingBottom: '40px' }}
       >
-        {/* ════════════════════════════════════════════════
-            12-COLUMN GRID
-            Mobile: 1 col → Tablet: 2 cols → Desktop: 12 cols
-            Brand=4 | Explore=2 | Services=3 | Contact=3
-           ════════════════════════════════════════════════ */}
-        <div
-          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 items-start gap-x-8 gap-y-12 mb-16"
-        >
-          {/* ━━━━━ BRAND COLUMN (cols 1–4) ━━━━━ */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 items-start gap-x-12 gap-y-16 mb-24">
+          {/* ━━━━━ BRAND COLUMN ━━━━━ */}
           <div className="sm:col-span-2 lg:col-span-4 flex flex-col items-start">
-            {/* Logo + Name */}
             <Link href="/" className="inline-flex items-center gap-4 group mb-6">
               <div
                 className="relative shrink-0 overflow-hidden rounded-full transition-all duration-500 group-hover:border-[#D4AF37]/60"
                 style={{
-                  width: '52px',
-                  height: '52px',
+                  width: '72px', height: '72px',
                   border: '1px solid rgba(212,175,55,0.3)',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.04)',
                 }}
               >
-                <Image
-                  src="/images/logo/logo.png"
-                  alt="Emerald Haven"
-                  fill
-                  className="object-cover"
-                  sizes="52px"
-                />
+                <Image src="/images/logo/logo.png" alt="Emerald Haven" fill className="object-cover" sizes="72px" />
               </div>
               <div>
-                <h3
-                  className="font-serif text-xl font-normal tracking-wide text-white leading-tight"
-                >
+                <h3 className="font-serif text-2xl font-normal tracking-wide text-white leading-tight">
                   Emerald Haven
                 </h3>
                 <p
-                  className="text-[9px] uppercase"
-                  style={{
-                    letterSpacing: '0.4em',
-                    color: 'rgba(212,175,55,0.75)',
-                    marginTop: '4px',
-                  }}
+                  className="text-[10px] uppercase font-medium"
+                  style={{ letterSpacing: '0.45em', color: 'rgba(212,175,55,0.85)', marginTop: '6px' }}
                 >
                   Safari Cottages
                 </p>
               </div>
             </Link>
 
-            {/* Description */}
             <p
-              className="text-sm font-light leading-relaxed"
-              style={{
-                color: 'rgba(224,231,228,0.5)',
-                maxWidth: '320px',
-                marginBottom: '28px',
-              }}
+              className="text-base font-light leading-relaxed"
+              style={{ color: 'rgba(224,231,228,0.6)', maxWidth: '340px', marginBottom: '36px' }}
             >
-              Experience the untamed beauty of Udawalawa with bespoke safari
-              cottages nestled in nature. Rated 9.7/10 — Exceptional by our
-              guests.
+              Experience the untamed beauty of Udawalawa with bespoke safari cottages nestled in nature. Rated 9.7/10 — Exceptional by our guests.
             </p>
 
-            {/* Social Icons */}
             <div className="flex items-center gap-3">
               {socials.map((s, idx) => (
                 <a
@@ -189,21 +166,21 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="group flex items-center justify-center rounded-full transition-all duration-500 hover:-translate-y-0.5"
+                  className="group flex items-center justify-center rounded-full transition-all duration-500 hover:-translate-y-1"
                   style={{
-                    width: '36px',
-                    height: '36px',
-                    background: 'rgba(255,255,255,0.025)',
+                    width: '44px', height: '44px',
+                    background: 'linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
                     backdropFilter: 'blur(12px)',
                     WebkitBackdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(212,175,55,0.2)',
+                    border: '1px solid rgba(212,175,55,0.22)',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
                   }}
                 >
                   <svg
                     fill="currentColor"
                     viewBox={s.viewBox}
                     className="transition-colors duration-500 group-hover:text-[#D4AF37]"
-                    style={{ width: '13px', height: '13px', color: 'rgba(212,175,55,0.7)' }}
+                    style={{ width: '15px', height: '15px', color: 'rgba(212,175,55,0.8)' }}
                   >
                     <path d={s.path} />
                   </svg>
@@ -212,17 +189,21 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ━━━━━ EXPLORE COLUMN (cols 5–6) ━━━━━ */}
+          {/* ━━━━━ EXPLORE COLUMN ━━━━━ */}
           <div className="lg:col-span-2 flex flex-col items-start">
             <ColumnHeader>Explore</ColumnHeader>
-            <ul className="flex flex-col" style={{ gap: '14px' }}>
+            <ul className="flex flex-col" style={{ gap: '18px' }}>
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm font-light transition-colors duration-300 hover:text-white"
-                    style={{ color: 'rgba(224,231,228,0.55)' }}
+                    className="group relative inline-flex items-center text-[15px] font-light transition-colors duration-300 hover:text-white"
+                    style={{ color: 'rgba(224,231,228,0.6)' }}
                   >
+                    <span
+                      className="absolute -left-0 bottom-[-2px] h-[1px] w-0 transition-all duration-500 group-hover:w-full"
+                      style={{ background: '#D4AF37' }}
+                    />
                     {link.name}
                   </Link>
                 </li>
@@ -230,15 +211,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ━━━━━ SERVICES COLUMN (cols 7–9) ━━━━━ */}
+          {/* ━━━━━ SERVICES COLUMN ━━━━━ */}
           <div className="lg:col-span-3 flex flex-col items-start">
             <ColumnHeader>Services</ColumnHeader>
-            <ul className="flex flex-col" style={{ gap: '14px' }}>
+            <ul className="flex flex-col" style={{ gap: '18px' }}>
               {services.map((service) => (
                 <li key={service}>
                   <span
-                    className="text-sm font-light transition-colors duration-300 hover:text-white cursor-default"
-                    style={{ color: 'rgba(224,231,228,0.55)' }}
+                    className="text-[15px] font-light transition-colors duration-300 hover:text-white cursor-default"
+                    style={{ color: 'rgba(224,231,228,0.6)' }}
                   >
                     {service}
                   </span>
@@ -247,78 +228,45 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ━━━━━ CONTACT COLUMN (cols 10–12) ━━━━━ */}
+          {/* ━━━━━ CONTACT COLUMN ━━━━━ */}
           <div className="lg:col-span-3 flex flex-col items-start">
             <ColumnHeader>Contact</ColumnHeader>
-            <ul className="flex flex-col" style={{ gap: '16px' }}>
+            <ul className="flex flex-col" style={{ gap: '22px' }}>
               <ContactRow icon={MapPin} alignTop>
-                <span
-                  className="text-sm font-light leading-relaxed"
-                  style={{ color: 'rgba(224,231,228,0.55)', paddingTop: '4px' }}
-                >
-                  No 49/1, Thanamalwila Road,
-                  <br />
-                  Udawalawa, Sri Lanka
+                <span className="text-[15px] font-light leading-relaxed" style={{ color: 'rgba(224,231,228,0.6)', paddingTop: '3px' }}>
+                  No 49/1, Thanamalwila Road,<br />Udawalawa, Sri Lanka
                 </span>
               </ContactRow>
-
               <ContactRow icon={Phone}>
-                <a
-                  href="tel:+94774621521"
-                  className="text-sm font-light transition-colors duration-300 hover:text-white"
-                  style={{ color: 'rgba(224,231,228,0.55)' }}
-                >
+                <a href="tel:+94774621521" className="text-[15px] font-light transition-colors duration-300 hover:text-white" style={{ color: 'rgba(224,231,228,0.6)' }}>
                   +94 77 462 1521
                 </a>
               </ContactRow>
-
               <ContactRow icon={Mail}>
-                <a
-                  href="mailto:emeralhaven.udawalaw@gmail.com"
-                  className="text-sm font-light transition-colors duration-300 hover:text-white"
-                  style={{ color: 'rgba(224,231,228,0.55)' }}
-                >
+                <a href="mailto:emeralhaven.udawalaw@gmail.com" className="text-[15px] font-light transition-colors duration-300 hover:text-white" style={{ color: 'rgba(224,231,228,0.6)' }}>
                   emeralhaven.udawalaw@gmail.com
                 </a>
               </ContactRow>
-
               <ContactRow icon={Clock}>
-                <span
-                  className="text-sm font-light"
-                  style={{ color: 'rgba(224,231,228,0.55)' }}
-                >
-                  24/7 Reception
-                </span>
+                <span className="text-[15px] font-light" style={{ color: 'rgba(224,231,228,0.6)' }}>24/7 Reception</span>
               </ContactRow>
             </ul>
           </div>
         </div>
 
-        {/* ════════════════════════════════════════════════
-            BOTTOM BAR
-           ════════════════════════════════════════════════ */}
+        {/* ════════════ BOTTOM BAR ════════════ */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between"
           style={{
-            borderTop: '1px solid rgba(255,255,255,0.06)',
-            paddingTop: '24px',
-            gap: '12px',
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+            paddingTop: '32px',
+            gap: '16px',
           }}
         >
-          <p
-            className="text-xs font-light tracking-wide"
-            style={{ color: 'rgba(224,231,228,0.35)' }}
-          >
-            © {new Date().getFullYear()} Emerald Haven Safari Cottages. All
-            rights reserved.
+          <p className="text-sm font-light tracking-wide" style={{ color: 'rgba(224,231,228,0.45)' }}>
+            © {new Date().getFullYear()} Emerald Haven Safari Cottages. All rights reserved.
           </p>
-          <p
-            className="text-[10px] font-medium uppercase"
-            style={{
-              letterSpacing: '0.2em',
-              color: 'rgba(224,231,228,0.25)',
-            }}
-          >
+          <p className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(224,231,228,0.35)' }}>
             Udawalawa, Sri Lanka
           </p>
         </div>

@@ -155,7 +155,7 @@ export default function Footer() {
               className="text-base font-light leading-relaxed"
               style={{ color: 'rgba(224,231,228,0.6)', maxWidth: '340px', marginBottom: '60px' ,marginTop: '10px'}}
             >
-              Experience the untamed beauty of Udawalawa with bespoke safari cottages nestled in nature. Rated 9.7/10 — Exceptional by our guests.
+              Your private haven at the edge of the wilderness. Discover Udawalawa’s most exclusive safari escape, celebrated by our guests with a 9.7/10 rating
             </p>
 
             <div className="flex items-center gap-3">
@@ -265,7 +265,7 @@ export default function Footer() {
           }}
         >
           <p className="text-sm font-light tracking-wide" style={{ color: 'rgba(224,231,228,0.45)' }}>
-            © {new Date().getFullYear()} Emerald Haven Safari Cottages. All rights reserved.
+            © {new Date().getFullYear()} Emerald Haven . All rights reserved.
           </p>
           <p className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(224,231,228,0.35)' }}>
             Udawalawa, Sri Lanka

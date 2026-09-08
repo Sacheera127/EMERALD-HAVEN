@@ -53,7 +53,7 @@ const socials = [
 
 function ColumnHeader({ children }) {
   return (
-    <div className="flex items-center gap-3 mb-7">
+    <div className="flex items-center gap-3 mb-11">
       <span style={{ width: '14px', height: '1px', background: 'rgba(212,175,55,0.5)' }} />
       <h4
         className="text-[11px] font-semibold uppercase"
@@ -117,7 +117,7 @@ export default function Footer() {
       {/* ── Hairline top border with soft gold fade at center ── */}
       <div
         className="absolute top-0 left-0 w-full pointer-events-none"
-        style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent)' }}
+        style={{ height: '30px', background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent)' }}
       />
 
       <div
@@ -127,7 +127,7 @@ export default function Footer() {
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 items-start gap-x-12 gap-y-16 mb-24">
           {/* ━━━━━ BRAND COLUMN ━━━━━ */}
           <div className="sm:col-span-2 lg:col-span-4 flex flex-col items-start">
-            <Link href="/" className="inline-flex items-center gap-4 group mb-6">
+            <Link href="/" className="inline-flex items-center gap-4 group mb-[60px]">
               <div
                 className="relative shrink-0 overflow-hidden rounded-full transition-all duration-500 group-hover:border-[#D4AF37]/60"
                 style={{
@@ -146,14 +146,14 @@ export default function Footer() {
                   className="text-[10px] uppercase font-medium"
                   style={{ letterSpacing: '0.45em', color: 'rgba(212,175,55,0.85)', marginTop: '6px' }}
                 >
-                  Safari Cottages
+                  Safari Cottages & Glampings &nbsp;
                 </p>
               </div>
             </Link>
 
             <p
               className="text-base font-light leading-relaxed"
-              style={{ color: 'rgba(224,231,228,0.6)', maxWidth: '340px', marginBottom: '36px' }}
+              style={{ color: 'rgba(224,231,228,0.6)', maxWidth: '340px', marginBottom: '60px' ,marginTop: '10px'}}
             >
               Experience the untamed beauty of Udawalawa with bespoke safari cottages nestled in nature. Rated 9.7/10 — Exceptional by our guests.
             </p>
@@ -192,7 +192,7 @@ export default function Footer() {
           {/* ━━━━━ EXPLORE COLUMN ━━━━━ */}
           <div className="lg:col-span-2 flex flex-col items-start">
             <ColumnHeader>Explore</ColumnHeader>
-            <ul className="flex flex-col" style={{ gap: '18px' }}>
+            <ul className="flex flex-col" style={{ gap: '18px' ,marginTop: '20px' }}>
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -214,7 +214,7 @@ export default function Footer() {
           {/* ━━━━━ SERVICES COLUMN ━━━━━ */}
           <div className="lg:col-span-3 flex flex-col items-start">
             <ColumnHeader>Services</ColumnHeader>
-            <ul className="flex flex-col" style={{ gap: '18px' }}>
+            <ul className="flex flex-col" style={{ gap: '18px' ,marginTop: '20px' }}>
               {services.map((service) => (
                 <li key={service}>
                   <span
@@ -231,7 +231,7 @@ export default function Footer() {
           {/* ━━━━━ CONTACT COLUMN ━━━━━ */}
           <div className="lg:col-span-3 flex flex-col items-start">
             <ColumnHeader>Contact</ColumnHeader>
-            <ul className="flex flex-col" style={{ gap: '22px' }}>
+            <ul className="flex flex-col" style={{ gap: '22px' ,marginTop: '20px' }}>
               <ContactRow icon={MapPin} alignTop>
                 <span className="text-[15px] font-light leading-relaxed" style={{ color: 'rgba(224,231,228,0.6)', paddingTop: '3px' }}>
                   No 49/1, Thanamalwila Road,<br />Udawalawa, Sri Lanka
@@ -260,6 +260,7 @@ export default function Footer() {
           style={{
             borderTop: '1px solid rgba(255,255,255,0.08)',
             paddingTop: '32px',
+            marginTop: '40px',
             gap: '16px',
           }}
         >

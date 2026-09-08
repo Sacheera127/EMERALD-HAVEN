@@ -153,7 +153,7 @@ export default function Footer() {
 
             <p
               className="text-base font-light leading-relaxed"
-              style={{ color: 'rgba(224,231,228,0.6)', maxWidth: '340px', marginBottom: '60px' ,marginTop: '10px'}}
+              style={{ color: 'rgba(224,231,228,0.6)', maxWidth: '340px', marginBottom: '60px', marginTop: '10px' }}
             >
               Your private haven at the edge of the wilderness. Discover Udawalawa’s most exclusive safari escape, celebrated by our guests with a 9.7/10 rating
             </p>
@@ -192,7 +192,7 @@ export default function Footer() {
           {/* ━━━━━ EXPLORE COLUMN ━━━━━ */}
           <div className="lg:col-span-2 flex flex-col items-start">
             <ColumnHeader>Explore</ColumnHeader>
-            <ul className="flex flex-col" style={{ gap: '18px' ,marginTop: '20px' }}>
+            <ul className="flex flex-col" style={{ gap: '18px', marginTop: '20px' }}>
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -214,7 +214,7 @@ export default function Footer() {
           {/* ━━━━━ SERVICES COLUMN ━━━━━ */}
           <div className="lg:col-span-3 flex flex-col items-start">
             <ColumnHeader>Services</ColumnHeader>
-            <ul className="flex flex-col" style={{ gap: '18px' ,marginTop: '20px' }}>
+            <ul className="flex flex-col" style={{ gap: '18px', marginTop: '20px' }}>
               {services.map((service) => (
                 <li key={service}>
                   <span
@@ -231,7 +231,7 @@ export default function Footer() {
           {/* ━━━━━ CONTACT COLUMN ━━━━━ */}
           <div className="lg:col-span-3 flex flex-col items-start">
             <ColumnHeader>Contact</ColumnHeader>
-            <ul className="flex flex-col" style={{ gap: '22px' ,marginTop: '20px' }}>
+            <ul className="flex flex-col" style={{ gap: '22px', marginTop: '20px' }}>
               <ContactRow icon={MapPin} alignTop>
                 <span className="text-[15px] font-light leading-relaxed" style={{ color: 'rgba(224,231,228,0.6)', paddingTop: '3px' }}>
                   No 49/1, Thanamalwila Road,<br />Udawalawa, Sri Lanka
@@ -264,10 +264,10 @@ export default function Footer() {
             gap: '16px',
           }}
         >
-          <p className="text-sm font-light tracking-wide" style={{ color: 'rgba(224,231,228,0.45)' }}>
-            © {new Date().getFullYear()} Emerald Haven . All rights reserved.
+          <p className="text-sm font-light tracking-wide text-center sm:text-left" style={{ color: 'rgba(224,231,228,0.45)' }}>
+            © {new Date().getFullYear()} Emerald Haven Safari Cottages. All rights reserved.
           </p>
-          <p className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(224,231,228,0.35)' }}>
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-center sm:text-right" style={{ color: 'rgba(224,231,228,0.35)' }}>
             Udawalawa, Sri Lanka
           </p>
         </div>

@@ -84,34 +84,122 @@ export default function Navbar() {
         </motion.header>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Overlay — Premium Centered Pill Menu */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
-            className="fixed inset-0 z-[100] glass flex flex-col"
-            style={{ background: 'rgba(10, 15, 13, 0.95)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="fixed inset-0 z-[100] flex flex-col"
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            }}
           >
-            <div className="p-6 flex justify-end border-b border-white/10">
-              <button onClick={() => setIsMobileOpen(false)} className="text-white hover:text-emerald-400">
-                <X size={32} />
+            {/* Close button — top right */}
+            <div className="flex justify-end" style={{ padding: '24px 28px' }}>
+              <button
+                onClick={() => setIsMobileOpen(false)}
+                className="flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                style={{
+                  width: '48px', height: '48px',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(212,175,55,0.25)',
+                }}
+              >
+                <X size={22} strokeWidth={1.5} style={{ color: '#D4AF37' }} />
               </button>
             </div>
-            <nav className="flex-1 p-6 flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <Link key={link.name} href={link.href} onClick={() => setIsMobileOpen(false)} className="text-2xl font-serif text-white hover:text-emerald-400">
-                  {link.name}
-                </Link>
+
+            {/* Centered nav links */}
+            <nav className="flex-1 flex flex-col items-center justify-center" style={{ gap: '14px', padding: '0 32px', marginTop: '-40px' }}>
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, y: 25 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{
+                    delay: 0.1 + i * 0.07,
+                    duration: 0.5,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="w-full flex justify-center"
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileOpen(false)}
+                    className="font-serif text-center transition-all duration-400 hover:scale-[1.03]"
+                    style={{
+                      display: 'block',
+                      width: '80%',
+                      maxWidth: '320px',
+                      padding: '15px 28px',
+                      borderRadius: '50px',
+                      fontSize: '17px',
+                      fontWeight: 400,
+                      letterSpacing: '0.06em',
+                      color: 'rgba(255,255,255,0.8)',
+                      background: 'linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
+                      border: '1px solid rgba(212,175,55,0.2)',
+                      backdropFilter: 'blur(8px)',
+                      WebkitBackdropFilter: 'blur(8px)',
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <div className="mt-8 pt-8 border-t border-white/10">
-                <a href="https://www.booking.com/hotel/lk/jungle-safari-cottage-udawalawa.en-gb.html" target="_blank" rel="noopener noreferrer" className="btn-book text-center w-full block">
+
+              {/* Book Now CTA — solid gold pill */}
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{
+                  delay: 0.1 + navLinks.length * 0.07 + 0.05,
+                  duration: 0.5,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="w-full flex justify-center"
+                style={{ marginTop: '10px' }}
+              >
+                <a
+                  href="https://www.airbnb.co.uk/rooms/1558405581828587637?guests=1&adults=1&s=67&unique_share_id=e4819430-6264-4d66-a125-5e20a2fe6dab"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center font-semibold uppercase transition-all duration-400 hover:scale-[1.03]"
+                  style={{
+                    display: 'block',
+                    width: '80%',
+                    maxWidth: '320px',
+                    padding: '16px 28px',
+                    borderRadius: '50px',
+                    fontSize: '13px',
+                    letterSpacing: '0.2em',
+                    color: '#0a0f0d',
+                    background: 'linear-gradient(135deg, #D4AF37, #c9a227)',
+                    boxShadow: '0 8px 30px rgba(212,175,55,0.25)',
+                  }}
+                >
                   Book Now
                 </a>
-              </div>
+              </motion.div>
             </nav>
+
+            {/* Subtle bottom branding */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="text-center"
+              style={{ padding: '24px 0 36px', color: 'rgba(224,231,228,0.25)' }}
+            >
+              <p className="font-serif text-sm tracking-widest" style={{ color: 'rgba(212,175,55,0.4)' }}>
+                Emerald Haven
+              </p>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

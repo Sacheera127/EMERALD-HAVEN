@@ -314,3 +314,73 @@ body {
   break-inside: avoid;
   margin-bottom: 20px;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER — Mobile Responsive (≤768px only)
+   Centers all content, stacks logo, adds breathing room.
+   Desktop layout is completely untouched.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Center the overall grid and add vertical spacing */
+  .footer-grid {
+    text-align: center;
+    gap: 48px 0 !important;
+  }
+
+  /* Brand column — center everything */
+  .footer-brand {
+    align-items: center !important;
+  }
+
+  /* Logo + brand name — stack vertically, centered */
+  .footer-logo-link {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+    text-align: center;
+    margin-bottom: 32px !important;
+  }
+
+  /* Description paragraph — center and pad */
+  .footer-desc {
+    text-align: center !important;
+    max-width: 100% !important;
+    padding: 0 16px;
+    margin-bottom: 36px !important;
+  }
+
+  /* Social icons — center the row */
+  .footer-socials {
+    justify-content: center !important;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  /* Explore / Services / Contact columns — center align */
+  .footer-col {
+    align-items: center !important;
+    text-align: center;
+  }
+
+  /* Column headers — center the label + decorative line */
+  .footer-col > div:first-child {
+    justify-content: center !important;
+  }
+
+  /* Link lists — center items */
+  .footer-col ul {
+    align-items: center !important;
+    gap: 22px !important;
+  }
+
+  /* Individual links — center the hover underline */
+  .footer-col ul li a {
+    justify-content: center;
+  }
+
+  /* Contact rows — center the icon + text pairs */
+  .footer-col ul li {
+    justify-content: center;
+    text-align: center;
+  }
+}

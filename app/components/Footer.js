@@ -124,10 +124,10 @@ export default function Footer() {
         className="relative w-full px-8 md:px-[72px] lg:px-[88px]"
         style={{ maxWidth: '1280px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '130px', paddingBottom: '40px' }}
       >
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 items-start gap-x-12 gap-y-16 mb-24">
+        <div className="footer-grid w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 items-start gap-x-12 gap-y-16 mb-24">
           {/* ━━━━━ BRAND COLUMN ━━━━━ */}
-          <div className="sm:col-span-2 lg:col-span-4 flex flex-col items-start">
-            <Link href="/" className="inline-flex items-center gap-4 group mb-[60px]">
+          <div className="footer-brand sm:col-span-2 lg:col-span-4 flex flex-col items-start">
+            <Link href="/" className="footer-logo-link inline-flex items-center gap-4 group mb-[60px]">
               <div
                 className="relative shrink-0 overflow-hidden rounded-full transition-all duration-500 group-hover:border-[#D4AF37]/60"
                 style={{
@@ -152,13 +152,13 @@ export default function Footer() {
             </Link>
 
             <p
-              className="text-base font-light leading-relaxed"
+              className="footer-desc text-base font-light leading-relaxed"
               style={{ color: 'rgba(224,231,228,0.6)', maxWidth: '340px', marginBottom: '60px', marginTop: '10px' }}
             >
               Your private haven at the edge of the wilderness. Discover Udawalawa’s most exclusive safari escape, celebrated by our guests with a 9.7/10 rating
             </p>
 
-            <div className="flex items-center gap-3">
+            <div className="footer-socials flex items-center gap-3">
               {socials.map((s, idx) => (
                 <a
                   key={idx}
@@ -190,7 +190,7 @@ export default function Footer() {
           </div>
 
           {/* ━━━━━ EXPLORE COLUMN ━━━━━ */}
-          <div className="lg:col-span-2 flex flex-col items-start">
+          <div className="footer-col lg:col-span-2 flex flex-col items-start">
             <ColumnHeader>Explore</ColumnHeader>
             <ul className="flex flex-col" style={{ gap: '18px', marginTop: '20px' }}>
               {quickLinks.map((link) => (
@@ -212,7 +212,7 @@ export default function Footer() {
           </div>
 
           {/* ━━━━━ SERVICES COLUMN ━━━━━ */}
-          <div className="lg:col-span-3 flex flex-col items-start">
+          <div className="footer-col lg:col-span-3 flex flex-col items-start">
             <ColumnHeader>Services</ColumnHeader>
             <ul className="flex flex-col" style={{ gap: '18px', marginTop: '20px' }}>
               {services.map((service) => (
@@ -229,7 +229,7 @@ export default function Footer() {
           </div>
 
           {/* ━━━━━ CONTACT COLUMN ━━━━━ */}
-          <div className="lg:col-span-3 flex flex-col items-start">
+          <div className="footer-col lg:col-span-3 flex flex-col items-start">
             <ColumnHeader>Contact</ColumnHeader>
             <ul className="flex flex-col" style={{ gap: '22px', marginTop: '20px' }}>
               <ContactRow icon={MapPin} alignTop>

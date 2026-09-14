@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
@@ -207,7 +207,7 @@ function RoomsSection() {
                     <Users size={16} style={{ color: '#10B981' }} />
                     <span className="text-sm uppercase tracking-widest font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>
                       {room.guests}
-                    </span>
+                    </span> 
                   </div>
 
                   {/* Luxury Emerald Glass Button */}
@@ -254,31 +254,278 @@ function SafariServicesSection() {
   );
 }
 
-function ReviewsSection() {
+const AUTOPLAY_INTERVAL = 7000;
+
+/* ── Star rating ─────────────────────────────────────────── */
+function StarRating({ count = 5 }) {
   return (
-    <section className="section-padding relative overflow-hidden" style={{ background: 'var(--dark-900)' }}>
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(201,162,39,1) 0%, transparent 60%)' }} />
-      <div className="container-premium relative z-10 flex flex-col items-center">
-        <SectionHeader subtitle="Guest Stories" title="What Our Guests Say" description="Rated 9.7/10 Exceptional on Booking.com — hear from travelers who made Emerald Haven their home." />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px] max-w-6xl mx-auto w-full" style={{ marginTop: '60px' }}>
-          {reviews.map((review, i) => (
-            <motion.div key={review.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col rounded-3xl cursor-pointer hover:-translate-y-[8px] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', backdropFilter: 'blur(4px)', padding: '40px', transition: 'all 0.4s cubic-bezier(0.25,1,0.5,1)' }}>
-              <Quote size={24} strokeWidth={1.5} style={{ color: 'rgba(212,175,55,0.6)' }} className="mb-6" />
-              <p className="text-lg font-light leading-relaxed flex-1 mb-8" style={{ color: 'rgba(224,231,228,0.7)' }}>"{review.text}"</p>
-              
-              <div className="mt-auto flex items-center gap-4">
-                <div className="w-[48px] h-[48px] rounded-full flex items-center justify-center text-white font-serif text-lg" style={{ background: 'linear-gradient(135deg, rgba(6,78,59,0.9), rgba(4,47,36,0.95))' }}>
-                  {review.name.charAt(0)}
-                </div>
-                <div>
-                  <h4 className="text-sm font-medium text-white tracking-wide">{review.name}</h4>
-                  <p className="text-[10px] font-light uppercase tracking-widest mt-1" style={{ color: 'rgba(224,231,228,0.4)' }}>{review.country}</p>
-                </div>
+    <div className="flex items-center justify-center" style={{ gap: '6px', marginBottom: '28px' }}>
+      {Array.from({ length: count }).map((_, i) => (
+        <Star
+          key={i}
+          size={15}
+          strokeWidth={0}
+          fill="#D4AF37"
+          style={{ filter: 'drop-shadow(0 0 4px rgba(212,175,55,0.35))' }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ── Main Component ──────────────────────────────────────── */
+function ReviewsSection() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const timerRef = useRef(null);
+
+  const total = reviews.length;
+
+  const goTo = useCallback((index) => {
+    setActive(((index % total) + total) % total);
+  }, [total]);
+
+  const next = useCallback(() => goTo(active + 1), [active, goTo]);
+  const prev = useCallback(() => goTo(active - 1), [active, goTo]);
+
+  // Autoplay
+  useEffect(() => {
+    if (paused) return;
+    timerRef.current = setInterval(() => {
+      setActive((curr) => (curr + 1) % total);
+    }, AUTOPLAY_INTERVAL);
+    return () => clearInterval(timerRef.current);
+  }, [paused, total]);
+
+  // Pause + reset timer on any manual interaction
+  const handleManualNav = (fn) => {
+    setPaused(true);
+    fn();
+    clearInterval(timerRef.current);
+    // resume autoplay after a cool-down so it doesn't immediately jump
+    setTimeout(() => setPaused(false), AUTOPLAY_INTERVAL);
+  };
+
+  const review = reviews[active];
+
+  return (
+    <section
+      className="relative w-full overflow-hidden"
+      style={{ background: 'var(--dark-900)', padding: '120px 0', isolation: 'isolate' }}
+    >
+      {/* Ambient center glow */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+          width: '900px', height: '500px', borderRadius: '9999px',
+          filter: 'blur(140px)', opacity: 0.05,
+          background: 'radial-gradient(circle, #D4AF37, transparent 70%)',
+        }}
+      />
+
+      {/* Ghosted side circles — softened, integrated into flow */}
+      <div
+        className="absolute pointer-events-none hidden lg:block"
+        style={{
+          top: '50%', left: '2%', transform: 'translateY(-50%)',
+          width: '340px', height: '340px', borderRadius: '9999px',
+          border: '1px solid rgba(212,175,55,0.08)',
+        }}
+      />
+      <div
+        className="absolute pointer-events-none hidden lg:block"
+        style={{
+          top: '50%', left: '6%', transform: 'translateY(-50%)',
+          width: '220px', height: '220px', borderRadius: '9999px',
+          border: '1px solid rgba(16,185,129,0.06)',
+        }}
+      />
+      <div
+        className="absolute pointer-events-none hidden lg:block"
+        style={{
+          top: '50%', right: '2%', transform: 'translateY(-50%)',
+          width: '340px', height: '340px', borderRadius: '9999px',
+          border: '1px solid rgba(212,175,55,0.08)',
+        }}
+      />
+      <div
+        className="absolute pointer-events-none hidden lg:block"
+        style={{
+          top: '50%', right: '6%', transform: 'translateY(-50%)',
+          width: '220px', height: '220px', borderRadius: '9999px',
+          border: '1px solid rgba(16,185,129,0.06)',
+        }}
+      />
+
+      <div className="relative z-10 container-premium flex flex-col items-center">
+        {/* Header */}
+        <div className="text-center" style={{ marginBottom: '64px' }}>
+          <div className="flex items-center justify-center" style={{ gap: '12px', marginBottom: '18px' }}>
+            <span style={{ width: '32px', height: '1px', background: 'rgba(212,175,55,0.6)' }} />
+            <p style={{ fontSize: '12px', letterSpacing: '0.5em', textTransform: 'uppercase', fontWeight: 500, color: 'rgba(212,175,55,0.85)', margin: 0 }}>
+              Guest Stories
+            </p>
+            <span style={{ width: '32px', height: '1px', background: 'rgba(212,175,55,0.6)' }} />
+          </div>
+          <h2 className="font-serif" style={{ fontSize: '44px', fontWeight: 400, color: '#ffffff', letterSpacing: '0.01em', marginBottom: '18px' }}>
+            What Our Guests Say
+          </h2>
+          <p className="font-light" style={{ fontSize: '14px', color: 'rgba(224,231,228,0.5)', maxWidth: '480px', margin: '0 auto' }}>
+            Rated 9.7/10 Exceptional on Booking.com — hear from travelers who made Emerald Haven their home.
+          </p>
+        </div>
+
+        {/* Central Testimonial Card */}
+        <div
+          className="relative w-full flex items-center justify-center"
+          style={{ maxWidth: '760px' }}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {/* Prev arrow */}
+          <button
+            onClick={() => handleManualNav(prev)}
+            aria-label="Previous review"
+            className="hidden md:flex items-center justify-center transition-all duration-500 hover:scale-110"
+            style={{
+              position: 'absolute', left: '-64px', top: '50%', transform: 'translateY(-50%)',
+              width: '44px', height: '44px', borderRadius: '9999px',
+              border: '1px solid rgba(212,175,55,0.3)',
+              background: 'rgba(255,255,255,0.02)',
+              backdropFilter: 'blur(8px)',
+            }}
+          >
+            <ChevronLeft size={18} strokeWidth={1.5} style={{ color: '#D4AF37' }} />
+          </button>
+
+          {/* Card */}
+          <div
+            key={active}
+            className="relative flex flex-col items-center text-center"
+            style={{
+              width: '100%',
+              padding: '56px 48px',
+              borderRadius: '28px',
+              background: 'linear-gradient(160deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.005) 100%)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(212,175,55,0.15)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.35)',
+              animation: 'fadeSlide 0.9s cubic-bezier(0.16,1,0.3,1)',
+            }}
+          >
+            <Quote
+              size={26}
+              strokeWidth={1.25}
+              fill="rgba(212,175,55,0.12)"
+              style={{ color: '#D4AF37', marginBottom: '24px' }}
+            />
+
+            <StarRating count={review.rating} />
+
+            <p
+              className="font-serif"
+              style={{
+                fontSize: '22px',
+                fontWeight: 400,
+                lineHeight: 1.65,
+                color: 'rgba(230,235,232,0.85)',
+                marginBottom: '36px',
+                maxWidth: '560px',
+              }}
+            >
+              "{review.text}"
+            </p>
+
+            <div className="flex items-center" style={{ gap: '16px' }}>
+              <div
+                className="flex items-center justify-center rounded-full font-serif"
+                style={{
+                  width: '50px', height: '50px', fontSize: '18px', color: '#fff',
+                  background: 'linear-gradient(135deg, rgba(16,185,129,0.35), rgba(6,78,59,0.6))',
+                  border: '1px solid rgba(212,175,55,0.25)',
+                }}
+              >
+                {review.name.charAt(0)}
               </div>
-            </motion.div>
+              <div className="text-left">
+                <h4 className="text-sm font-medium text-white tracking-wide">{review.name}</h4>
+                <p
+                  className="text-[10px] font-light uppercase"
+                  style={{ letterSpacing: '0.2em', color: 'rgba(224,231,228,0.45)', marginTop: '4px' }}
+                >
+                  {review.country}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Next arrow */}
+          <button
+            onClick={() => handleManualNav(next)}
+            aria-label="Next review"
+            className="hidden md:flex items-center justify-center transition-all duration-500 hover:scale-110"
+            style={{
+              position: 'absolute', right: '-64px', top: '50%', transform: 'translateY(-50%)',
+              width: '44px', height: '44px', borderRadius: '9999px',
+              border: '1px solid rgba(212,175,55,0.3)',
+              background: 'rgba(255,255,255,0.02)',
+              backdropFilter: 'blur(8px)',
+            }}
+          >
+            <ChevronRight size={18} strokeWidth={1.5} style={{ color: '#D4AF37' }} />
+          </button>
+        </div>
+
+        {/* Mobile arrows (below card, since side arrows are hidden on mobile) */}
+        <div className="flex md:hidden items-center" style={{ gap: '20px', marginTop: '28px' }}>
+          <button
+            onClick={() => handleManualNav(prev)}
+            aria-label="Previous review"
+            className="flex items-center justify-center"
+            style={{ width: '40px', height: '40px', borderRadius: '9999px', border: '1px solid rgba(212,175,55,0.3)', background: 'rgba(255,255,255,0.02)' }}
+          >
+            <ChevronLeft size={16} strokeWidth={1.5} style={{ color: '#D4AF37' }} />
+          </button>
+          <button
+            onClick={() => handleManualNav(next)}
+            aria-label="Next review"
+            className="flex items-center justify-center"
+            style={{ width: '40px', height: '40px', borderRadius: '9999px', border: '1px solid rgba(212,175,55,0.3)', background: 'rgba(255,255,255,0.02)' }}
+          >
+            <ChevronRight size={16} strokeWidth={1.5} style={{ color: '#D4AF37' }} />
+          </button>
+        </div>
+
+        {/* Pagination dots */}
+        <div className="flex items-center justify-center" style={{ gap: '12px', marginTop: '40px' }}>
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => handleManualNav(() => goTo(i))}
+              aria-label={`Go to review ${i + 1}`}
+              className="transition-all duration-500"
+              style={{
+                width: i === active ? '28px' : '8px',
+                height: '8px',
+                borderRadius: '9999px',
+                background: i === active ? '#10b981' : 'rgba(212,175,55,0.3)',
+                boxShadow: i === active ? '0 0 10px rgba(16,185,129,0.5)' : 'none',
+                cursor: 'pointer',
+                border: 'none',
+              }}
+            />
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeSlide {
+          from { opacity: 0; transform: translateY(14px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 }

@@ -264,10 +264,10 @@ export default function Footer() {
             gap: '16px',
           }}
         >
-          <p className="text-sm font-light tracking-wide text-center sm:text-left" style={{ color: 'rgba(224,231,228,0.45)' }}>
-            © {new Date().getFullYear()} Emerald Haven Safari Cottages. All rights reserved.
+          <p className="text-sm font-light tracking-wide" style={{ color: 'rgba(224,231,228,0.45)' }}>
+            © {new Date().getFullYear()} Emerald Haven . All rights reserved.
           </p>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-center sm:text-right" style={{ color: 'rgba(224,231,228,0.35)' }}>
+          <p className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(224,231,228,0.35)' }}>
             Udawalawa, Sri Lanka
           </p>
         </div>

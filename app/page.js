@@ -273,7 +273,7 @@ function StarRating({ count = 5 }) {
   );
 }
 
-/* ── Main Component ──────────────────────────────────────── */
+/* ── review section Component ──────────────────────────────────────── */
 function ReviewsSection() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -362,11 +362,9 @@ function ReviewsSection() {
         {/* Header */}
         <div className="text-center" style={{ marginBottom: '64px' }}>
           <div className="flex items-center justify-center" style={{ gap: '12px', marginBottom: '18px' }}>
-            <span style={{ width: '32px', height: '1px', background: 'rgba(212,175,55,0.6)' }} />
-            <p style={{ fontSize: '12px', letterSpacing: '0.5em', textTransform: 'uppercase', fontWeight: 500, color: 'rgba(212,175,55,0.85)', margin: 0 }}>
+            <p style={{ fontSize: '12px', letterSpacing: '0.5em', textTransform: 'uppercase', fontWeight: 500, color: 'rgba(16,185,129,0.7)', margin: 0 }}>
               Guest Stories
             </p>
-            <span style={{ width: '32px', height: '1px', background: 'rgba(212,175,55,0.6)' }} />
           </div>
           <h2 className="font-serif" style={{ fontSize: '44px', fontWeight: 400, color: '#ffffff', letterSpacing: '0.01em', marginBottom: '18px' }}>
             What Our Guests Say

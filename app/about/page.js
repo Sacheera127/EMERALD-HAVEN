@@ -1,8 +1,13 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectCoverflow } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
 import SectionHeader from '../components/SectionHeader';
 import { Waves, Wifi, UtensilsCrossed, Car, Shield, Coffee, TreePine, Sun, Sparkles, Users, MapPin, Star, ArrowRight, Check } from 'lucide-react';
 
@@ -23,6 +28,75 @@ const amenityCategories = [
   { title: 'Food & Drink', items: ['Fruits', 'Kid-friendly buffet', 'Kids\' meals', 'Special diet menus', 'Breakfast in room', 'Restaurant', 'Tea/Coffee maker', 'Wine/champagne'] },
   { title: 'Outdoors', items: ['Outdoor fireplace', 'Picnic area', 'Outdoor furniture', 'Sun terrace', 'Barbecue', 'Patio', 'Balcony', 'Garden'] },
 ];
+
+function AmenityCard({ cat, i }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative flex flex-col"
+      style={{
+        height: '100%',
+        padding: '32px',
+        borderRadius: '28px',
+        background: 'linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
+        transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1)',
+      }}
+    >
+      {/* Gold hover glow ring */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
+        style={{
+          borderRadius: '28px',
+          transition: 'opacity 0.5s',
+          boxShadow: '0 0 0 1px rgba(212,175,55,0.35), 0 20px 40px rgba(212,175,55,0.08)',
+        }}
+      />
+
+      {/* Header row: gold line + index number */}
+      <div className="relative flex items-center justify-between" style={{ marginBottom: '24px' }}>
+        <div
+          className="transition-all duration-500 group-hover:w-16"
+          style={{ width: '48px', height: '1px', background: 'linear-gradient(90deg, #D4AF37, transparent)' }}
+        />
+        <span style={{ fontSize: '12px', fontWeight: 300, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.15)' }}>
+          {String(i + 1).padStart(2, '0')}
+        </span>
+      </div>
+
+      <h3
+        className="font-serif relative"
+        style={{ fontSize: '26px', fontWeight: 400, color: '#ffffff', letterSpacing: '0.02em', marginBottom: '32px' }}
+      >
+        {cat.title}
+      </h3>
+
+      <ul className="relative" style={{ display: 'flex', flexDirection: 'column', gap: '16px', listStyle: 'none', padding: 0, margin: 0 }}>
+        {cat.items.map((item) => (
+          <li
+            key={item}
+            className="flex items-center transition-colors duration-300 group-hover:text-white/80"
+            style={{ gap: '12px', fontSize: '14px', fontWeight: 300, color: 'rgba(224,231,228,0.55)' }}
+          >
+            <span
+              className="flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-110"
+              style={{ width: '20px', height: '20px', borderRadius: '9999px', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)' }}
+            >
+              <Check size={11} strokeWidth={2.5} style={{ color: '#D4AF37' }} />
+            </span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -217,81 +291,56 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          {/* Grid — items-stretch guarantees equal card heights per row */}
+          {/* Desktop Grid (hidden on mobile) */}
           <div
-            className="grid items-stretch"
+            className="hidden md:grid items-stretch"
             style={{
               gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '32px',
             }}
           >
             {amenityCategories.map((cat, i) => (
-              <motion.div
-                key={cat.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative flex flex-col"
-                style={{
-                  height: '100%',
-                  padding: '32px',
-                  borderRadius: '28px',
-                  background: 'linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
-                  transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1)',
-                }}
-              >
-                {/* Gold hover glow ring */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
-                  style={{
-                    borderRadius: '28px',
-                    transition: 'opacity 0.5s',
-                    boxShadow: '0 0 0 1px rgba(212,175,55,0.35), 0 20px 40px rgba(212,175,55,0.08)',
-                  }}
-                />
-
-                {/* Header row: gold line + index number, same baseline, no overlap */}
-                <div className="relative flex items-center justify-between" style={{ marginBottom: '24px' }}>
-                  <div
-                    className="transition-all duration-500 group-hover:w-16"
-                    style={{ width: '48px', height: '1px', background: 'linear-gradient(90deg, #D4AF37, transparent)' }}
-                  />
-                  <span style={{ fontSize: '12px', fontWeight: 300, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.15)' }}>
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                </div>
-
-                <h3
-                  className="font-serif relative"
-                  style={{ fontSize: '26px', fontWeight: 400, color: '#ffffff', letterSpacing: '0.02em', marginBottom: '32px' }}
-                >
-                  {cat.title}
-                </h3>
-
-                <ul className="relative" style={{ display: 'flex', flexDirection: 'column', gap: '16px', listStyle: 'none', padding: 0, margin: 0 }}>
-                  {cat.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center transition-colors duration-300 group-hover:text-white/80"
-                      style={{ gap: '12px', fontSize: '14px', fontWeight: 300, color: 'rgba(224,231,228,0.55)' }}
-                    >
-                      <span
-                        className="flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-110"
-                        style={{ width: '20px', height: '20px', borderRadius: '9999px', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)' }}
-                      >
-                        <Check size={11} strokeWidth={2.5} style={{ color: '#D4AF37' }} />
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+              <AmenityCard key={cat.title} cat={cat} i={i} />
             ))}
+          </div>
+
+          {/* Mobile Swiper (hidden on desktop) */}
+          <div className="block md:hidden" style={{ paddingBottom: '20px' }}>
+            <Swiper
+              modules={[EffectCoverflow, Autoplay]}
+              effect="coverflow"
+              grabCursor
+              centeredSlides
+              loop
+              slidesPerView={1.35}
+              spaceBetween={16}
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 0,
+                depth: 80,
+                modifier: 1,
+                slideShadows: false,
+              }}
+              autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+              style={{ overflow: 'visible', paddingTop: '10px', paddingBottom: '10px' }}
+            >
+              {amenityCategories.map((cat, i) => (
+                <SwiperSlide key={cat.title} style={{ height: 'auto' }}>
+                  {({ isActive }) => (
+                    <div
+                      style={{
+                        transform: isActive ? 'scale(1.03)' : 'scale(0.92)',
+                        opacity: isActive ? 1 : 0.5,
+                        transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.5s ease',
+                        height: '100%',
+                      }}
+                    >
+                      <AmenityCard cat={cat} i={i} />
+                    </div>
+                  )}
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </section>

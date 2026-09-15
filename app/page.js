@@ -433,7 +433,7 @@ function ReviewsSection() {
                 maxWidth: '560px',
               }}
             >
-              "{review.text}"
+              &quot;{review.text}&quot;
             </p>
 
             <div className="flex items-center" style={{ gap: '16px' }}>

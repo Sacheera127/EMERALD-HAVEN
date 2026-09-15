@@ -3,6 +3,16 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const particles = [...Array(20)].map(() => ({
+  width: Math.random() * 4 + 2,
+  height: Math.random() * 4 + 2,
+  background: `rgba(16, 185, 129, ${Math.random() * 0.5 + 0.1})`,
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  duration: Math.random() * 3 + 2,
+  delay: Math.random() * 2,
+}));
+
 export default function Loader() {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -34,25 +44,25 @@ export default function Loader() {
         >
           {/* Animated background particles */}
           <div className="absolute inset-0 overflow-hidden">
-            {[...Array(20)].map((_, i) => (
+            {particles.map((p, i) => (
               <motion.div
                 key={i}
                 className="absolute rounded-full"
                 style={{
-                  width: Math.random() * 4 + 2,
-                  height: Math.random() * 4 + 2,
-                  background: `rgba(16, 185, 129, ${Math.random() * 0.5 + 0.1})`,
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
+                  width: p.width,
+                  height: p.height,
+                  background: p.background,
+                  left: p.left,
+                  top: p.top,
                 }}
                 animate={{
                   y: [0, -100, 0],
                   opacity: [0, 1, 0],
                 }}
                 transition={{
-                  duration: Math.random() * 3 + 2,
+                  duration: p.duration,
                   repeat: Infinity,
-                  delay: Math.random() * 2,
+                  delay: p.delay,
                 }}
               />
             ))}

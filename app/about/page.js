@@ -256,94 +256,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Detailed Amenities — fully self-contained, no external class dependencies */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          background: '#0a0d0b',
-          paddingTop: '120px',
-          paddingBottom: '120px',
-          isolation: 'isolate', // creates a new stacking context so nothing from other sections bleeds in
-        }}
-      >
-        {/* Ambient background glow */}
-        <div
-          className="absolute pointer-events-none"
-          style={{ top: '33%', left: '25%', width: '500px', height: '500px', borderRadius: '9999px', filter: 'blur(150px)', opacity: 0.1, background: 'radial-gradient(circle, #D4AF37, transparent 70%)' }}
-        />
-        <div
-          className="absolute pointer-events-none"
-          style={{ bottom: 0, right: '25%', width: '400px', height: '400px', borderRadius: '9999px', filter: 'blur(150px)', opacity: 0.1, background: 'radial-gradient(circle, #10b981, transparent 70%)' }}
-        />
-
-        <div className="container-premium relative">
-          {/* Header */}
-          <div className="text-center" style={{ marginBottom: '80px' }}>
-            <div className="flex items-center justify-center" style={{ gap: '12px', marginBottom: '20px' }}>
-              <span style={{ width: '32px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
-              <p style={{ fontSize: '12px', letterSpacing: '0.5em', textTransform: 'uppercase', fontWeight: 500, color: 'rgba(16,185,129,0.85)', margin: 0, marginRight: '-0.5em' }}>
-                Complete List
-              </p>
-              <span style={{ width: '32px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
-            </div>
-            <h2 className="font-serif" style={{ fontSize: '48px', fontWeight: 400, color: '#ffffff', letterSpacing: '0.01em', margin: 0 }}>
-              All Amenities &amp; Services
-            </h2>
-          </div>
-
-          {/* Desktop Grid (hidden on mobile) */}
-          <div
-            className="hidden md:grid items-stretch"
-            style={{
-              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-              gap: '32px',
-            }}
-          >
-            {amenityCategories.map((cat, i) => (
-              <AmenityCard key={cat.title} cat={cat} i={i} />
-            ))}
-          </div>
-
-          {/* Mobile Swiper (hidden on desktop) */}
-          <div className="block md:hidden" style={{ paddingBottom: '20px' }}>
-            <Swiper
-              modules={[EffectCoverflow, Autoplay]}
-              effect="coverflow"
-              grabCursor
-              centeredSlides
-              loop
-              slidesPerView={1.35}
-              spaceBetween={16}
-              coverflowEffect={{
-                rotate: 0,
-                stretch: 0,
-                depth: 80,
-                modifier: 1,
-                slideShadows: false,
-              }}
-              autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-              style={{ overflow: 'visible', paddingTop: '10px', paddingBottom: '10px' }}
-            >
-              {amenityCategories.map((cat, i) => (
-                <SwiperSlide key={cat.title} style={{ height: 'auto' }}>
-                  {({ isActive }) => (
-                    <div
-                      style={{
-                        transform: isActive ? 'scale(1.03)' : 'scale(0.92)',
-                        opacity: isActive ? 1 : 0.5,
-                        transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.5s ease',
-                        height: '100%',
-                      }}
-                    >
-                      <AmenityCard cat={cat} i={i} />
-                    </div>
-                  )}
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-      </section>
+      
 
 
 
@@ -417,7 +330,8 @@ export default function AboutPage() {
               {/* Description */}
               <p className="text-base md:text-lg font-light max-w-xl mx-auto mb-12 leading-relaxed" style={{ color: 'rgba(224,231,228,0.7)' }}>
                 Immerse yourself in the wild beauty of Udawalawa. Your private safari retreat awaits.
-              </p>
+              </p><br>
+              </br>
 
               {/* Dual button row */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-5">

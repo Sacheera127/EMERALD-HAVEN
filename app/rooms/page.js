@@ -227,7 +227,7 @@ export default function RoomsPage() {
         className="relative w-full overflow-hidden"
         style={{
           background: 'radial-gradient(ellipse at 50% 20%, #0f1f18 0%, #070e0a 50%, #050a07 100%)',
-          padding: '100px 0 80px',
+          padding: '120px 0 80px',
           isolation: 'isolate',
         }}
       >
@@ -258,13 +258,15 @@ export default function RoomsPage() {
               className="inline-flex items-center"
               style={{
                 padding: '9px 22px', borderRadius: '9999px',
-                background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.02) 100%)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(212,175,55,0.35)',
+                background: 'linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(6,78,59,0.5) 100%)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                border: '1px solid rgba(16,185,129,0.4)',
+                boxShadow: '0 8px 32px rgba(16,185,129,0.2)',
                 marginBottom: '28px',
               }}
             >
-              <span className="text-[10px] font-medium uppercase" style={{ letterSpacing: '0.3em', color: '#D4AF37' }}>
+              <span className="text-[10px] font-medium uppercase" style={{ letterSpacing: '0.3em', color: '#ffffff' }}>
                 Luxury Stays
               </span>
             </motion.div>
@@ -276,9 +278,9 @@ export default function RoomsPage() {
               className="font-serif"
               style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: 1.05, marginBottom: '24px' }}
             >
-              <span className="block font-normal text-white">Our Rooms &amp;</span>
+              <span className="block font-normal text-white">Our Cottages &amp;</span>
               <span className="block" style={{ fontStyle: 'italic', fontWeight: 400, color: 'rgba(212,175,55,0.9)' }}>
-                Cottages
+                Glampings
               </span>
             </motion.h1>
 
@@ -347,12 +349,12 @@ export default function RoomsPage() {
               <div className="flex items-center justify-center" style={{ gap: '12px', marginBottom: '20px' }}>
                 <span style={{ width: '32px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
                 <p style={{ fontSize: '12px', letterSpacing: '0.5em', textTransform: 'uppercase', fontWeight: 500, color: 'rgba(16,185,129,0.85)', margin: 0, marginRight: '-0.5em' }}>
-                  The Collection
+                  The Collection of
                 </p>
                 <span style={{ width: '32px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
               </div>
               <h2 className="font-serif" style={{ fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 400, color: '#ffffff', letterSpacing: '0.01em', margin: 0 }}>
-                Handcrafted Sanctuaries
+                Emerald Haven
               </h2>
             </motion.div>
           </div>
@@ -573,7 +575,7 @@ export default function RoomsPage() {
      
 
       {/* ═══════════════════════════════════════════════════════
-          SECTION 5 — CTA PRE-FOOTER BANNER
+          SECTION 5 — CTA PRE-FOOTER BANNER (TOUR & SAFARI)
           ═══════════════════════════════════════════════════════ */}
       <section style={{ background: 'var(--dark-900)', paddingTop: '20px', paddingBottom: '120px' }}>
         <div className="container-premium">
@@ -592,10 +594,10 @@ export default function RoomsPage() {
               justifyContent: 'center',
             }}
           >
-            {/* Background Image */}
+            {/* Background Image — Safari/Wildlife */}
             <Image
-              src="/images/support/5e7b36fc-cc22-4760-aaf9-bc0652d9042e.JPG"
-              alt="Emerald Haven Safari Lodge"
+              src="/images/collection/img_60.JPG"
+              alt="Udawalawa Safari Adventure"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-[4s] ease-out"
               sizes="100vw"
@@ -630,12 +632,12 @@ export default function RoomsPage() {
 
               {/* Subtitle */}
               <p className="text-xs tracking-[0.5em] uppercase mb-6 font-medium" style={{ color: 'rgba(16,185,129,0.85)' }}>
-                Ready for Your Escape?
+                Guided Tours &amp; Adventures
               </p>
 
               {/* Main heading */}
               <h2 className="font-serif text-5xl md:text-7xl font-normal text-white mb-6 tracking-wide leading-[1.1]">
-                Book Your Safari Stay
+                Experience the Ultimate Safari Adventure
               </h2>
 
               {/* Gold divider */}
@@ -647,32 +649,37 @@ export default function RoomsPage() {
 
               {/* Description */}
               <p className="text-base md:text-lg font-light max-w-xl mx-auto mb-12 leading-relaxed" style={{ color: 'rgba(224,231,228,0.7)' }}>
-                Immerse yourself in the wild beauty of Udawalawa. Your private safari retreat awaits.
-              </p>
+                Embark on an unforgettable journey through Udawalawa. From thrilling jeep safaris to personalized nature trails, let us guide your next adventure.
+              </p><br>
+              </br>
 
               {/* Dual buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+                {/* AI Tour Planner — futuristic AI style */}
+                <a
+                  href="/tour-services"
+                  className="group relative inline-flex items-center gap-3 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-500 hover:scale-105"
+                  style={{
+                    padding: '14px 36px',
+                    borderRadius: '9999px',
+                    background: 'linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(6,78,59,0.6) 50%, rgba(16,185,129,0.2) 100%)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(16,185,129,0.5)',
+                    color: '#ffffff',
+                    boxShadow: '0 0 20px rgba(16,185,129,0.2), inset 0 0 20px rgba(16,185,129,0.05)',
+                  }}
+                >
+                  <span style={{ fontSize: '16px' }}>✨</span> AI Tour Planner
+                </a>
+
                 <a
                   href="https://www.booking.com/hotel/lk/jungle-safari-cottage-udawalawa.en-gb.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-500 hover:scale-105"
-                  style={{
-                    padding: '18px 44px',
-                    borderRadius: '9999px',
-                    background: 'linear-gradient(135deg, #D4AF37, #c9a227)',
-                    color: '#0a0f0d',
-                    boxShadow: '0 8px 30px rgba(212,175,55,0.3)',
-                  }}
-                >
-                  Check Availability <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                </a>
-
-                <a
-                  href="/about"
                   className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.15em] font-medium transition-all duration-500 hover:scale-105"
                   style={{
-                    padding: '18px 44px',
+                    padding: '14px 36px',
                     borderRadius: '9999px',
                     background: 'rgba(255,255,255,0.04)',
                     backdropFilter: 'blur(12px)',
@@ -681,7 +688,7 @@ export default function RoomsPage() {
                     color: 'rgba(255,255,255,0.85)',
                   }}
                 >
-                  Explore More
+                  Book Safari <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             </div>

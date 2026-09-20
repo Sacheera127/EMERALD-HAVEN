@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const particles = [...Array(8)].map(() => ({
+const particles = [...Array(20)].map(() => ({
   width: Math.random() * 4 + 2,
   height: Math.random() * 4 + 2,
   background: `rgba(16, 185, 129, ${Math.random() * 0.5 + 0.1})`,

@@ -174,8 +174,6 @@ export default function Footer() {
                     WebkitBackdropFilter: 'blur(12px)',
                     border: '1px solid rgba(212,175,55,0.22)',
                     boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
-                    willChange: 'transform',
-                    transform: 'translateZ(0)',
                   }}
                 >
                   <svg

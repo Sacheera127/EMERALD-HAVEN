@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -136,6 +137,86 @@ const stagger = (delay = 0) => ({
   transition: { ...fadeUp.transition, delay },
 });
 
+// Memoized components to prevent needless re-renders during scroll
+const AttractionItem = memo(({ item, i, total }) => {
+  const isReversed = i % 2 !== 0;
+  const IconComponent = item.icon;
+  const num = String(i + 1).padStart(2, '0');
+
+  return (
+    <div>
+      <motion.article
+        className={`attr-row${isReversed ? ' reverse' : ''}`}
+        {...fadeUp}
+        transition={{ ...fadeUp.transition, delay: 0.05 }}
+      >
+        {/* Image Column */}
+        <div className="attr-img-col">
+          <div className="attr-img-wrap">
+            <Image
+              src={item.img}
+              alt={item.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            {/* Distance badge — top left */}
+            <div className="attr-img-badge top-left">
+              <MapPin size={14} strokeWidth={1.5} />
+              {item.distance}
+            </div>
+            {/* Category badge — top right */}
+            <div className="attr-img-badge top-right">
+              <IconComponent size={14} strokeWidth={1.5} />
+              {item.category}
+            </div>
+          </div>
+        </div>
+
+        {/* Text Column */}
+        <div className="attr-text-col">
+          <motion.div {...stagger(0.15)}>
+            <div className="attr-number" aria-hidden="true">{num}</div>
+            <p className="attr-overline">{item.overline}</p>
+            <h2 className="attr-title">{item.name}</h2>
+            <p className="attr-desc">{item.desc}</p>
+            <Link href="/tour-services" className="attr-link">
+              Learn More
+              <ArrowRight size={16} strokeWidth={1.5} />
+            </Link>
+          </motion.div>
+        </div>
+      </motion.article>
+
+      {/* Thin separator — except after last item */}
+      {i < total - 1 && (
+        <motion.div className="attr-separator" {...fadeIn} />
+      )}
+    </div>
+  );
+});
+AttractionItem.displayName = 'AttractionItem';
+
+const SurroundingCard = memo(({ cat, i }) => {
+  return (
+    <motion.div
+      className="attr-surround-card"
+      {...stagger(i * 0.12)}
+    >
+      <h3>{cat.title}</h3>
+      <div>
+        {cat.items.map((item) => (
+          <div key={item.name} className="attr-surround-item">
+            <span>{item.name}</span>
+            <span className="attr-surround-dist">{item.dist}</span>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+});
+SurroundingCard.displayName = 'SurroundingCard';
+
 export default function AttractionsPage() {
   return (
     <div className="page-transition">
@@ -167,63 +248,9 @@ export default function AttractionsPage() {
       {/* ═══ ATTRACTIONS LIST — Alternating zig-zag layout ═══ */}
       <section className="attr-list-section" id="attractions-list">
         <div className="attr-list-inner">
-          {attractions.map((item, i) => {
-            const isReversed = i % 2 !== 0;
-            const IconComponent = item.icon;
-            const num = String(i + 1).padStart(2, '0');
-
-            return (
-              <div key={item.name}>
-                <motion.article
-                  className={`attr-row${isReversed ? ' reverse' : ''}`}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: 0.05 }}
-                >
-                  {/* Image Column */}
-                  <div className="attr-img-col">
-                    <div className="attr-img-wrap">
-                      <Image
-                        src={item.img}
-                        alt={item.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 55vw"
-                      />
-                      {/* Distance badge — top left */}
-                      <div className="attr-img-badge top-left">
-                        <MapPin size={14} strokeWidth={1.5} />
-                        {item.distance}
-                      </div>
-                      {/* Category badge — top right */}
-                      <div className="attr-img-badge top-right">
-                        <IconComponent size={14} strokeWidth={1.5} />
-                        {item.category}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Text Column */}
-                  <div className="attr-text-col">
-                    <motion.div {...stagger(0.15)}>
-                      <div className="attr-number" aria-hidden="true">{num}</div>
-                      <p className="attr-overline">{item.overline}</p>
-                      <h2 className="attr-title">{item.name}</h2>
-                      <p className="attr-desc">{item.desc}</p>
-                      <Link href="/tour-services" className="attr-link">
-                        Learn More
-                        <ArrowRight size={16} strokeWidth={1.5} />
-                      </Link>
-                    </motion.div>
-                  </div>
-                </motion.article>
-
-                {/* Thin separator — except after last item */}
-                {i < attractions.length - 1 && (
-                  <motion.div className="attr-separator" {...fadeIn} />
-                )}
-              </div>
-            );
-          })}
+          {attractions.map((item, i) => (
+            <AttractionItem key={item.name} item={item} i={i} total={attractions.length} />
+          ))}
         </div>
       </section>
 
@@ -245,23 +272,9 @@ export default function AttractionsPage() {
           </motion.div>
 
           {/* Cards grid */}
-          <div style={{ marginBottom: '100px', marginTop: '40px' }}   className="attr-surround-grid">
+          <div style={{ marginBottom: '100px', marginTop: '40px' }} className="attr-surround-grid">
             {surroundings.map((cat, i) => (
-              <motion.div
-                key={cat.title}
-                className="attr-surround-card"
-                {...stagger(i * 0.12)}
-              >
-                <h3>{cat.title}</h3>
-                <div>
-                  {cat.items.map((item) => (
-                    <div key={item.name} className="attr-surround-item">
-                      <span>{item.name}</span>
-                      <span className="attr-surround-dist">{item.dist}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+              <SurroundingCard key={cat.title} cat={cat} i={i} />
             ))}
           </div>
         </div>

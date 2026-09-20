@@ -262,6 +262,7 @@ body {
 /* Page transition wrapper */
 .page-transition {
   animation: fadeUp 0.6s ease-out;
+  will-change: transform, opacity;
 }
 
 /* Responsive container */
@@ -443,6 +444,7 @@ body {
   align-items: center;
   gap: 4rem;
   margin-bottom: 100px;
+  will-change: transform, opacity;
 }
 
 .attr-row:last-child {
@@ -644,6 +646,7 @@ body {
   background: rgba(255, 255, 255, 0.015);
   border: 1px solid rgba(255, 255, 255, 0.03);
   transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, opacity;
 }
 
 .attr-surround-card:hover {

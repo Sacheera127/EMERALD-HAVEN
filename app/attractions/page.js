@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { MapPin, ArrowRight, Compass, TreePine, Mountain, Bird, Landmark, Coffee, Waves, Telescope } from 'lucide-react';
 
@@ -186,7 +187,9 @@ export default function AttractionsPage() {
                         alt={item.name}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 55vw"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority={i < 2}
+                        quality={80}
                       />
                       {/* Distance badge — top left */}
                       <div className="attr-img-badge top-left">
@@ -208,10 +211,10 @@ export default function AttractionsPage() {
                       <p className="attr-overline">{item.overline}</p>
                       <h2 className="attr-title">{item.name}</h2>
                       <p className="attr-desc">{item.desc}</p>
-                      <span className="attr-link" role="link" tabIndex={0}>
+                      <Link href="/tour-services" className="attr-link">
                         Learn More
                         <ArrowRight size={16} strokeWidth={1.5} />
-                      </span>
+                      </Link>
                     </motion.div>
                   </div>
                 </motion.article>
@@ -244,7 +247,7 @@ export default function AttractionsPage() {
           </motion.div>
 
           {/* Cards grid */}
-          <div className="attr-surround-grid">
+          <div style={{ marginBottom: '100px', marginTop: '40px' }}   className="attr-surround-grid">
             {surroundings.map((cat, i) => (
               <motion.div
                 key={cat.title}

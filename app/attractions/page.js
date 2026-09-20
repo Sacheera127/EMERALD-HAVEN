@@ -159,6 +159,8 @@ const AttractionItem = memo(({ item, i, total }) => {
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
+              decoding="async"
             />
             {/* Distance badge — top left */}
             <div className="attr-img-badge top-left">

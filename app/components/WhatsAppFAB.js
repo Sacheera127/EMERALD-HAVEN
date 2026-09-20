@@ -22,8 +22,15 @@ export default function WhatsAppFAB() {
         boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
       }}
     >
-      {/* Pulse ring */}
-      <span className="absolute inset-0 rounded-full animate-ping opacity-30" style={{ background: '#25d366' }} />
+      {/* Pulse ring — lightweight */}
+      <span
+        className="absolute inset-0 rounded-full opacity-30"
+        style={{
+          background: '#25d366',
+          animation: 'wa-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          willChange: 'transform, opacity',
+        }}
+      />
       
       {/* WhatsApp icon */}
       <svg width="28" height="28" viewBox="0 0 24 24" fill="white">

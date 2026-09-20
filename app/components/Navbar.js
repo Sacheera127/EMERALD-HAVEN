@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -20,11 +20,23 @@ export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const triggerEl = document.createElement('div');
+    triggerEl.setAttribute('aria-hidden', 'true');
+    Object.assign(triggerEl.style, {
+      position: 'absolute', top: '50px', width: '1px', height: '1px', pointerEvents: 'none',
+    });
+    document.body.appendChild(triggerEl);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsScrolled(!entry.isIntersecting),
+      { root: null, threshold: 0 }
+    );
+    observer.observe(triggerEl);
+
+    return () => {
+      observer.disconnect();
+      if (document.body.contains(triggerEl)) document.body.removeChild(triggerEl);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -40,6 +52,9 @@ export default function Navbar() {
             background: 'rgba(10, 15, 13, 0.85)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
+            willChange: 'transform',
+            transform: 'translateZ(0)',
+            backfaceVisibility: 'hidden',
             border: '1px solid rgba(255, 255, 255, 0.08)',
             boxShadow: isScrolled
               ? '0 8px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(16, 185, 129, 0.1)'
@@ -145,6 +160,8 @@ export default function Navbar() {
                       border: '1px solid rgba(212,175,55,0.2)',
                       backdropFilter: 'blur(8px)',
                       WebkitBackdropFilter: 'blur(8px)',
+                      willChange: 'transform',
+                      transform: 'translateZ(0)',
                     }}
                   >
                     {link.name}

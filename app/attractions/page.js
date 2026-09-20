@@ -187,9 +187,7 @@ export default function AttractionsPage() {
                         alt={item.name}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        priority={i < 2}
-                        quality={80}
+                        sizes="(max-width: 768px) 100vw, 55vw"
                       />
                       {/* Distance badge — top left */}
                       <div className="attr-img-badge top-left">

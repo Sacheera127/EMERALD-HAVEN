@@ -121,14 +121,14 @@ const surroundings = [
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-80px' },
+  viewport: { once: true, margin: '0px 0px 150px 0px' }, /* Triggers 150px before entering screen */
   transition: { duration: 1, ease: [0.16, 1, 0.3, 1] },
 };
 
 const fadeIn = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
-  viewport: { once: true, margin: '-50px' },
+  viewport: { once: true, margin: '0px 0px 150px 0px' },
   transition: { duration: 0.8 },
 };
 
@@ -161,6 +161,9 @@ const AttractionItem = memo(({ item, i, total }) => {
               sizes="(max-width: 768px) 100vw, 50vw"
               loading="lazy"
               decoding="async"
+              quality={75}
+              placeholder="blur"
+              blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InJnYmEoMTYsMTg1LDEyOSwwLjEpIi8+PC9zdmc+"
             />
             {/* Distance badge — top left */}
             <div className="attr-img-badge top-left">

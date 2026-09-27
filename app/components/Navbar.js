@@ -67,6 +67,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
+                  prefetch={true}
                   className="text-sm font-light tracking-wide inline-block transition-all duration-300 ease-in-out hover:-translate-y-[2px]"
                   style={{ color: 'rgba(224, 231, 228, 0.6)' }}
                   onMouseEnter={(e) => { e.currentTarget.style.color = '#D4AF37'; }}
@@ -136,6 +137,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    prefetch={true}
                     onClick={() => setIsMobileOpen(false)}
                     className="font-serif text-center transition-all duration-400 hover:scale-[1.03]"
                     style={{

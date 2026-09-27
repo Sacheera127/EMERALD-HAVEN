@@ -127,16 +127,16 @@ export default function Footer() {
         <div className="footer-grid w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 items-start gap-x-12 gap-y-16 mb-24">
           {/* ━━━━━ BRAND COLUMN ━━━━━ */}
           <div className="footer-brand sm:col-span-2 lg:col-span-4 flex flex-col items-start">
-            <Link href="/" className="footer-logo-link inline-flex items-center gap-4 group mb-[60px]">
+            <Link href="/" prefetch={true} className="footer-logo-link inline-flex items-center gap-4 group mb-[60px]">
               <div
-                className="relative shrink-0 overflow-hidden rounded-full transition-all duration-500 group-hover:border-[#D4AF37]/60"
+                className="relative shrink-0 overflow-hidden rounded-full transition-all duration-500 group-hover:border-[#D4AF37]/60 bg-[#05100c]"
                 style={{
                   width: '72px', height: '72px',
                   border: '1px solid rgba(212,175,55,0.3)',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.04)',
                 }}
               >
-                <Image src="/images/logo/logo.png" alt="Emerald Haven" fill className="object-cover" sizes="72px" />
+                <Image src="/images/logo/logo.png" alt="Emerald Haven" fill className="object-cover" sizes="72px" priority={true} unoptimized={true} />
               </div>
               <div>
                 <h3 className="font-serif text-2xl font-normal tracking-wide text-white leading-tight">
@@ -197,6 +197,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    prefetch={true}
                     className="group relative inline-flex items-center text-[15px] font-light transition-colors duration-300 hover:text-white"
                     style={{ color: 'rgba(224,231,228,0.6)' }}
                   >

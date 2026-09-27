@@ -218,7 +218,7 @@ export default function RoomsPage() {
   }, [paused, total]);
 
   return (
-    <div className="page-transition pt-24">
+    <div className="page-transition pt-24 w-full overflow-x-hidden">
 
       {/* ═══════════════════════════════════════════════════════
           SECTION 1 — PREMIUM HERO
@@ -360,7 +360,7 @@ export default function RoomsPage() {
           </div>
 
           {/* Room cards */}
-          <div className="space-y-40">
+          <div className="space-y-40 px-6 lg:px-0">
             {roomsData.map((room, i) => (
               <motion.div
                 key={room.name}
@@ -412,22 +412,22 @@ export default function RoomsPage() {
                   </div>
 
                   {/* ── Text Side ── */}
-                  <div className={`${i % 2 !== 0 ? 'lg:[direction:ltr]' : ''} lg:px-4`}>
+                  <div className={`${i % 2 !== 0 ? 'lg:[direction:ltr]' : ''} lg:px-4 w-full overflow-hidden whitespace-normal break-words`}>
                     {/* Tagline */}
-                    <div className="flex items-center gap-3" style={{ marginBottom: '16px' }}>
-                      <span style={{ width: '28px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
-                      <span className="text-xs tracking-[0.4em] uppercase font-medium" style={{ color: 'rgba(16,185,129,0.8)' }}>
+                    <div className="flex items-center gap-3 w-full" style={{ marginBottom: '16px' }}>
+                      <span className="shrink-0" style={{ width: '28px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
+                      <span className="text-xs tracking-[0.4em] uppercase font-medium whitespace-normal break-words" style={{ color: 'rgba(16,185,129,0.8)' }}>
                         {room.tagline}
                       </span>
                     </div>
 
                     {/* Room name */}
-                    <h2 className="font-serif text-3xl md:text-5xl font-normal text-white tracking-wide" style={{ marginBottom: '20px', lineHeight: 1.15 }}>
+                    <h2 className="font-serif text-3xl md:text-5xl font-normal text-white tracking-wide whitespace-normal break-words w-full" style={{ marginBottom: '20px', lineHeight: 1.15 }}>
                       {room.name}
                     </h2>
 
                     {/* Description */}
-                    <p className="text-sm md:text-base leading-loose font-light" style={{ color: 'rgba(224,231,228,0.6)', marginBottom: '32px' }}>
+                    <p className="text-sm md:text-base leading-loose font-light whitespace-normal break-words w-full" style={{ color: 'rgba(224,231,228,0.6)', marginBottom: '32px' }}>
                       {room.desc}
                     </p>
 

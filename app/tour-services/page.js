@@ -180,7 +180,7 @@ export default function TourServicesPage() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-full md:w-[480px] z-[101] flex flex-col will-change-transform"
+              className="fixed top-0 right-0 h-full w-full md:w-[480px] z-[101] flex flex-col"
               style={{
                 background: 'linear-gradient(180deg, #0a0f0d 0%, #050a08 100%)',
                 borderLeft: '1px solid rgba(255,255,255,0.04)'
@@ -251,7 +251,7 @@ export default function TourServicesPage() {
       {/* ═══════════════════════════════════════════════════════════
          HERO SECTION — Cinematic editorial treatment
          ═══════════════════════════════════════════════════════════ */}
-      <section className="relative h-[70vh] min-h-[550px] overflow-hidden">
+      <section className="relative h-[70vh] min-h-[550px] overflow-hidden bg-[#05100c]">
         <Image 
           src="/images/collection/a9b7d1c6-97e2-4bc1-a7fc-f9dc165bd4ef.JPG" 
           alt="Tour Services — Luxury Sri Lanka Experiences" 
@@ -259,7 +259,8 @@ export default function TourServicesPage() {
           className="object-cover scale-105" 
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
           quality={80}
-          priority 
+          priority={true}
+          unoptimized={true}
         />
         {/* Deep cinematic gradient overlay */}
         <div className="absolute inset-0" style={{ 
@@ -320,7 +321,7 @@ export default function TourServicesPage() {
         {/* Subtle radial gold accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] max-w-[100vw] rounded-full opacity-[0.03] pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.3) 0%, transparent 70%)' }} />
         
-        <div className="container-premium relative z-10 max-w-7xl mx-auto">
+        <div className="container-premium relative z-10 max-w-7xl mx-auto px-6 lg:px-0 w-full">
           {/* Custom Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -345,7 +346,7 @@ export default function TourServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '200px' }}
             transition={{ duration: 1.2, ease: luxuryEase }}
-            className="relative w-full rounded-[32px] overflow-hidden shadow-2xl will-change-transform"
+            className="relative w-full rounded-[32px] overflow-hidden shadow-2xl bg-[#05100c]"
             style={{ height: '75vh', minHeight: '650px' }}
           >
             {/* Cinematic Background Image */}
@@ -356,14 +357,15 @@ export default function TourServicesPage() {
               className="object-cover scale-[1.02]" 
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
               quality={80}
-              loading="lazy"
+              priority={true}
+              unoptimized={true}
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(5,10,8,0.85) 0%, rgba(5,10,8,0.4) 50%, rgba(5,10,8,0.2) 100%)' }} />
             
             {/* Glassmorphism Booking Card */}
             <div 
-              className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 md:left-16 md:translate-x-0 lg:left-24 w-[92%] max-w-[520px] rounded-3xl overflow-hidden transition-all duration-700 backdrop-blur-md lg:backdrop-blur-xl flex flex-col items-center text-center md:items-start md:text-left will-change-transform"
+              className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 md:left-16 lg:left-24 lg:translate-x-0 w-[92%] max-w-[520px] rounded-3xl overflow-hidden transition-all duration-700 backdrop-blur-md lg:backdrop-blur-xl flex flex-col items-center text-center lg:items-start lg:text-left"
               style={{
                 background: 'rgba(5, 10, 8, 0.5)',
                 border: '1px solid rgba(212, 175, 55, 0.12)',
@@ -371,10 +373,10 @@ export default function TourServicesPage() {
               }}
             >
               {/* Card Content */}
-              <div className="p-8 md:p-12 w-full flex flex-col items-center md:items-start">
+              <div className="p-8 lg:p-12 w-full flex flex-col items-center text-center lg:items-start lg:text-left">
                 {/* Overline */}
-                <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 mb-8">
-                  <div className="w-10 h-[1px] hidden md:block" style={{ background: '#d4af37' }}></div>
+                <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-3 lg:gap-4 mb-8 w-full">
+                  <div className="w-10 h-[1px] hidden lg:block" style={{ background: '#d4af37' }}></div>
                   <span className="font-montserrat text-[10px] tracking-[0.4em] font-medium uppercase" style={{ color: '#d4af37' }}>Udawalawa</span>
                 </div>
                 
@@ -384,13 +386,13 @@ export default function TourServicesPage() {
                 </h3>
                 
                 {/* Features */}
-                <ul className="space-y-5 mb-12">
+                <ul className="space-y-5 mb-12 w-full">
                   {['Expert naturalist guides', 'Luxury 4×4 vehicles', 'Refreshments included'].map((item) => (
-                    <li key={item} className="flex flex-col sm:flex-row items-center md:items-start gap-4 font-montserrat text-sm font-light tracking-wider" style={{ color: 'rgba(245,240,232,0.55)' }}>
+                    <li key={item} className="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 font-montserrat text-sm font-light tracking-wider w-full" style={{ color: 'rgba(245,240,232,0.55)' }}>
                       <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.2)' }}>
                         <Check size={12} style={{ color: '#d4af37' }} />
                       </div>
-                      <span className="text-center md:text-left">{item}</span>
+                      <span className="text-center lg:text-left">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -539,7 +541,7 @@ export default function TourServicesPage() {
         {/* Subtle top separator */}
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.08), transparent)' }} />
         
-        <div className="container-premium space-y-20">
+        <div className="container-premium space-y-20 px-6 lg:px-0 w-full">
           {/* Custom Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -558,7 +560,7 @@ export default function TourServicesPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-10">
             {[
               { title: 'Airport Transfer', desc: 'Comfortable AC vehicle transfers from Mattala (50 km) or Colombo airport.', icon: Car },
               { title: 'City-to-City Transfer', desc: 'Private transfers to Ella, Kandy, Galle, Mirissa, and beyond.', icon: Map },
@@ -570,8 +572,7 @@ export default function TourServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }} 
                 viewport={{ once: true, margin: '200px' }} 
                 transition={{ delay: i * 0.15, duration: 1, ease: luxuryEase }} 
-                transition={{ delay: i * 0.15, duration: 1, ease: luxuryEase }} 
-                className="tour-luxury-card flex flex-col items-center text-center md:items-start md:text-left"
+                className="tour-luxury-card flex flex-col items-center text-center lg:items-start lg:text-left"
               >
                 <Icon 
                   size={36} 
@@ -594,7 +595,7 @@ export default function TourServicesPage() {
         {/* Subtle top separator */}
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent)' }} />
         
-        <div className="container-premium space-y-20">
+        <div className="container-premium space-y-20 px-6 lg:px-0 w-full">
           {/* Custom Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -652,10 +653,9 @@ export default function TourServicesPage() {
               transition={{ duration: 0.8, ease: luxuryEase }} 
               className="grid md:grid-cols-2 gap-16 lg:gap-20 items-center"
             >
-              {/* Text Content */}
-              <div className="p-10 lg:p-14 rounded-3xl" style={{ background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.04)' }}>
-                <div className="flex items-center gap-4 mb-10">
-                  <div className="w-8 h-[1px]" style={{ background: '#d4af37' }}></div>
+              <div className="p-10 lg:p-14 rounded-3xl flex flex-col items-center text-center lg:items-start lg:text-left w-full" style={{ background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.04)' }}>
+                <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-4 mb-10 w-full">
+                  <div className="w-8 h-[1px] hidden lg:block" style={{ background: '#d4af37' }}></div>
                   <span className="font-montserrat text-[10px] tracking-[0.4em] uppercase font-medium" style={{ color: 'rgba(212,175,55,0.6)' }}>{tourPackages[activeTab].duration} Tour</span>
                 </div>
                 
@@ -663,9 +663,9 @@ export default function TourServicesPage() {
                 <p className="font-montserrat text-sm font-light leading-[2] tracking-wider mb-12" style={{ color: 'rgba(245, 240, 232, 0.5)' }}>{tourPackages[activeTab].desc}</p>
                 
                 <h4 className="font-montserrat text-[10px] uppercase tracking-[0.4em] font-semibold mb-8" style={{ color: 'rgba(212,175,55,0.7)' }}>Tour Highlights</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-4 w-full">
                   {tourPackages[activeTab].highlights.map((h) => (
-                    <div key={h} className="flex items-center gap-3 font-montserrat text-sm font-light tracking-wider" style={{ color: 'rgba(245,240,232,0.5)' }}>
+                    <div key={h} className="flex flex-col lg:flex-row items-center justify-center lg:justify-start text-center lg:text-left gap-3 font-montserrat text-sm font-light tracking-wider" style={{ color: 'rgba(245,240,232,0.5)' }}>
                       <Check size={14} style={{ color: '#d4af37', flexShrink: 0 }} />{h}
                     </div>
                   ))}
@@ -685,7 +685,7 @@ export default function TourServicesPage() {
               </div>
               
               {/* Large Image */}
-              <div className="relative h-96 md:h-full min-h-[500px] lg:min-h-[600px] rounded-3xl overflow-hidden group">
+              <div className="relative h-96 md:h-full min-h-[500px] lg:min-h-[600px] rounded-3xl overflow-hidden group bg-[#05100c]">
                 <Image 
                   src={tourPackages[activeTab].image} 
                   alt={tourPackages[activeTab].title} 
@@ -694,7 +694,8 @@ export default function TourServicesPage() {
                   style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                   quality={80}
-                  loading="lazy"
+                  priority={true}
+                  unoptimized={true}
                 />
                 {/* Subtle overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f0d]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -713,7 +714,7 @@ export default function TourServicesPage() {
         {/* Ambient glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.02] pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.5) 0%, transparent 70%)' }} />
         
-        <div className="container-premium">
+        <div className="container-premium px-6 lg:px-0 w-full">
           {/* Custom Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -732,7 +733,7 @@ export default function TourServicesPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-16 lg:gap-20 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 max-w-6xl mx-auto">
             {/* Form */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }} 
@@ -742,7 +743,7 @@ export default function TourServicesPage() {
               className="p-10 lg:p-14 rounded-3xl"
               style={{ background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.04)' }}
             >
-              <div className="flex items-center gap-4 mb-12">
+              <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-4 mb-12 w-full text-center lg:text-left">
                 <Sparkles size={22} strokeWidth={1.5} style={{ color: 'rgba(212,175,55,0.7)' }} />
                 <h3 className="font-playfair text-2xl font-normal text-white tracking-wide">Plan Your <em className="italic" style={{ color: 'rgba(212,175,55,0.7)' }}>Journey</em></h3>
               </div>

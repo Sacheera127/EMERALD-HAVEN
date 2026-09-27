@@ -58,15 +58,15 @@ function HeroSection() {
       >
         {['/images/hero/landing.jpg'].map((src, i) => (
           <SwiperSlide key={i}>
-            <div className="relative h-full w-full">
-              <Image src={src} alt={`Emerald Haven Safari Cottages view ${i + 1}`} fill className="object-cover" priority={i === 0} sizes="100vw" quality={90} />
+            <div className="relative h-full w-full bg-[#05100c]">
+              <Image src={src} alt={`Emerald Haven Safari Cottages view ${i + 1}`} fill className="object-cover" priority={true} sizes="100vw" quality={90} unoptimized={true} />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,15,13,0.3) 0%, rgba(10,15,13,0.3) 40%, rgba(10,15,13,0.9) 100%)' }} />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <motion.div style={{ y, opacity }} className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none will-change-transform will-change-opacity">
+      <motion.div style={{ y, opacity }} className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
         <div className="flex flex-col items-center justify-center w-full text-center px-6 pointer-events-auto">
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }} className="text-xs tracking-[0.6em] uppercase mb-8 will-change-transform will-change-opacity" style={{ color: 'rgba(16,185,129,0.9)' }}>
             Udawalawa, Sri Lanka
@@ -76,7 +76,7 @@ function HeroSection() {
             <span style={{ background: 'linear-gradient(135deg, #dfc067, #ebd17a, #dfc067)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Safari Cottages & Glampings &nbsp;&nbsp;&nbsp;</span>
           </motion.h1>
           <div>&nbsp;&nbsp;&nbsp;
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 1 }} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5 will-change-transform will-change-opacity">
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 1 }} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
             {/* Primary gold CTA */}&nbsp;&nbsp;&nbsp;
             <a
               href="https://www.airbnb.co.uk/rooms/1558405581828587637?guests=1&adults=1&s=67&unique_share_id=e4819430-6264-4d66-a125-5e20a2fe6dab"
@@ -95,8 +95,9 @@ function HeroSection() {
             </a>
 
             {/* Ghost / outline button */}
-            <a
+            <Link
               href="/rooms"
+              prefetch={true}
               className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.15em] font-medium transition-all duration-500 hover:scale-105"
               style={{
                 padding: '18px 44px',
@@ -109,7 +110,7 @@ function HeroSection() {
               }}
             >
               Explore Rooms
-            </a>
+            </Link>
           </motion.div>
           </div>
         </div>
@@ -163,7 +164,7 @@ function VideoSection() {
       <div className="container-premium">
         <SectionHeader subtitle="Experience the Magic" title="Your Safari Adventure Awaits" description="Immerse yourself in the sights and sounds of Udawalawa — where every moment becomes a lasting memory." />
         <div className="w-full flex justify-center">
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: '200px' }} className="relative overflow-hidden w-full max-w-5xl rounded-3xl shadow-2xl will-change-transform will-change-opacity" style={{ marginTop: '80px', borderRadius: '32px', border: '1px solid rgba(16,185,129,0.15)', boxShadow: '0 25px 60px rgba(0,0,0,0.5)' }}>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: '200px' }} className="relative overflow-hidden w-full max-w-5xl rounded-3xl shadow-2xl" style={{ marginTop: '80px', borderRadius: '32px', border: '1px solid rgba(16,185,129,0.15)', boxShadow: '0 25px 60px rgba(0,0,0,0.5)' }}>
             <video ref={videoRef} className="w-full aspect-video object-cover" muted loop playsInline preload="auto" poster="/images/hero/hero-1.jpg">
               <source src="/video/promo.mp4" type="video/mp4" />
             </video>
@@ -183,37 +184,37 @@ function VideoSection() {
 
 function RoomsSection() {
   return (
-    <section className="section-padding" style={{ background: 'var(--dark-800)' }}>
-      <div className="container-premium">
+    <section className="section-padding relative w-full overflow-hidden" style={{ background: 'var(--dark-800)' }}>
+      <div className="container-premium w-full">
         <SectionHeader subtitle="Luxury Stays" title="Cottages & Glampings" description="Each sanctuary features private bathrooms, air-conditioning, garden views, and a dedicated terrace." />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12" style={{ marginTop: '90px' }}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 px-6 md:px-0 w-full" style={{ marginTop: '90px' }}>
           {rooms.map((room, i) => (
-            <motion.div key={room.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '200px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col group will-change-transform will-change-opacity">
-              <div className="relative w-full overflow-hidden rounded-2xl mb-8 aspect-[3/4]">
-                <Image src={room.img} alt={room.name} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority={true} quality={90} />
+            <motion.div key={room.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '200px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col group">
+              <div className="relative w-full overflow-hidden rounded-2xl mb-8 aspect-[3/4] bg-[#05100c]">
+                <Image src={room.img} alt={room.name} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority={true} quality={90} unoptimized={true} />
                 <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(10,15,13,0.7) 100%)' }} />
                 <div className="absolute top-6 right-6 px-5 py-2 glass-light rounded-full text-[10px] uppercase tracking-widest text-white">
                   {room.size}
                 </div>
               </div>
-              <div className="flex flex-col flex-1 px-2">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-serif text-2xl font-normal text-white tracking-wide">{room.name}</h3>
+              <div className="flex flex-col flex-1 px-4 md:px-2 whitespace-normal break-words w-full overflow-hidden">
+                <div className="flex items-center justify-between mb-4 w-full">
+                  <h3 className="font-serif text-2xl font-normal text-white tracking-wide whitespace-normal break-words">{room.name}</h3>
                 </div>
-                <p className="text-sm font-light leading-relaxed mb-8 flex-1" style={{ color: 'rgba(224,231,228,0.5)' }}>{room.desc}</p>
-                <div className="flex items-center justify-between" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '24px', marginTop: '32px' }}>
+                <p className="text-sm font-light leading-relaxed mb-8 flex-1 whitespace-normal break-words" style={{ color: 'rgba(224,231,228,0.5)' }}>{room.desc}</p>
+                <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 md:gap-0 w-full" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '24px', marginTop: '32px' }}>
                   {/* Glass Guest Pill */}
-                  <div className="flex items-center gap-3 rounded-full" style={{ padding: '8px 18px', background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div className="flex items-center justify-center md:justify-start gap-3 rounded-full" style={{ padding: '8px 18px', background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <Users size={16} style={{ color: '#10B981' }} />
-                    <span className="text-sm uppercase tracking-widest font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                    <span className="text-sm uppercase tracking-widest font-medium whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.8)' }}>
                       {room.guests}
                     </span> 
                   </div>
 
                   {/* Luxury Emerald Glass Button */}
-                  <Link href="/rooms" className="group flex items-center gap-3 rounded-full transition-all duration-500 hover:scale-105" style={{ padding: '12px 28px', background: 'linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(6,78,59,0.5) 100%)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(16,185,129,0.4)', boxShadow: '0 8px 32px rgba(16,185,129,0.2)' }}>
-                    <span className="text-sm uppercase tracking-widest font-bold text-white">Discover</span>
-                    <ArrowRight size={16} className="text-white transition-transform duration-500 group-hover:translate-x-1" />
+                  <Link href="/rooms" prefetch={true} className="group flex items-center justify-center gap-3 rounded-full transition-all duration-500 hover:scale-105" style={{ padding: '12px 28px', background: 'linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(6,78,59,0.5) 100%)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(16,185,129,0.4)', boxShadow: '0 8px 32px rgba(16,185,129,0.2)' }}>
+                    <span className="text-sm uppercase tracking-widest font-bold text-white whitespace-nowrap">Discover</span>
+                    <ArrowRight size={16} className="text-white transition-transform duration-500 group-hover:translate-x-1 shrink-0" />
                   </Link>
                 </div>
               </div>
@@ -237,8 +238,8 @@ function SafariServicesSection() {
         <SectionHeader subtitle="Wildlife Encounters" title="Udawalawa Safaris" description="We arrange expert-guided 4x4 jeep safaris directly from the property, ensuring an uninterrupted journey into the wild." />
         <div className="grid md:grid-cols-3 gap-10" style={{ marginTop: '90px' }}>
           {safariCards.map((card, i) => (
-            <motion.div key={card.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '200px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="group relative rounded-md overflow-hidden aspect-[3/4] cursor-pointer will-change-transform will-change-opacity">
-              <Image src={card.img} alt={card.title} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" priority={true} quality={90} />
+            <motion.div key={card.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '200px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="group relative rounded-md overflow-hidden aspect-[3/4] cursor-pointer bg-[#05100c]">
+              <Image src={card.img} alt={card.title} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" priority={true} quality={90} unoptimized={true} />
               <div className="absolute inset-0 transition-opacity duration-700" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(10,15,13,0.95) 100%)' }} />
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-out">
@@ -532,7 +533,7 @@ function ReviewsSection() {
 
 export default function Home() {
   return (
-    <div className="page-transition">
+    <div className="page-transition w-full overflow-x-hidden">
       <HeroSection />
       <FacilitiesBar />
       <VideoSection />

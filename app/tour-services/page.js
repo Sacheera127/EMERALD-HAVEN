@@ -13,57 +13,11 @@ const tourPackages = [
   { duration: '21 Days', title: 'Ultimate Sri Lanka Odyssey', highlights: ['All 14-Day highlights', 'Wilpattu National Park', 'Jaffna Peninsula', "Adam's Peak Trek", 'Polonnaruwa Ruins', 'Kalpitiya Dolphins', 'Cooking Classes', 'Village Homestay'], desc: 'The definitive Sri Lankan experience — every corner of paradise explored.', image: '/images/collection/d495eb3f-4cf8-4653-a63f-77ededee9638.JPG' },
 ];
 
-const safariTypes = [
-  { id: 'morning', title: 'Morning Safari', time: '05:30 AM - 10:00 AM' },
-  { id: 'afternoon', title: 'Afternoon Safari', time: '02:30 PM - 06:30 PM' },
-  { id: 'full', title: 'Full Day Safari', time: '05:30 AM - 06:30 PM' },
-];
-
 export default function TourServicesPage() {
   const [activeTab, setActiveTab] = useState(0);
   const [aiForm, setAiForm] = useState({ interests: '', duration: '7', travelers: '2', budget: 'moderate' });
   const [aiResult, setAiResult] = useState('');
   const [aiLoading, setAiLoading] = useState(false);
-
-  const [bookingState, setBookingState] = useState('initial');
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedSafari, setSelectedSafari] = useState(null);
-
-  const [cartItems, setCartItems] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartPulse, setCartPulse] = useState(false);
-
-  useEffect(() => {
-    if (bookingState === 'success') {
-      const timer = setTimeout(() => {
-        setBookingState('initial');
-        setSelectedDate('');
-        setSelectedSafari(null);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [bookingState]);
-
-  const handleAddToCart = () => {
-    if (!selectedDate || !selectedSafari) return;
-    const safariDetails = safariTypes.find((s) => s.id === selectedSafari);
-    const newItem = { id: Date.now(), type: safariDetails.title, date: selectedDate, time: safariDetails.time };
-    setCartItems((prev) => [...prev, newItem]);
-    setBookingState('success');
-    setCartPulse(true);
-    setTimeout(() => setCartPulse(false), 2000);
-  };
-
-  const handleSendBooking = () => {
-    if (cartItems.length === 0) return;
-    let message = `*Luxury Safari Booking Request* 🌿\n\n`;
-    cartItems.forEach((item, index) => {
-      message += `*${index + 1}. ${item.type}*\nDate: ${item.date}\nTime: ${item.time}\n\n`;
-    });
-    window.open(`https://wa.me/94774621521?text=${encodeURIComponent(message)}`, '_blank');
-    setIsCartOpen(false);
-    setCartItems([]);
-  };
 
   const generateItinerary = () => {
     setAiLoading(true);
@@ -87,73 +41,7 @@ export default function TourServicesPage() {
   return (
     <div className="page-transition pt-24 relative w-full overflow-x-hidden" style={{ background: 'linear-gradient(180deg, #05100c 0%, #020705 100%)', isolation: 'isolate' }}>
 
-      {/* FLOATING CART BUTTON */}
-      <div className="fixed top-28 right-6 lg:right-10 z-50">
-        <button
-          onClick={() => setIsCartOpen(true)}
-          className={`relative flex items-center justify-center rounded-full transition-all duration-500 hover:scale-105 ${cartPulse ? 'animate-pulse' : ''}`}
-          style={{ width: '56px', height: '56px', background: 'rgba(5,10,8,0.85)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(212,175,55,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
-        >
-          <ShoppingCart size={20} style={{ color: '#D4AF37' }} />
-          <AnimatePresence>
-            {cartItems.length > 0 && (
-              <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} className="absolute -top-1 -right-1 flex items-center justify-center rounded-full font-bold" style={{ width: '20px', height: '20px', fontSize: '10px', background: '#D4AF37', color: '#05100c' }}>
-                {cartItems.length}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </button>
-      </div>
 
-      {/* SLIDE-OUT CART PANEL */}
-      <AnimatePresence>
-        {isCartOpen && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} onClick={() => setIsCartOpen(false)} className="fixed inset-0 z-[100]" style={{ background: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(6px)' }} />
-            <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 30, stiffness: 220 }} className="fixed top-0 right-0 h-full w-full md:w-[440px] z-[101] flex flex-col" style={{ background: 'linear-gradient(180deg, #0a0f0d 0%, #050a08 100%)', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>
-              <div className="flex items-center justify-between" style={{ padding: '36px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                <div>
-                  <p className="text-[10px] tracking-[0.4em] uppercase" style={{ color: '#D4AF37', marginBottom: '8px' }}>Your Collection</p>
-                  <h2 className="font-serif text-2xl text-white tracking-wide">Safari <em className="italic" style={{ color: 'rgba(212,175,55,0.85)' }}>Bookings</em></h2>
-                </div>
-                <button onClick={() => setIsCartOpen(false)} className="rounded-full transition-colors duration-300 hover:bg-white/5" style={{ padding: '10px', color: 'rgba(255,255,255,0.35)' }}>
-                  <X size={20} />
-                </button>
-              </div>
-
-              <div className="flex-1 overflow-y-auto" style={{ padding: '36px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                {cartItems.length === 0 ? (
-                  <div className="h-full flex flex-col items-center justify-center" style={{ gap: '20px' }}>
-                    <ShoppingCart size={40} strokeWidth={0.8} style={{ color: 'rgba(255,255,255,0.08)' }} />
-                    <p className="text-xs tracking-[0.3em] uppercase font-light" style={{ color: 'rgba(224,231,228,0.25)' }}>No safaris selected</p>
-                  </div>
-                ) : (
-                  cartItems.map((item) => (
-                    <div key={item.id} className="group relative rounded-2xl" style={{ padding: '24px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                      <div className="absolute top-0 left-0 rounded-l-2xl" style={{ width: '3px', height: '100%', background: 'linear-gradient(180deg, #D4AF37 0%, transparent 100%)', opacity: 0.5 }} />
-                      <h3 className="font-serif text-lg text-white tracking-wide" style={{ marginBottom: '14px' }}>{item.type}</h3>
-                      <div className="flex items-center text-sm font-light" style={{ gap: '10px', color: 'rgba(224,231,228,0.45)', marginBottom: '8px' }}><Calendar size={13} style={{ color: '#D4AF37' }} /> {item.date}</div>
-                      <div className="flex items-center text-sm font-light" style={{ gap: '10px', color: 'rgba(224,231,228,0.45)' }}><Clock size={13} style={{ color: '#D4AF37' }} /> {item.time}</div>
-                      <button onClick={() => setCartItems((items) => items.filter((i) => i.id !== item.id))} className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ top: '20px', right: '20px', color: 'rgba(255,255,255,0.2)' }}>
-                        <X size={15} />
-                      </button>
-                    </div>
-                  ))
-                )}
-              </div>
-
-              {cartItems.length > 0 && (
-                <div style={{ padding: '36px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                  <button onClick={handleSendBooking} className="w-full flex items-center justify-center gap-3 rounded-full transition-all duration-500 hover:-translate-y-0.5" style={{ padding: '18px', background: 'linear-gradient(135deg, #D4AF37 0%, #b8912c 100%)', boxShadow: '0 8px 24px rgba(212,175,55,0.25)' }}>
-                    <Send size={16} style={{ color: '#05100c' }} />
-                    <span className="text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: '#05100c' }}>Send via WhatsApp</span>
-                  </button>
-                </div>
-              )}
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
 
       {/* SECTION 1 — HERO */}
       <section className="relative w-full overflow-hidden" style={{ height: '58vh', minHeight: '440px', maxHeight: '580px', background: '#05100c' }}>

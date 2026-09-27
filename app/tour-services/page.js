@@ -293,7 +293,7 @@ export default function TourServicesPage() {
               <span style={{ width: '28px', height: '1px', background: 'rgba(212,175,55,0.5)' }} />
             </div>
             <h2 className="font-serif text-4xl md:text-5xl font-normal text-white tracking-wide" style={{ marginBottom: '20px' }}>Taxi & <em className="italic" style={{ color: 'rgba(212,175,55,0.85)' }}>Transfer</em> Services</h2>
-            <p className="max-w-lg mx-auto text-sm font-light leading-[1.9]" style={{ color: 'rgba(224,231,228,0.45)' }}>Airport pickups, city transfers, and private chauffeur services across Sri Lanka.</p>
+            <p className="max-w-lg mx-auto text-sm font-light leading-[1.9]" style={{ color: 'rgba(224,231,228,0.45)',marginLeft:'380px' }}>Airport pickups, city transfers, and private chauffeur services across Sri Lanka.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 items-stretch" style={{ gap: '28px' }}>
@@ -323,7 +323,7 @@ export default function TourServicesPage() {
               <span style={{ width: '28px', height: '1px', background: 'rgba(212,175,55,0.5)' }} />
             </div>
             <h2 className="font-serif text-4xl md:text-5xl font-normal text-white tracking-wide" style={{ marginBottom: '20px' }}>Full Tour <em className="italic" style={{ color: 'rgba(212,175,55,0.85)' }}>Packages</em></h2>
-            <p className="max-w-lg mx-auto text-sm font-light leading-[1.9]" style={{ color: 'rgba(224,231,228,0.45)' }}>Curated multi-day itineraries to discover the best of Sri Lanka.</p>
+            <p className="max-w-lg mx-auto text-sm font-light leading-[1.9]" style={{ color: 'rgba(224,231,228,0.45)',marginLeft:'380px' }}>Curated multi-day itineraries to discover the best of Sri Lanka.</p>
           </motion.div>
 
           <div className="flex justify-center flex-wrap" style={{ gap: '40px', marginBottom: '64px' }}>
@@ -375,10 +375,10 @@ export default function TourServicesPage() {
               <span style={{ width: '28px', height: '1px', background: 'rgba(212,175,55,0.5)' }} />
             </div>
             <h2 className="font-serif text-4xl md:text-5xl font-normal text-white tracking-wide" style={{ marginBottom: '20px' }}>AI Tour <em className="italic" style={{ color: 'rgba(212,175,55,0.85)' }}>Planner</em></h2>
-            <p className="max-w-lg mx-auto text-sm font-light leading-[1.9]" style={{ color: 'rgba(224,231,228,0.45)' }}>Share your preferences and our concierge will craft a personalized Sri Lanka itinerary.</p>
+            <p className="max-w-lg mx-auto text-sm font-light leading-[1.9]" style={{ color: 'rgba(224,231,228,0.45)',marginLeft:'370px' }}>Share your preferences and our concierge will craft a personalized Sri Lanka itinerary.</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 max-w-5xl mx-auto items-stretch" style={{ gap: '32px' }}>
+          <div className="grid lg:grid-cols-2 max-w-5xl mx-auto items-stretch lg:translate-x-[20px]" style={{ gap: '32px',marginLeft:'120px' }}>
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 1, ease: luxuryEase }} className="rounded-[28px]" style={{ padding: '44px', background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(12px)', border: '1px solid rgba(212,175,55,0.1)' }}>
               <div className="flex items-center" style={{ gap: '14px', marginBottom: '36px' }}>
                 <Sparkles size={20} strokeWidth={1.5} style={{ color: '#D4AF37' }} />

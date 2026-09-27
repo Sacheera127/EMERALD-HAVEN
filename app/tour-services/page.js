@@ -325,7 +325,7 @@ export default function TourServicesPage() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '200px' }}
             transition={{ duration: 1, ease: luxuryEase }}
             className="text-center mb-28"
           >
@@ -343,7 +343,7 @@ export default function TourServicesPage() {
           <motion.div 
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '200px' }}
             transition={{ duration: 1.2, ease: luxuryEase }}
             className="relative w-full rounded-[32px] overflow-hidden shadow-2xl will-change-transform"
             style={{ height: '75vh', minHeight: '650px' }}
@@ -544,7 +544,7 @@ export default function TourServicesPage() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '200px' }}
             transition={{ duration: 1, ease: luxuryEase }}
             className="text-center mb-8"
           >
@@ -568,7 +568,7 @@ export default function TourServicesPage() {
                 key={title} 
                 initial={{ opacity: 0, y: 50 }} 
                 whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true, margin: '-60px' }} 
+                viewport={{ once: true, margin: '200px' }} 
                 transition={{ delay: i * 0.15, duration: 1, ease: luxuryEase }} 
                 transition={{ delay: i * 0.15, duration: 1, ease: luxuryEase }} 
                 className="tour-luxury-card flex flex-col items-center text-center md:items-start md:text-left"
@@ -599,7 +599,7 @@ export default function TourServicesPage() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '200px' }}
             transition={{ duration: 1, ease: luxuryEase }}
             className="text-center mb-8"
           >
@@ -718,7 +718,7 @@ export default function TourServicesPage() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '200px' }}
             transition={{ duration: 1, ease: luxuryEase }}
             className="text-center mb-20"
           >
@@ -737,7 +737,7 @@ export default function TourServicesPage() {
             <motion.div 
               initial={{ opacity: 0, x: -30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true, margin: '-60px' }} 
+              viewport={{ once: true, margin: '200px' }} 
               transition={{ duration: 1, ease: luxuryEase }} 
               className="p-10 lg:p-14 rounded-3xl"
               style={{ background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.04)' }}
@@ -833,7 +833,7 @@ export default function TourServicesPage() {
             <motion.div 
               initial={{ opacity: 0, x: 30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true, margin: '-60px' }} 
+              viewport={{ once: true, margin: '200px' }} 
               transition={{ duration: 1, ease: luxuryEase }} 
               className="p-10 lg:p-14 rounded-3xl min-h-[550px] flex flex-col relative overflow-hidden"
               style={{ background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.04)' }}

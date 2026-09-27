@@ -66,17 +66,17 @@ function HeroSection() {
         ))}
       </Swiper>
 
-      <motion.div style={{ y, opacity }} className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+      <motion.div style={{ y, opacity }} className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none will-change-transform will-change-opacity">
         <div className="flex flex-col items-center justify-center w-full text-center px-6 pointer-events-auto">
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }} className="text-xs tracking-[0.6em] uppercase mb-8" style={{ color: 'rgba(16,185,129,0.9)' }}>
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }} className="text-xs tracking-[0.6em] uppercase mb-8 will-change-transform will-change-opacity" style={{ color: 'rgba(16,185,129,0.9)' }}>
             Udawalawa, Sri Lanka
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 1 }} className="font-serif text-5xl md:text-7xl lg:text-[80px] font-normal mb-8 text-white leading-[1.1] tracking-wide">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 1 }} className="font-serif text-5xl md:text-7xl lg:text-[80px] font-normal mb-8 text-white leading-[1.1] tracking-wide will-change-transform will-change-opacity">
             Emerald Haven<br />
             <span style={{ background: 'linear-gradient(135deg, #dfc067, #ebd17a, #dfc067)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Safari Cottages & Glampings &nbsp;&nbsp;&nbsp;</span>
           </motion.h1>
           <div>&nbsp;&nbsp;&nbsp;
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 1 }} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 1 }} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5 will-change-transform will-change-opacity">
             {/* Primary gold CTA */}&nbsp;&nbsp;&nbsp;
             <a
               href="https://www.airbnb.co.uk/rooms/1558405581828587637?guests=1&adults=1&s=67&unique_share_id=e4819430-6264-4d66-a125-5e20a2fe6dab"
@@ -116,7 +116,7 @@ function HeroSection() {
         
       </motion.div>
 
-      <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 opacity-50">
+      <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 opacity-50 will-change-transform">
         <div className="w-5 h-8 rounded-full flex items-start justify-center pt-2" style={{ border: '1px solid rgba(255,255,255,0.4)' }}>
           <div className="w-1 h-2 rounded-full" style={{ background: 'rgba(255,255,255,0.6)' }} />
         </div>
@@ -149,7 +149,7 @@ function FacilitiesBar() {
 
 function VideoSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: '-100px' });
+  const isInView = useInView(ref, { margin: '200px', once: true });
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -163,8 +163,8 @@ function VideoSection() {
       <div className="container-premium">
         <SectionHeader subtitle="Experience the Magic" title="Your Safari Adventure Awaits" description="Immerse yourself in the sights and sounds of Udawalawa — where every moment becomes a lasting memory." />
         <div className="w-full flex justify-center">
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative overflow-hidden w-full max-w-5xl rounded-3xl shadow-2xl" style={{ marginTop: '80px', borderRadius: '32px', border: '1px solid rgba(16,185,129,0.15)', boxShadow: '0 25px 60px rgba(0,0,0,0.5)' }}>
-            <video ref={videoRef} className="w-full aspect-video object-cover" muted loop playsInline preload="metadata" poster="/images/hero/hero-1.jpg">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: '200px' }} className="relative overflow-hidden w-full max-w-5xl rounded-3xl shadow-2xl will-change-transform will-change-opacity" style={{ marginTop: '80px', borderRadius: '32px', border: '1px solid rgba(16,185,129,0.15)', boxShadow: '0 25px 60px rgba(0,0,0,0.5)' }}>
+            <video ref={videoRef} className="w-full aspect-video object-cover" muted loop playsInline preload="auto" poster="/images/hero/hero-1.jpg">
               <source src="/video/promo.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(10,15,13,0.6) 100%)' }} />
@@ -188,9 +188,9 @@ function RoomsSection() {
         <SectionHeader subtitle="Luxury Stays" title="Cottages & Glampings" description="Each sanctuary features private bathrooms, air-conditioning, garden views, and a dedicated terrace." />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12" style={{ marginTop: '90px' }}>
           {rooms.map((room, i) => (
-            <motion.div key={room.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col group">
+            <motion.div key={room.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '200px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col group will-change-transform will-change-opacity">
               <div className="relative w-full overflow-hidden rounded-2xl mb-8 aspect-[3/4]">
-                <Image src={room.img} alt={room.name} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                <Image src={room.img} alt={room.name} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority={true} quality={90} />
                 <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(10,15,13,0.7) 100%)' }} />
                 <div className="absolute top-6 right-6 px-5 py-2 glass-light rounded-full text-[10px] uppercase tracking-widest text-white">
                   {room.size}
@@ -237,8 +237,8 @@ function SafariServicesSection() {
         <SectionHeader subtitle="Wildlife Encounters" title="Udawalawa Safaris" description="We arrange expert-guided 4x4 jeep safaris directly from the property, ensuring an uninterrupted journey into the wild." />
         <div className="grid md:grid-cols-3 gap-10" style={{ marginTop: '90px' }}>
           {safariCards.map((card, i) => (
-            <motion.div key={card.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="group relative rounded-md overflow-hidden aspect-[3/4] cursor-pointer">
-              <Image src={card.img} alt={card.title} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
+            <motion.div key={card.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '200px' }} transition={{ delay: i * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }} className="group relative rounded-md overflow-hidden aspect-[3/4] cursor-pointer will-change-transform will-change-opacity">
+              <Image src={card.img} alt={card.title} fill className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" priority={true} quality={90} />
               <div className="absolute inset-0 transition-opacity duration-700" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(10,15,13,0.95) 100%)' }} />
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-out">

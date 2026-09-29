@@ -145,30 +145,26 @@ export default function ContactsPage() {
               >
                 <p className="text-xs tracking-[0.5em] uppercase font-medium" style={{ color: 'rgba(16,185,129,0.7)', marginBottom: '16px' }}>Our Location</p>
                 <div
-                  className="relative overflow-hidden rounded-3xl group"
+                  className="relative overflow-hidden rounded-2xl group"
                   style={{
-                    border: '1px solid rgba(212,175,55,0.3)',
-                    boxShadow: '0 0 40px rgba(212,175,55,0.1), 0 20px 60px rgba(0,0,0,0.4)',
+                    border: '1px solid rgba(16,185,129,0.2)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
                   }}
                 >
-                  {/* Gold corner accents */}
-                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10" style={{ borderTop: '1px solid rgba(212,175,55,0.4)', borderLeft: '1px solid rgba(212,175,55,0.4)', borderTopLeftRadius: '24px' }} />
-                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10" style={{ borderBottom: '1px solid rgba(212,175,55,0.4)', borderRight: '1px solid rgba(212,175,55,0.4)', borderBottomRightRadius: '24px' }} />
-
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5!2d80.8831!3d6.4381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjYnMTcuMiJOIDgwwrA1MycwMC4wIkU!5e0!3m2!1sen!2slk!4v1"
+                    src="https://maps.google.com/maps?q=6.415514538447964,80.79890207632688&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="320"
                     style={{
                       border: 0,
-                      filter: 'invert(0.9) hue-rotate(180deg) brightness(0.8) contrast(1.2) grayscale(0.5)',
                       display: 'block',
+                      filter: 'saturate(0.3) brightness(0.7) contrast(1.1)',
                     }}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Emerald Haven Location"
-                    className="transition-all duration-700 group-hover:brightness-110"
+                    className="transition-all duration-700 group-hover:saturate-[0.5] group-hover:brightness-[0.8]"
                   />
                 </div>
               </motion.div>

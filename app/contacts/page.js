@@ -19,10 +19,8 @@ export default function ContactsPage() {
   return (
     <div className="page-transition pt-24 relative w-full overflow-x-hidden" style={{ background: 'linear-gradient(180deg, #05100c 0%, #020705 100%)', isolation: 'isolate' }}>
 
-      {/* ═══════════════════════════════════════════════════════
-           SECTION 1 — CINEMATIC HERO
-           ═══════════════════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden" style={{ height: '58vh', minHeight: '440px', maxHeight: '580px', background: '#05100c' }}>
+      {/* Hero Banner */}
+      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <Image
           src="/images/support/IMG_6241.JPG"
           alt="Contact Emerald Haven — Luxury Sri Lanka Lodge"
@@ -32,26 +30,14 @@ export default function ContactsPage() {
           priority
           unoptimized
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(5,10,8,0.35) 0%, rgba(5,10,8,0.55) 45%, #05100c 100%)' }} />
-        <div className="absolute pointer-events-none" style={{ bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '800px', height: '300px', opacity: 0.05, background: 'radial-gradient(ellipse, #D4AF37, transparent 70%)' }} />
-
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,15,13,0.6), rgba(10,15,13,0.8))' }} />
+        
         <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: luxuryEase }}
-            className="text-center px-6 max-w-3xl mx-auto"
-          >
-            <p className="text-xs tracking-[0.6em] uppercase font-medium" style={{ color: 'rgba(16,185,129,0.7)', marginBottom: '28px' }}>Get in Touch</p>
-            <h1 className="font-serif text-5xl md:text-7xl font-normal text-white tracking-wide leading-[1.05]" style={{ marginBottom: '28px' }}>
-              Contact <em className="italic" style={{ color: 'rgba(212,175,55,0.85)' }}>Us</em>
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center px-6">
+            <p className="text-xs tracking-[0.6em] uppercase mb-6 font-medium" style={{ color: 'rgba(16,185,129,0.7)' }}>Get in Touch</p>
+            <h1 className="font-serif text-5xl md:text-7xl font-normal text-white mb-6 tracking-wide">
+              Contact Us
             </h1>
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: 72 }}
-              transition={{ duration: 1, delay: 0.4, ease: luxuryEase }}
-              style={{ height: '1px', margin: '0 auto 28px', background: 'linear-gradient(90deg, transparent, rgba(16,185,129,0.6), transparent)' }}
-            />
             <p className="text-base max-w-2xl mx-auto font-light leading-relaxed tracking-wide" style={{ color: 'rgba(224,231,228,0.7)' }}>
               We&apos;d love to hear from you — reach out for bookings, inquiries, or safari arrangements
             </p>

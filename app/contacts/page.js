@@ -42,7 +42,7 @@ export default function ContactsPage() {
             transition={{ duration: 1.1, ease: luxuryEase }}
             className="text-center px-6 max-w-3xl mx-auto"
           >
-            <p className="text-[10px] tracking-[0.5em] uppercase font-medium" style={{ color: 'rgba(212,175,55,0.65)', marginBottom: '28px' }}>Get in Touch</p>
+            <p className="text-xs tracking-[0.6em] uppercase font-medium" style={{ color: 'rgba(16,185,129,0.7)', marginBottom: '28px' }}>Get in Touch</p>
             <h1 className="font-serif text-5xl md:text-7xl font-normal text-white tracking-wide leading-[1.05]" style={{ marginBottom: '28px' }}>
               Contact <em className="italic" style={{ color: 'rgba(212,175,55,0.85)' }}>Us</em>
             </h1>
@@ -50,9 +50,9 @@ export default function ContactsPage() {
               initial={{ width: 0 }}
               animate={{ width: 72 }}
               transition={{ duration: 1, delay: 0.4, ease: luxuryEase }}
-              style={{ height: '1px', margin: '0 auto 28px', background: 'linear-gradient(90deg, transparent, #D4AF37, transparent)' }}
+              style={{ height: '1px', margin: '0 auto 28px', background: 'linear-gradient(90deg, transparent, rgba(16,185,129,0.6), transparent)' }}
             />
-            <p className="max-w-lg mx-auto text-sm md:text-base font-light tracking-wide leading-[1.9]" style={{ color: 'rgba(224,231,228,0.55)' }}>
+            <p className="text-base max-w-2xl mx-auto font-light leading-relaxed tracking-wide" style={{ color: 'rgba(224,231,228,0.7)' }}>
               We&apos;d love to hear from you — reach out for bookings, inquiries, or safari arrangements
             </p>
           </motion.div>
@@ -78,14 +78,14 @@ export default function ContactsPage() {
             style={{ marginBottom: '80px' }}
           >
             <div className="flex items-center justify-center" style={{ gap: '14px', marginBottom: '20px' }}>
-              <span style={{ width: '28px', height: '1px', background: 'rgba(212,175,55,0.5)' }} />
-              <p className="text-[10px] tracking-[0.5em] uppercase font-medium" style={{ color: 'rgba(212,175,55,0.75)' }}>Reach Us</p>
-              <span style={{ width: '28px', height: '1px', background: 'rgba(212,175,55,0.5)' }} />
+              <span style={{ width: '28px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
+              <p className="text-xs tracking-[0.5em] uppercase font-medium" style={{ color: 'rgba(16,185,129,0.85)' }}>Reach Us</p>
+              <span style={{ width: '28px', height: '1px', background: 'rgba(16,185,129,0.6)' }} />
             </div>
             <h2 className="font-serif text-4xl md:text-5xl font-normal text-white tracking-wide" style={{ marginBottom: '20px' }}>
               We&apos;re Here to <em className="italic" style={{ color: 'rgba(212,175,55,0.85)' }}>Help</em>
             </h2>
-            <p className="max-w-lg mx-auto text-sm font-light leading-[1.9]" style={{ color: 'rgba(224,231,228,0.45)' }}>
+            <p className="max-w-lg mx-auto text-sm md:text-base font-light leading-loose" style={{ color: 'rgba(224,231,228,0.62)' }}>
               Whether you&apos;re planning a safari adventure, reserving a room, or need airport transfers — our team is available around the clock.
             </p>
           </motion.div>
@@ -124,24 +124,24 @@ export default function ContactsPage() {
                         style={{
                           width: '52px',
                           height: '52px',
-                          background: 'rgba(212,175,55,0.06)',
-                          border: '1px solid rgba(212,175,55,0.15)',
+                          background: 'rgba(16,185,129,0.06)',
+                          border: '1px solid rgba(16,185,129,0.15)',
                         }}
                       >
-                        <Icon size={20} strokeWidth={1.25} style={{ color: '#D4AF37' }} />
+                        <Icon size={20} strokeWidth={1.25} style={{ color: 'rgba(16,185,129,0.8)' }} />
                       </div>
                       <div>
-                        <p className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: 'rgba(212,175,55,0.7)', marginBottom: '8px' }}>{title}</p>
+                        <p className="text-xs uppercase tracking-widest font-medium text-white" style={{ marginBottom: '8px' }}>{title}</p>
                         {href ? (
                           <a
                             href={href}
                             className="text-sm font-light tracking-wide transition-colors duration-500 hover:text-emerald-400"
-                            style={{ color: 'rgba(224,231,228,0.6)' }}
+                            style={{ color: 'rgba(224,231,228,0.62)' }}
                           >
                             {text}
                           </a>
                         ) : (
-                          <p className="text-sm font-light tracking-wide" style={{ color: 'rgba(224,231,228,0.6)' }}>{text}</p>
+                          <p className="text-sm font-light tracking-wide" style={{ color: 'rgba(224,231,228,0.62)' }}>{text}</p>
                         )}
                       </div>
                     </motion.div>
@@ -157,7 +157,7 @@ export default function ContactsPage() {
                 transition={{ duration: 1, delay: 0.2, ease: luxuryEase }}
                 className="w-full"
               >
-                <p className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: 'rgba(212,175,55,0.6)', marginBottom: '16px' }}>Our Location</p>
+                <p className="text-xs tracking-[0.5em] uppercase font-medium" style={{ color: 'rgba(16,185,129,0.7)', marginBottom: '16px' }}>Our Location</p>
                 <div
                   className="relative overflow-hidden rounded-3xl group"
                   style={{

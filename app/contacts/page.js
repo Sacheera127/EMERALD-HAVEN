@@ -158,13 +158,13 @@ export default function ContactsPage() {
                     style={{
                       border: 0,
                       display: 'block',
-                      filter: 'saturate(0.3) brightness(0.7) contrast(1.1)',
+                      filter: 'saturate(0.8) brightness(0.85) contrast(1.1)',
                     }}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Emerald Haven Location"
-                    className="transition-all duration-700 group-hover:saturate-[0.5] group-hover:brightness-[0.8]"
+                    className="transition-all duration-700 group-hover:saturate-[1.1] group-hover:brightness-[1]"
                   />
                 </div>
               </motion.div>

@@ -71,7 +71,7 @@ export default function ContactsPage() {
             <h2 className="font-serif text-4xl md:text-5xl font-normal text-white tracking-wide" style={{ marginBottom: '20px' }}>
               We&apos;re Here to <em className="italic" style={{ color: 'rgba(212,175,55,0.85)' }}>Help</em>
             </h2>
-            <p className="max-w-lg mx-auto text-sm md:text-base font-light leading-loose" style={{ color: 'rgba(224,231,228,0.62)' }}>
+            <p className="max-w-lg mx-auto text-sm md:text-base font-light leading-loose lg:ml-[380px]" style={{ color: 'rgba(224,231,228,0.62)' }}>
               Whether you&apos;re planning a safari adventure, reserving a room, or need airport transfers — our team is available around the clock.
             </p>
           </motion.div>
@@ -428,7 +428,7 @@ export default function ContactsPage() {
             <h2 className="font-serif text-3xl md:text-4xl font-normal text-white tracking-wide" style={{ marginBottom: '16px' }}>
               Prefer a Direct <em className="italic" style={{ color: 'rgba(212,175,55,0.85)' }}>Call?</em>
             </h2>
-            <p className="max-w-md mx-auto text-sm font-light leading-[1.9]" style={{ color: 'rgba(224,231,228,0.4)', marginBottom: '40px' }}>
+            <p className="max-w-md mx-auto text-sm font-light leading-[1.9] lg:ml-[410px]" style={{ color: 'rgba(224,231,228,0.4)', marginBottom: '40px' }}>
               Our concierge team is available 24/7 to assist with reservations and safari planning.
             </p>
 
